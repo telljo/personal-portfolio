@@ -1,16 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { GalleryComponent } from './gallery/gallery.component';
+import { PagesComponent } from './pages/pages.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SkillsComponent } from './pages/skills/skills.component';
+import { ExperienceComponent } from './pages/experience/experience.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ExperienceComponent,
+    HomeComponent,
+    SkillsComponent,
+    ContactComponent,
+    PagesComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
