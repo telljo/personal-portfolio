@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { SlideInOutAnimation } from '../../animations/slide-in-out';
 import { Subscription } from 'rxjs';
@@ -49,17 +49,20 @@ import {
   ]
 })
 export class GalleryComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private changeRef: ChangeDetectorRef) {}
   subs: Subscription[] = [];
+
+  ngAfterViewChecked(): void { this.changeRef.detectChanges(); }
+
   ngOnInit() {
 
   }
 
   switchState(pageDestination: string) {
 
-    if (window.pageYOffset > 0) {
+    if (window.scrollY > 0) {
       let scrollToTop = window.setInterval(() => {
-        let pos = window.pageYOffset;
+        let pos = window.scrollY;
         if (pos > 0) {
           window.scrollTo(0, pos - 20); // how far to scroll on each step
         } else {
@@ -68,7 +71,7 @@ export class GalleryComponent implements OnInit {
       }, 20);
     }
     setTimeout(() => {
-      if (window.pageYOffset > 0) {
+      if (window.scrollY > 0) {
         this.switchState(pageDestination);
       }
     },
@@ -86,9 +89,9 @@ export class GalleryComponent implements OnInit {
   }
 
   onActivate(event: any) {
-    if (window.pageYOffset > 0) {
+    if (window.scrollY > 0) {
       let scrollToTop = window.setInterval(() => {
-        let pos = window.pageYOffset;
+        let pos = window.scrollY;
         if (pos > 0) {
           window.scrollTo(0, pos - 20); // how far to scroll on each step
         } else {
@@ -97,7 +100,7 @@ export class GalleryComponent implements OnInit {
       }, 20);
     }
     setTimeout(() => {
-      if (window.pageYOffset > 0) {
+      if (window.scrollY > 0) {
         this.onActivate(event);
       }
     },

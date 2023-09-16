@@ -17,22 +17,19 @@ export class SkillsComponent implements OnInit {
   }
 
   public loadScript() {
-
-    (function() {
-
+    (function () {
       'use strict';
 
-      var items: any = [document.querySelector(".portfolio")];
+      // define variables
+      var items = document.querySelectorAll('.timeline-item');
+      var cards = document.querySelectorAll('.timeline-img');
 
       setTimeout(function () {
-
-        for (var i = 0; i < items.length; i++) {
-          if (isElementInViewport(items[i])) {
-            items[i].classList.add("in-view");
+        for (var i = 0; i < cards.length; i++) {
+          if (isElementInViewport(cards[i])) {
+            items[i].classList.add('in-view');
           }
         }
-
-
       }, 750);
 
       // check if an element is in viewport
@@ -41,24 +38,23 @@ export class SkillsComponent implements OnInit {
         return (
           rect.top >= 0 &&
           rect.left >= 0 &&
-          rect.top+100 <= (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+          rect.top + 100 <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
         );
       }
 
       function callbackFunc() {
-        for (var i = 0; i < items.length; i++) {
-          if (isElementInViewport(items[i])) {
-            items[i].classList.add("in-view");
+        for (var i = 0; i < cards.length; i++) {
+          if (isElementInViewport(cards[i])) {
+            items[i].classList.add('in-view');
           }
         }
       }
       // listen for events
-      window.addEventListener("resize", callbackFunc);
-      window.addEventListener("scroll", callbackFunc);
-
-    })()
-
-    }
-
+      window.addEventListener('resize', callbackFunc);
+      window.addEventListener('scroll', callbackFunc);
+    })();
+  }
 }
