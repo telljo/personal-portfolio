@@ -1,0 +1,102 @@
+:host.navbar {
+  nav {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    z-index: 50;
+    background-color: #2c3e50;
+    height: 60px;
+    flex: 0 1 auto;
+  }
+
+  .navbar__link {
+    text-decoration: none;
+    height: 100%;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 700;
+    &:hover {
+      background-color: lighten(#2c3e50, 10%);
+    }
+
+    &--active {
+      background-color: darken(#2c3e50, 10%);
+
+      &:hover {
+        background-color: darken(#2c3e50, 10%);
+      }
+    }
+  }
+
+  @media (max-width: 769px) {
+    nav {
+      display: none;
+    }
+
+    .navbar__background {
+      width: 100%;
+      height: 100%;
+      background: #2f4f4f;
+      opacity: 0.9;
+      position: fixed;
+      z-index: 60;
+    }
+
+    .navbar__mobile-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      z-index: 910;
+    }
+
+    .navbar__button {
+      background: none;
+      color: #fff;
+      position: fixed;
+      z-index: 913;
+      width: 60px;
+      height: 60px;
+      border: 0px;
+    }
+
+    .navbar__mobile-link {
+      text-decoration: none;
+      width: 120px;
+      display: flex;
+      margin-bottom: 10px;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font: 20px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+      font-weight: 700;
+
+      &--active {
+        background: none;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @media (min-width: 770px) {
+    .navbar__button {
+        display: none;
+    }
+    .navbar__mobile-nav {
+        display: none;
+    }
+  }
+}

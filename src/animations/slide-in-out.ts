@@ -10,7 +10,7 @@ import {
 } from '@angular/animations';
 
 export const SlideInOutAnimation = trigger('routeAnimations', [
-  transition('Contact => *,  * => Home, Skills => Experience', [
+  transition('Contact => *,  * => Home, Projects => Experience', [
     style({ position: 'relative' }),
     query(':enter, :leave', [
       style({
@@ -30,7 +30,7 @@ export const SlideInOutAnimation = trigger('routeAnimations', [
     ]),
     query(':enter', animateChild())
   ]),
-  transition('* => Contact, Home => *,Experience => Skills', [
+  transition('* => Contact, Home => *,Experience => Projects', [
     style({ position: 'relative' }),
     query(':enter, :leave', [
       style({

@@ -1,16 +1,17 @@
-.home {
+:host.home {
   display: flex;
-  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
 	background-color: #008f95;
+  background: linear-gradient(327deg, #005e62 0%, #008f95 50%, #00c0c8 100%);
 	text-align: center;
   height: 100%;
 
   .home__main {
-    flex: 1 1 auto;
-    margin: auto;
-    margin-top: 100px;
+    display: flex;
+    flex-direction: column  ;
     text-align: center;
-    height: 300px;
+    align-items: center;
   }
 
   .home__top-section {
@@ -19,15 +20,12 @@
     width: 100%;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
   }
 
-  img {
-    border: 5px solid #28afb0;
-    border-radius: 50%;
-    margin-top: 14px;
-    margin-left: 10px;
-    width: 150px;
-    height: 150px;
+  .home__title-container {
+    margin-top: 10px;
+    margin-right: 10px;
   }
 
   .home__first-name {
@@ -38,6 +36,7 @@
     margin: 0px;
     color: #acfcd9;
   }
+
   .home__last-name {
     font-family: 'deadjim', 'arial', sans-serif;
     font-style: normal;
@@ -45,8 +44,9 @@
     font-weight: 300;
     margin: 0px;
     color: #28afb0;
-    font-size: 80px;
+    font-size: 100px;
   }
+
   .home__job-title {
     font-family: 'deadjim', 'arial', sans-serif;
     font-style: normal;
@@ -58,11 +58,6 @@
     margin-top: 10px;
     margin-bottom: 5px;
     font-size: 40px;
-  }
-
-  section {
-    margin-top: 10px;
-    margin-right: 10px;
   }
 
   .home__button-link {
@@ -83,6 +78,7 @@
       transition: all 0.4s ease 0s;
     }
   }
+
   .home__button-container {
     width: 200px;
     margin: auto;
@@ -112,19 +108,36 @@
     }
   }
 
+  img {
+    border: 5px solid #28afb0;
+    border-radius: 50%;
+    margin-top: 14px;
+    margin-left: 10px;
+    width: 150px;
+    height: 150px;
+  }
+
   @media (max-width: 769px) {
-      .name {
-          font-size: 70px;
-      }
-      .name1 {
-          font-size: 70px;
-      }
-      .name2 {
-          font-size: 40px;
-      }
-      img {
-          width: 110px;
-          height: 110px;
-      }
+    img {
+      width: 110px;
+      height: 110px;
+    }
+
+    .home__first-name {
+      font-size: 70px;
+    }
+
+    .home__last-name {
+      font-size: 70px;
+    }
+
+    .home__top-section {
+      flex-direction: column-reverse;
+    }
+
+    .home__job-title {
+      width: 5em;
+      text-align: center;
+    }
   }
 }

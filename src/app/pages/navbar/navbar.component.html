@@ -1,0 +1,17 @@
+<button (click)="toggleShow()" class="navbar__button fa fa-bars fa-2x"></button>
+<div [@slideInOut]="animationState" class="navbar__background">
+  <nav *ngIf="navShow" class="navbar__mobile-nav">
+    <a (click)="toggleShow()" class="navbar__mobile-link" routerLink="" routerLinkActive="navbar__mobile-link--active" [routerLinkActiveOptions]="{exact:
+      true}">Home</a>
+    <a (click)="toggleShow()" class="navbar__mobile-link" routerLink="/experience" routerLinkActive="navbar__mobile-link--active">Experience</a>
+    <a (click)="toggleShow()" class="navbar__mobile-link" routerLink="/projects" routerLinkActive="navbar__mobile-link--active">Projects</a>
+    <a (click)="toggleShow()" class="navbar__mobile-link" routerLink="/contact" routerLinkActive="navbar__mobile-link--active">Contact</a>
+  </nav>
+</div>
+<nav>
+  <a class="navbar__link" routerLink="" routerLinkActive="navbar__link--active" [routerLinkActiveOptions]="{exact:
+    true}">Home</a>
+  <a class="navbar__link" routerLink="/experience" routerLinkActive="navbar__link--active">Experience</a>
+  <a class="navbar__link" routerLink="/projects" routerLinkActive="navbar__link--active">Projects</a>
+  <a class="navbar__link" routerLink="/contact" routerLinkActive="navbar__link--active">Contact</a>
+</nav>

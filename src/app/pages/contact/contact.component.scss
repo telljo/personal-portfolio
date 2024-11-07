@@ -1,67 +1,60 @@
-.contact {
+:host.contact {
 	display: flex;
-  flex: 1 1 auto;
-	background-color: #00458b;
+	flex-direction: column;
+  justify-content: center;
+	background: linear-gradient(327deg, #062f4f 0%, #00458b 50%, #6b9ac4 100%);
 	text-align: center;
 	height: 100%;
+	gap: 0.5em;
 
-	.contact__main {
-		flex: 1 1 auto;
-		width: 100%;
-		margin-top: 50px;
-		height: 300px;
-	}
-	img {
-		border-radius: 50%;
-		width: 200px;
-		height: 200px;
-		margin-top: 20px;
-	}
-	section {
-		margin-top: 10px;
-	}
-
-	.technicalsection {
+	.contact__panel {
 		display: flex;
+		padding: 0.2em;
 		flex-direction: column;
+		background: white;
 		margin: auto;
 		margin-top: 20px;
 		margin-bottom: 50px;
 		text-align: center;
-		box-shadow: 0 20px 20px -15px rgba(0,0,0,0.3);
+		box-shadow: 0px 15px 50px 0px rgba(0, 0, 0, 0.15);
+		border-radius: 0.375rem;
 		transition: transform 1s ease;
 		transition-delay: 0.2s;
-		background-color: #f7f7f7;
 		width: 600px;
-		border-radius: 4px;
+
+		h3 {
+			margin-bottom: 0;
+		}
 	}
-	p {
-		margin-bottom: 0px;
-		color: black;
-		margin-top: 50px;
-		font-size: 14px;
+
+	.contact__details {
+		text-align: left;
+		p {
+			font-size: 1em;
+			margin: 0;
+		}
 	}
-	.contactlinks {
-		display: flex;
-		flex-direction: row;
+
+	.contact__links {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 		flex-wrap: wrap;
-		padding-bottom: 80px;
 		width: 90%;
 		justify-content: center;
 		margin: auto;
+		padding-bottom: 20px;
 	}
-	.contactlink {
+
+	.contact__link {
 		display: flex;
 		flex-direction: row;
 		justify-content: start;
 		align-items: center;
-		padding: 15px;
-		margin-top: 25px;
+		padding: 1em;
 		height: 100px;
+
 		h3 {
 			text-align: left;
-			font: 15px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-			letter-spacing: 1px;
 			font-weight: 700;
 			color: #6b9ac4;
 			font-size: 2rem;
@@ -70,20 +63,26 @@
 			margin: 0;
 			margin-top: 5px;
 		}
-		p {
-			text-align: left;
-			color: black;
-			font-size: 14px;
-			margin: 0;
-			padding: 0;
+
+		&:hover {
+			background-color: #f7f7f7;
+			border-radius: 0.375rem;
+			transition: background-color 0.5s ease;
+
+			p, h3 {
+				color: #4881b4;
+				transition: color 0.5s ease;
+			}
 		}
 	}
-	.certLink {
+
+	.contact__cert-link {
 		display: block;
 		position: absolute;
 		width: 230px;
 		height: 100px;
 	}
+
 	.fa-contact {
 		padding: 10px;
 		margin-right: 10px;
@@ -106,24 +105,19 @@
 				line-height: normal;
 			}
 		}
-		&:hover {
-			background-position: right center;
-			color: #fff;
-			text-decoration: none;
-		}
 	}
 
 	@media (max-width: 769px) {
-			.technicalsection {
+			.contact__panel {
 					width: 85%;
 			}
-			.contactlinks {
+			.contact__links {
 					flex-direction: column;
 					width: 85%;
 					padding-bottom: 20px;
 					margin: auto;
 			}
-			.contactlink {
+			.contact__link {
 					width: 100%;
 					margin: auto;
 			}

@@ -8,18 +8,20 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { PagesComponent } from './pages/pages.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
-import { SkillsComponent } from './pages/skills/skills.component';
 import { ExperienceComponent } from './pages/experience/experience.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProjectsComponent } from './pages/projects/projects.component';
+import { NavbarComponent } from './pages/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
     ExperienceComponent,
     HomeComponent,
-    SkillsComponent,
+    ProjectsComponent,
     ContactComponent,
     PagesComponent,
-    GalleryComponent
+    GalleryComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

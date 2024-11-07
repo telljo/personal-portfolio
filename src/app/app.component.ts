@@ -11,15 +11,12 @@ import {Router} from '@angular/router';
 export class AppComponent {
 
   title = 'AngularCV';
-  animationState = 'out';
-  navShow = false;
 
   private swipeCoord: [number, number] = [0,0];
   private swipeTime: number = 0;
-  private pages: Array<string> = ['', 'experience', 'skills', 'contact'];
+  private pages: Array<string> = ['', 'experience', 'projects', 'contact'];
 
   constructor(private router: Router){
-
   }
 
 // Detects a swipe and navigates to the next page based on swipe direction
@@ -61,7 +58,6 @@ swipe(e: TouchEvent, when: string): void {
     }else if(direction ==='previous'){
       this.router.navigate(["../"+this.pages[page-1]]);
     }
-
   }
 
   // Gets the current page
@@ -71,16 +67,10 @@ swipe(e: TouchEvent, when: string): void {
       return 0;
     }else if(this.router.url ==='/experience'){
       return 1;
-    }else if(this.router.url ==='/skills'){
+    }else if(this.router.url ==='/projects'){
       return 2;
     }else{
       return 3
     }
-  }
-
-  // Toggles the mobile navigation drop down
-  toggleShow(){
-    this.animationState = this.animationState === 'out' ? 'in' : 'out';
-    this.navShow = !this.navShow;
   }
 }
