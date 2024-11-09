@@ -8,7 +8,7 @@
     <a (click)="toggleShow()" class="navbar__mobile-link" routerLink="/contact" routerLinkActive="navbar__mobile-link--active">Contact</a>
   </nav>
 </div>
-<nav>
+<nav [class.scrolled]="navScrolled">
   <a class="navbar__link" routerLink="" routerLinkActive="navbar__link--active" [routerLinkActiveOptions]="{exact:
     true}">Home</a>
   <a class="navbar__link" routerLink="/experience" routerLinkActive="navbar__link--active">Experience</a>

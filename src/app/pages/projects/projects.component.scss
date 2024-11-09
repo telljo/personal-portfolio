@@ -1,43 +1,60 @@
-#content {
+:host.projects {
   display: flex;
-  flex-direction: column;
-  margin: auto;
-  background-color: #fff;
-  text-align: center;
-  min-height: 100%;
-}
-.abovesection {
-  background-color: #062f4f;
-  height: 100vh -50px;
-  margin: auto;
-  flex-direction: column;
-  width: 100%;
-}
-.middle-section {
-  background: #ecebe4;
-  margin: auto;
-  flex-direction: column;
-  width: 100%;
-  overflow-x: hidden;
-}
-.breakLine2 {
-	background-color: #6b9ac4;
-	width: 310px;
-	height: 5px;
+  background: linear-gradient(327deg, #1b543c 0%, #277b57 50%, #6bc4a6 100%);
+
+  .projects__content {
+    display: flex;
+    padding-top: 8em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .projects__title {
+    padding-bottom: 20px;
+    padding-top: 60px;
+  }
+
+  .projects__break-line {
+    background-color: white;
+    width: 310px;
+    height: 5px;
+  }
+
+  @media (max-width: 769px) {
+    .technicalsection {
+      width: 85%;
+    }
+    .flex {
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+    .tag {
+      width: 80px;
+    }
+    span {
+      padding: 0;
+    }
+    .title {
+      font-size: 70px;
+    }
+
+    .infoText {
+      opacity: 0;
+    }
+    .middle-section {
+      height: 1050px;
+    }
+    .certificates {
+      margin-top: 0px;
+    }
+  }
 }
 
-#secondintro {
-	padding-bottom: 20px;
-	padding-top: 60px;
-}
-
-.bottompage {
-  background-color: #e0e0e0;
-  height: 600px;
-  margin: auto;
-  flex-direction: column;
-  width: 100%;
-}
 p {
   margin-bottom: 0px;
   margin-top: 25px;
@@ -70,14 +87,6 @@ p {
   margin-top: 80px;
 }
 
-.breakLine {
-  margin-top: 20px;
-	background-color: #fff;
-	max-width: 300px;
-	height: 5px;
-  border: none;
-}
-
 .technicalsection {
   display: flex;
   flex-direction: column;
@@ -98,41 +107,6 @@ p {
   text-align: center;
   margin: 0px;
   width: 100%;
-}
-.certificates {
-  display: flex;
-  margin: auto;
-  height: 350px;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 0px;
-}
-.certificate {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: auto;
-  text-align: center;
-  transition: transform 1s ease;
-  transition-delay: 0.2s;
-  height: 350px;
-  width: 300px;
-  border-radius: 4px;
-  background-color: #fff;
-  &:hover {
-    opacity: 0.5;
-  }
-  &:nth-child(1) {
-    background: url("../../../assets/Images/microsoft.png") center no-repeat;
-  }
-  &:nth-child(2) {
-    background: url("../../../assets/Images/azure-dev.jpeg") center no-repeat;
-  }
-}
-.certLink {
-  display: block;
-  width: 300px;
-  height: 350px;
 }
 
 .bottomsection {
@@ -222,8 +196,8 @@ span {
 	}
   &:nth-child(5) {
 		.timeline-img-header {
-			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/AngularCV2.png") center center no-repeat;
-			background-size: contain;
+			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/portfolio.png") center center no-repeat;
+			background-size: cover;
 		}
 	}
 	&:nth-child(8) {
@@ -232,42 +206,4 @@ span {
 			background-size: contain;
 		}
 	}
-}
-
-.container {
-	width: 90%;
-	margin: 0 auto;
-	text-align: center;
-}
-
-@media (max-width: 769px) {
-  .technicalsection {
-    width: 85%;
-  }
-  .flex {
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-  }
-  .tag {
-    width: 80px;
-  }
-  span {
-    padding: 0;
-  }
-  .title {
-    font-size: 70px;
-  }
-  .title2 {
-    font-size: 70px;
-  }
-  .infoText {
-    opacity: 0;
-  }
-  .middle-section {
-    height: 1050px;
-  }
-  .certificates {
-    margin-top: 0px;
-  }
 }

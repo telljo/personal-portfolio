@@ -2,43 +2,39 @@
 	display: flex;
 	flex-direction: column;
 	margin: auto;
-	background-color: #008f95;
 	text-align: center;
 	min-height: 100%;
 }
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
+
+.title2 {
+	font-family: 'deadjim', 'arial', sans-serif;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 80px;
+	margin: 0px;
+	margin-top: 20px;
+	background: linear-gradient(327deg, #1f326c 0%, #2a4494 50%, #3556bc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
 .main {
 	margin: auto;
 	margin-top: 0px;
 	flex-direction: column;
 	width: 100%;
 }
-.fa1 {
-	width: 54px;
-}
-body {
-	font: normal 16px/1.5 "Helvetica Neue", sans-serif;
-	background: #48b379;
-	color: #fff;
-	overflow-x: hidden;
-	padding-bottom: 50px;
-	font-family: 'Roboto';
-	font-size: 17px;
-	font-weight: 400;
-	background-color: #eee;
-}
+
 .intro {
 	background: #2a4494;
-	height: 750px;
+	background: linear-gradient(327deg, #1f326c 0%, #2a4494 50%, #3556bc 100%);
+	min-height: 700px;
 	padding-top: 60px;
 	width: 100%;
 }
+
 #container {
-	margin-top: 60px;
+	margin-top: 130px;
 	max-width: 100%;
 }
 #secondintro {
@@ -83,12 +79,6 @@ i {
 	color: #fff;
 	line-height: 1.5;
 }
-a {
-	&:hover {
-		color: #007bb5;
-		background-color: #2c3d50;
-	}
-}
 
 #top {
 	width: 70%;
@@ -99,16 +89,7 @@ a {
 	flex-direction: row;
 	justify-content: space-evenly;
 }
-.breakLine {
-	background-color: #fff;
-	max-width: 300px;
-	height: 5px;
-}
-.breakLine2 {
-	background-color: #6b9ac4;
-	max-width: 540px;
-	height: 5px;
-}
+
 #col1 {
 	width: 40%;
 }
@@ -122,50 +103,35 @@ a {
 section {
 	padding: 40px 0;
 }
-html,
-body {
-	overflow-x: hidden;
-}
-header {
-	background: #3f51b5;
-	color: #fff;
-	padding: 150px 0;
-	p {
-		font-family: 'Allura';
-		color: rgba(255,255,255,0.2);
-		margin-bottom: 0;
-		font-size: 60px;
-		margin-top: -30px;
-	}
-}
+
 .timeline-item {
 	&:nth-child(2) {
 		.timeline-img-header {
-			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/banqer.png") center center no-repeat;
+			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/banqer-logo.svg") center center no-repeat;
 			background-size: contain;
 		}
 	}
 	&:nth-child(5) {
 		.timeline-img-header {
-			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/dxc_logo2.png") center center no-repeat;
+			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/dxc-logo.png") center center no-repeat;
 			background-size: contain;
 		}
 	}
 	&:nth-child(8) {
 		.timeline-img-header {
-			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/anzLogo.png") center center no-repeat;
+			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/anz-logo.png") center center no-repeat;
 			background-size: contain;
 		}
 	}
 	&:nth-child(11) {
 		.timeline-img-header {
-			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/gocloudpng.png") center center no-repeat;
+			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/go-cloud-logo.png") center center no-repeat;
 			background-size: contain;
 		}
 	}
 	&:nth-child(14) {
 		.timeline-img-header {
-			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/Otago2.png") center center no-repeat;
+			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/otago-logo.png") center center no-repeat;
 			background-size: contain;
 		}
 	}
@@ -187,7 +153,7 @@ blockquote {
 }
 
 
-@media (max-width: 769px) {
+@media (max-width: 860px) {
 	#col1 {
 		width: 80%;
 		margin: auto;
@@ -200,21 +166,13 @@ blockquote {
 		flex-direction: column;
 		width: 100%;
 	}
-	.intro {
-		height: 1050px;
-	}
 	.title {
 		font-size: 70px;
 	}
 	.title2 {
 		font-size: 50px;
 	}
-	.breakLine {
-		max-width: 70%;
-	}
-	.breakLine2 {
-		max-width: 90%;
-	}
+
 	#secondintro {
 		padding-top: 30px;
 	}

@@ -27,16 +27,6 @@
 	color: #fff;
 }
 
-.title2 {
-	font-family: 'deadjim', 'arial', sans-serif;
-	font-style: normal;
-	font-weight: 300;
-	font-size: 80px;
-	margin: 0px;
-	margin-top: 20px;
-	color: #1c448e;
-}
-
 html,
 body {
   height: 100%;
@@ -112,6 +102,25 @@ button {
 	overflow: hidden;
 }
 
+.bnt-more {
+	background: #1c448e;
+	color: #fff;
+	padding: 10px;
+	text-transform: uppercase;
+	font-size: 14px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	display: inline-block;
+	border-radius: 2px;
+	box-shadow: 0 1px 3px -1px rgba(0,0,0,0.6);
+	text-decoration: none;
+
+	&:hover {
+		background: #143a81;
+		text-decoration: underline;
+	}
+}
+
 .timeline {
 	position: relative;
 	&::before {
@@ -122,6 +131,22 @@ button {
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
+	}
+
+	&--projects {
+		&::before {
+			background: #13432f;
+		}
+
+		.timeline-img,
+		.date,
+		.bnt-more {
+			background: #13432f;
+
+			&:hover {
+				background: #092a1c;
+			}
+		}
 	}
 }
 
@@ -214,26 +239,6 @@ button {
 	left: 50%;
 	margin-top: 25px;
 	margin-left: -15px;
-}
-
-.bnt-more {
-	background: #1c448e;
-	color: #fff;
-	padding: 10px;
-	text-transform: uppercase;
-	font-size: 14px;
-	margin-bottom: 20px;
-	margin-top: 10px;
-	display: inline-block;
-	border-radius: 2px;
-	box-shadow: 0 1px 3px -1px rgba(0,0,0,0.6);
-}
-.bnt-more:hover,
-.bnt-more:active,
-.bnt-more:focus {
-	background: #3949a3;
-	color: #fff;
-	text-decoration: none;
 }
 
 .timeline-card {
