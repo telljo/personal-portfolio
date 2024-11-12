@@ -1,12 +1,10 @@
 import { Component, HostListener } from '@angular/core';
-import { NavAnimation } from 'src/animations/slide-in-out';
 
 @Component({
   selector: 'navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
-  host: { class: 'navbar' },
-  animations: [NavAnimation]
+  host: { class: 'navbar' }
 })
 
 export class NavbarComponent {

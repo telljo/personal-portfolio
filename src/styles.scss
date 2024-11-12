@@ -36,6 +36,11 @@ body {
 	font-style: normal;
 	font-weight: 600;
 	color: #333;
+	-ms-overflow-style: none;
+  scrollbar-width: none;
+	::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 .box {
@@ -122,6 +127,7 @@ button {
 }
 
 .timeline {
+	overflow-x: hidden;
 	position: relative;
 	&::before {
 		content: '';
