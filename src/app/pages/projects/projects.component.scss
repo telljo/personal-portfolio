@@ -190,17 +190,23 @@ span {
 .timeline-item {
   &:nth-child(2) {
 		.timeline-img-header {
-			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/bookshelf.png") no-repeat;
+			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/footprints.png") no-repeat;
 			background-size: cover;
 		}
 	}
   &:nth-child(5) {
 		.timeline-img-header {
+			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/bookshelf.png") no-repeat;
+			background-size: cover;
+		}
+	}
+  &:nth-child(8) {
+		.timeline-img-header {
 			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/portfolio.png") center center no-repeat;
 			background-size: cover;
 		}
 	}
-	&:nth-child(8) {
+	&:nth-child(11) {
 		.timeline-img-header {
 			background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url("../../../assets/Images/squash.png") center center no-repeat;
 			background-size: contain;
