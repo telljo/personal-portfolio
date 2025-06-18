@@ -7,6 +7,50 @@
 	text-align: center;
   height: 100%;
 
+  .home__mobile-navigation-container {
+    opacity: 0; /* Start hidden */
+    position: fixed;
+    width: 300px;
+    margin: auto;
+    bottom: 10px; /* Adjust as needed */
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10; /* Ensure it appears above other elements */
+
+    @media (max-width: 769px) {
+      display: block;
+      animation: fadeIn 0.5s ease-in 0.5s forwards;
+    }
+  }
+
+  .home__mobile-navigation-hint {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    animation: flash 1.5s infinite; /* Flashing animation */
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes flash {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
   .home__main {
     display: flex;
     flex-direction: column  ;
