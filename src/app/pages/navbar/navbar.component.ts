@@ -1,10 +1,20 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
-  host: { class: 'navbar' }
+  host: { class: 'navbar' },
+  animations: [
+    trigger('slideInOut', [
+      state('in', style({ transform: 'translateX(0)' })),
+      state('out', style({ transform: 'translateX(-100%)' })),
+      transition('in <=> out', [
+        animate('300ms ease-in-out')
+      ])
+    ])
+  ]
 })
 
 export class NavbarComponent {
