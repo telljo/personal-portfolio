@@ -1,10 +1,16 @@
 import { provideZoneChangeDetection } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideRouter } from '@angular/router';
 
-import { AppModule } from './app/app.module';
+import { AppComponent } from './app/app.component';
+import { routes } from './app/app.routes';
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule, {
-    applicationProviders: [provideZoneChangeDetection()]
-  })
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideZoneChangeDetection(),
+    provideAnimations(),
+    provideRouter(routes)
+  ]
+})
   .catch(err => console.error(err));

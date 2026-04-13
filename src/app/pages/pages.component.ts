@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { GalleryComponent } from '../gallery/gallery.component';
 
 @Component({
   selector: 'app-pages',
-  standalone: false,
+  standalone: true,
+  imports: [GalleryComponent],
   templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.scss']
 })

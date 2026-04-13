@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-projects',
-  standalone: false,
+  standalone: true,
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
   host: { class: 'projects' }
