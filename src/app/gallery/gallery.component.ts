@@ -11,6 +11,7 @@ import {
 } from '@angular/animations';
 @Component({
   selector: 'pages-gallery',
+  standalone: false,
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
   animations: [

@@ -3,6 +3,7 @@ import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'navbar',
+  standalone: false,
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   host: { class: 'navbar' },
