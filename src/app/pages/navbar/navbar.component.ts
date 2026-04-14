@@ -1,5 +1,10 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+
+type NavLink = {
+  path: string;
+  label: string;
+};
 
 @Component({
   selector: 'navbar',
@@ -11,14 +16,26 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 
 export class NavbarComponent {
-  animationState = 'out';
-  navShow = false;
-  navScrolled = false;
+  readonly navLinks: readonly NavLink[] = [
+    { path: '/', label: 'Home' },
+    { path: '/experience', label: 'Experience' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/contact', label: 'Contact' }
+  ];
+  readonly exactMatchOptions = { exact: true };
+  readonly navShow = signal(false);
+  readonly navScrolled = signal(false);
 
   @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.navScrolled = window.scrollY > 50;
+  onWindowScroll(): void {
+    this.navScrolled.set(window.scrollY > 50);
   }
 
-  constructor() { }
+  toggleNav(): void {
+    this.navShow.update(isOpen => !isOpen);
+  }
+
+  closeNav(): void {
+    this.navShow.set(false);
+  }
 }
