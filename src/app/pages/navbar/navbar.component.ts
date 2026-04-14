@@ -1,36 +1,41 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, signal } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+
+type NavLink = {
+  path: string;
+  label: string;
+};
 
 @Component({
   selector: 'navbar',
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
-  host: { class: 'navbar' },
-  animations: [
-    trigger('slideInOut', [
-      state('in', style({ transform: 'translateX(0)' })),
-      state('out', style({ transform: 'translateX(-100%)' })),
-      transition('in <=> out', [
-        animate('300ms ease-in-out')
-      ])
-    ])
-  ]
+  host: { class: 'navbar' }
 })
 
 export class NavbarComponent {
-  animationState = 'out';
-  navShow = false;
-  navScrolled = false;
+  readonly navLinks: readonly NavLink[] = [
+    { path: '/', label: 'Home' },
+    { path: '/experience', label: 'Experience' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/contact', label: 'Contact' }
+  ];
+  readonly exactMatchOptions = { exact: true };
+  readonly navShow = signal(false);
+  readonly navScrolled = signal(false);
 
   @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.navScrolled = window.scrollY > 50; // Adjust the value as needed
+  onWindowScroll(): void {
+    this.navScrolled.set(window.scrollY > 50);
   }
 
-  constructor() { }
+  toggleNav(): void {
+    this.navShow.update(isOpen => !isOpen);
+  }
 
-  toggleShow(){
-    this.animationState = this.animationState === 'out' ? 'in' : 'out';
-    this.navShow = !this.navShow;
+  closeNav(): void {
+    this.navShow.set(false);
   }
 }

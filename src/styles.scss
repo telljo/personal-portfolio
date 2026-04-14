@@ -43,6 +43,97 @@ body {
 	}
 }
 
+:root {
+  --route-transition-duration: 600ms;
+  --route-transition-easing: ease-in;
+}
+
+::view-transition-old(route-content),
+::view-transition-new(route-content) {
+  animation-delay: 120ms;
+  animation-duration: var(--route-transition-duration);
+  animation-timing-function: var(--route-transition-easing);
+  animation-fill-mode: both;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(site-navbar),
+::view-transition-new(site-navbar),
+::view-transition-old(navbar-toggle),
+::view-transition-new(navbar-toggle) {
+  animation-duration: 1ms;
+  animation-fill-mode: both;
+  mix-blend-mode: normal;
+}
+
+::view-transition-group(route-content) {
+  overflow: clip;
+}
+
+:root.route-transition--forward::view-transition-old(route-content) {
+  animation-name: route-content-exit-forward;
+}
+
+:root.route-transition--forward::view-transition-new(route-content) {
+  animation-name: route-content-enter-forward;
+}
+
+:root.route-transition--backward::view-transition-old(route-content) {
+  animation-name: route-content-exit-backward;
+}
+
+:root.route-transition--backward::view-transition-new(route-content) {
+  animation-name: route-content-enter-backward;
+}
+
+@keyframes route-content-enter-forward {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes route-content-exit-forward {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes route-content-enter-backward {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes route-content-exit-backward {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(route-content),
+  ::view-transition-new(route-content) {
+    animation-delay: 0ms;
+    animation-duration: 1ms;
+  }
+}
+
 .box {
   display: flex;
   flex-flow: column;
