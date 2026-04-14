@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   provideRouter,
@@ -73,7 +73,7 @@ function scrollToTopOnTransition(): void {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection(),
+    provideZonelessChangeDetection(),
     provideRouter(
       routes,
       withViewTransitions({

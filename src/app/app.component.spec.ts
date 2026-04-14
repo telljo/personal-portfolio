@@ -1,12 +1,14 @@
 /// <reference types="jasmine" />
 
+import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [AppComponent, RouterTestingModule]
+    imports: [AppComponent],
+    providers: [provideZonelessChangeDetection(), provideRouter([])]
   }));
 
   it('should create the app', () => {
