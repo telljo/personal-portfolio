@@ -5,14 +5,13 @@ import { PagesComponent } from './pages/pages.component';
 
 const siteTitle = 'Josh Tell';
 const pageTitle = (label: string): string =>
-  label === 'Home' ? siteTitle : `${label} | ${siteTitle}`;
+  label === 'Home' ? "Portfolio | " + siteTitle : `${label} | ${siteTitle}`;
 
 const portfolioRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: pageTitle('Home'),
-    data: { animation: 'Home' }
+    title: pageTitle('Home')
   },
   {
     path: 'experience',
@@ -20,8 +19,7 @@ const portfolioRoutes: Routes = [
       import('./pages/experience/experience.component').then(
         m => m.ExperienceComponent
       ),
-    title: pageTitle('Experience'),
-    data: { animation: 'Experience' }
+    title: pageTitle('Experience')
   },
   {
     path: 'projects',
@@ -29,8 +27,7 @@ const portfolioRoutes: Routes = [
       import('./pages/projects/projects.component').then(
         m => m.ProjectsComponent
       ),
-    title: pageTitle('Projects'),
-    data: { animation: 'Projects' }
+    title: pageTitle('Projects')
   },
   {
     path: 'contact',
@@ -38,8 +35,7 @@ const portfolioRoutes: Routes = [
       import('./pages/contact/contact.component').then(
         m => m.ContactComponent
       ),
-    title: pageTitle('Contact'),
-    data: { animation: 'Contact' }
+    title: pageTitle('Contact')
   }
 ];
 

@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { InViewDirective } from '../../shared/directives/in-view.directive';
 
 @Component({
   selector: 'app-experience',
   standalone: true,
+  imports: [InViewDirective],
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.scss'],
 })
-export class ExperienceComponent implements OnInit {
+export class ExperienceComponent {
   private birthdate: Date = new Date('1997-01-30');
   private startDate: Date = new Date('2017-11-01');
-  constructor() {}
 
-  public CalculateDifference(time: string): string {
+  calculateDifference(time: string): string {
     const today = new Date();
     let calcDate = new Date();
     if (time === 'age') calcDate = this.birthdate;
@@ -22,51 +23,5 @@ export class ExperienceComponent implements OnInit {
       difference--;
     }
     return difference.toString();
-  }
-
-  ngOnInit() {
-    this.loadScript();
-  }
-
-  public loadScript() {
-    (function () {
-      'use strict';
-
-      // define variables
-      var items = document.querySelectorAll('.timeline-item');
-      var cards = document.querySelectorAll('.timeline-img');
-
-      setTimeout(function () {
-        for (var i = 0; i < cards.length; i++) {
-          if (isElementInViewport(cards[i])) {
-            items[i].classList.add('in-view');
-          }
-        }
-      }, 750);
-
-      // check if an element is in viewport
-      function isElementInViewport(el: any) {
-        var rect = el.getBoundingClientRect();
-        return (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.top + 100 <=
-            (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <=
-            (window.innerWidth || document.documentElement.clientWidth)
-        );
-      }
-
-      function callbackFunc() {
-        for (var i = 0; i < cards.length; i++) {
-          if (isElementInViewport(cards[i])) {
-            items[i].classList.add('in-view');
-          }
-        }
-      }
-      // listen for events
-      window.addEventListener('resize', callbackFunc);
-      window.addEventListener('scroll', callbackFunc);
-    })();
   }
 }

@@ -2,6 +2,7 @@
   nav {
     position: fixed;
     width: 100%;
+    view-transition-name: site-navbar;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -86,6 +87,7 @@
       background: none;
       color: #fff;
       position: fixed;
+      view-transition-name: navbar-toggle;
       z-index: 913;
       width: 60px;
       height: 60px;

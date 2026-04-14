@@ -1,4 +1,3 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
@@ -8,16 +7,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
-  host: { class: 'navbar' },
-  animations: [
-    trigger('slideInOut', [
-      state('in', style({ transform: 'translateX(0)' })),
-      state('out', style({ transform: 'translateX(-100%)' })),
-      transition('in <=> out', [
-        animate('300ms ease-in-out')
-      ])
-    ])
-  ]
+  host: { class: 'navbar' }
 })
 
 export class NavbarComponent {
@@ -27,13 +17,8 @@ export class NavbarComponent {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.navScrolled = window.scrollY > 50; // Adjust the value as needed
+    this.navScrolled = window.scrollY > 50;
   }
 
   constructor() { }
-
-  toggleShow(){
-    this.animationState = this.animationState === 'out' ? 'in' : 'out';
-    this.navShow = !this.navShow;
-  }
 }

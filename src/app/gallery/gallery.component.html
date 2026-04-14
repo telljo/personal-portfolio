@@ -1,6 +1,5 @@
 <div class="gallery-wrapper">
-  <div id="animateRoute" [@routeAnimations]="prepareRoute(outlet)">
-    <router-outlet (activate)="onActivate($event)" id="outlet1" #outlet="outlet"></router-outlet>
+  <div id="animateRoute">
+    <router-outlet></router-outlet>
   </div>
 </div>
-
