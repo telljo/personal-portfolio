@@ -98,6 +98,14 @@
   }
 }
 
+.experience-timeline__row--initial .experience-timeline__date {
+  animation: experience-timeline-enter 420ms ease 120ms forwards;
+}
+
+.experience-timeline__row--initial .experience-card {
+  animation: experience-timeline-enter 560ms ease 180ms forwards;
+}
+
 .experience-timeline__date {
   @include design.text-style('title-md', true);
   color: rgba(225, 227, 228, 0.2);
@@ -155,6 +163,18 @@
 .experience-card__role {
   @include design.text-style('label-md');
   color: var(--color-primary);
+}
+
+@keyframes experience-timeline-enter {
+  from {
+    opacity: 0;
+    transform: translateY(design.space(6));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .experience-card__logo-shell {

@@ -26,6 +26,7 @@
       @for (project of projects; track project.title; let isOdd = $odd) {
         <article
           class="projects-timeline__row"
+          [class.projects-timeline__row--initial]="$first"
           [class.projects-timeline__row--reverse]="isOdd"
           appInView
         >

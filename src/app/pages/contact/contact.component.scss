@@ -211,17 +211,6 @@
   transform: none;
 }
 
-.contact-form__hint {
-  font-size: 0.95rem;
-}
-
-.contact-form__hint a {
-  color: var(--color-primary);
-  text-decoration: underline;
-  text-decoration-color: rgba(68, 220, 228, 0.35);
-  text-underline-offset: 0.2em;
-}
-
 .contact-interface {
   display: grid;
   gap: design.space(6);

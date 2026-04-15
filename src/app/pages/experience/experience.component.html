@@ -42,6 +42,7 @@
       @for (entry of experienceEntries; track entry.title; let isOdd = $odd) {
         <article
           class="experience-timeline__row"
+          [class.experience-timeline__row--initial]="$first"
           [class.experience-timeline__row--reverse]="isOdd"
           appInView
         >

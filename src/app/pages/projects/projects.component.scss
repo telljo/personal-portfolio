@@ -87,6 +87,14 @@
   }
 }
 
+.projects-timeline__row--initial .projects-timeline__date {
+  animation: projects-timeline-enter 420ms ease 120ms forwards;
+}
+
+.projects-timeline__row--initial .project-card {
+  animation: projects-timeline-enter 560ms ease 180ms forwards;
+}
+
 .projects-timeline__date {
   @include design.text-style('title-md', true);
   color: rgba(225, 227, 228, 0.2);
@@ -144,6 +152,18 @@
 
 .project-card__body {
   padding: design.space(6);
+}
+
+@keyframes projects-timeline-enter {
+  from {
+    opacity: 0;
+    transform: translateY(design.space(6));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .project-card__summary {
