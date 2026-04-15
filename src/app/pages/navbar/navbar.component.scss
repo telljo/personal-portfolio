@@ -70,7 +70,9 @@
 
 .navbar__mobile-nav {
   position: fixed;
-  inset: auto design.space(4) design.space(4);
+  top: design.space(4);
+  right: design.space(4);
+  left: design.space(4);
   z-index: 61;
   display: flex;
   flex-direction: column;
@@ -80,15 +82,37 @@
   border-radius: var(--radius-lg);
   background: rgba(25, 28, 29, 0.96);
   box-shadow: var(--shadow-panel);
+  max-height: calc(100dvh - #{design.space(8)});
+  overflow-y: auto;
+}
+
+.navbar__mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: design.space(4);
+  margin-bottom: design.space(2);
 }
 
 .navbar__brand--mobile {
   width: fit-content;
-  margin-bottom: design.space(2);
 }
 
 .navbar__brand--mobile .navbar__logo {
   height: 1.05rem;
+}
+
+.navbar__mobile-close {
+  @include design.button-reset;
+  @include design.focus-ring;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-base);
+  color: var(--color-primary);
+  background: rgba(12, 15, 16, 0.72);
 }
 
 .navbar__mobile-link {

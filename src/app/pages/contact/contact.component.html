@@ -21,8 +21,16 @@
       <div class="contact-editorial__cards">
         <article class="contact-info-card contact-info-card--location">
           <div>
-            <span class="contact-info-card__label">Location</span>
-            <p class="contact-info-card__text">Currently based in Asia // Working globally</p>
+            <div class="contact-location">
+              <div class="contact-location__row">
+                <span class="contact-location__meta">From</span>
+                <p class="contact-location__value">Aotearoa, New Zealand</p>
+              </div>
+              <div class="contact-location__row">
+                <span class="contact-location__meta">Currently</span>
+                <p class="contact-location__value">Based in Indonesia</p>
+              </div>
+            </div>
           </div>
           <span class="fa fa-map-marker" aria-hidden="true"></span>
         </article>
@@ -50,7 +58,7 @@ const software_developer = &#123;
       <div class="editorial-card contact-form-shell">
         <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)" class="contact-form">
           <div class="contact-form__field">
-            <label for="name">Identifier / Name</label>
+            <label for="name">Name</label>
             <input
               id="name"
               type="text"
@@ -62,7 +70,7 @@ const software_developer = &#123;
           </div>
 
           <div class="contact-form__field">
-            <label for="email">Endpoint / Email</label>
+            <label for="email">Email</label>
             <input
               id="email"
               type="email"
@@ -75,7 +83,7 @@ const software_developer = &#123;
           </div>
 
           <div class="contact-form__field">
-            <label for="subject">Channel / Subject</label>
+            <label for="subject">Subject</label>
             <input
               id="subject"
               type="text"
@@ -87,7 +95,7 @@ const software_developer = &#123;
           </div>
 
           <div class="contact-form__field">
-            <label for="message">Payload / Message</label>
+            <label for="message">Message</label>
             <textarea
               id="message"
               name="message"

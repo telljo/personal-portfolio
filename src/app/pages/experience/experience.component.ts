@@ -131,7 +131,7 @@ export class ExperienceComponent {
       icon: 'fa-code',
       title: 'Languages',
       summary:
-        'A career shaped mainly by Ruby, C#, TypeScript, and Angular across product and enterprise domains.'
+        'A career shaped mainly by Ruby on Rails, C#, TypeScript, and Angular across product and enterprise domains.'
     }
   ];
 

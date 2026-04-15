@@ -1,8 +1,50 @@
-<div class="not-found__content">
-  <p class="not-found__eyebrow">404</p>
-  <h1 class="title not-found__title">Page Not Found</h1>
-  <p class="not-found__copy">
-    The page you were looking for does not exist or may have moved.
-  </p>
-  <a class="not-found__link" routerLink="/">Return Home</a>
-</div>
+<main class="not-found-page">
+  <div class="u-container not-found-page__shell">
+    <section class="not-found-page__content">
+      <div class="not-found-page__eyebrow">
+        <span class="not-found-page__eyebrow-line"></span>
+        <span>Error // 404</span>
+      </div>
+
+      <p class="not-found-page__code">404</p>
+      <h1 class="not-found-page__title">
+        Wrong
+        <span>Route.</span>
+      </h1>
+      <p class="not-found-page__copy">
+        The page you were looking for doesn’t exist anymore, or the route was
+        never part of this system. Let’s get you back to something useful.
+      </p>
+
+      <div class="not-found-page__actions">
+        <a class="button button--primary" routerLink="/">
+          Return Home
+          <span class="fa fa-arrow-right" aria-hidden="true"></span>
+        </a>
+        <a class="button button--ghost" routerLink="/projects">View Projects</a>
+      </div>
+    </section>
+
+    <aside class="not-found-page__panel">
+      <div class="not-found-page__panel-meta">ROUTE_STATUS: NOT_FOUND</div>
+
+      <div class="not-found-page__terminal">
+        <div class="not-found-page__dots" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <pre><code>&gt; resolve("/missing-route")
+status: 404
+hint: try "/", "/experience", "/projects", or "/contact"</code></pre>
+      </div>
+
+      <div class="not-found-page__links">
+        <a routerLink="/">Portfolio</a>
+        <a routerLink="/experience">Experience</a>
+        <a routerLink="/projects">Projects</a>
+        <a routerLink="/contact">Contact</a>
+      </div>
+    </aside>
+  </div>
+</main>

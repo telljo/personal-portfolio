@@ -1,6 +1,6 @@
-import { computed, Component, signal } from '@angular/core';
+import { computed, Component, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { filter, map, startWith } from 'rxjs';
 
 import { NavbarComponent } from './pages/navbar/navbar.component';
@@ -14,12 +14,14 @@ type SwipeSnapshot = {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavbarComponent, RouterOutlet],
+  imports: [NavbarComponent, RouterLink, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   readonly title = 'AngularCV';
+  readonly currentYear = new Date().getFullYear();
+  private readonly router = inject(Router);
   private readonly pages: readonly string[] = [
     '/',
     '/experience',
@@ -39,8 +41,6 @@ export class AppComponent {
     const pageIndex = this.pages.indexOf(this.currentUrl());
     return pageIndex >= 0 ? pageIndex : 0;
   });
-
-  constructor(private readonly router: Router) {}
 
   swipe(event: TouchEvent, when: 'start' | 'end'): void {
     if (when === 'start') {

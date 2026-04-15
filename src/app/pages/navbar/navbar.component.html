@@ -15,8 +15,6 @@
       }
     </div>
 
-    <a class="button button--primary navbar__cta" routerLink="/contact">Contact</a>
-
     <button
       (click)="toggleNav()"
       class="navbar__button"
@@ -32,7 +30,17 @@
 @if (navShow()) {
   <div (click)="closeNav()" class="navbar__background"></div>
   <nav class="navbar__mobile-nav">
-    <a class="navbar__brand navbar__brand--mobile" routerLink="/" (click)="closeNav()">joshtell.dev</a>
+    <div class="navbar__mobile-header">
+      <a class="navbar__brand navbar__brand--mobile" routerLink="/" (click)="closeNav()">joshtell.dev</a>
+      <button
+        (click)="closeNav()"
+        class="navbar__mobile-close"
+        type="button"
+        aria-label="Close navigation"
+      >
+        <span class="fa fa-times" aria-hidden="true"></span>
+      </button>
+    </div>
     @for (link of navLinks; track link.path) {
       <a
         (click)="closeNav()"
@@ -44,8 +52,5 @@
         {{ link.label }}
       </a>
     }
-    <a (click)="closeNav()" class="button button--primary navbar__mobile-cta" routerLink="/contact">
-      Contact
-    </a>
   </nav>
 }
