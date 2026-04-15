@@ -1,0 +1,14 @@
+@use '../tools/mixins' as mixins;
+@use '../tools/functions' as fn;
+
+.u-container {
+  @include mixins.container;
+}
+
+.u-container--wide {
+  @include mixins.container(var(--content-width));
+}
+
+.u-stack > * + * {
+  margin-top: fn.space(4);
+}

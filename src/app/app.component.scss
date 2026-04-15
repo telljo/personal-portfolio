@@ -1,4 +1,16 @@
+:host {
+  display: block;
+}
+
+.app-shell {
+  min-height: 100dvh;
+}
+
+.app-shell__content {
+  min-height: 100dvh;
+}
+
 p a,
 p a:visited {
-	line-height: inherit;
+  line-height: inherit;
 }

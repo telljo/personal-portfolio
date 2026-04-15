@@ -1,11 +1,11 @@
 .gallery-wrapper {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
+
 #animateRoute {
-	height: 100%;
-	background-color: #008f95;
-	view-transition-name: route-content;
+  min-height: 100dvh;
+  view-transition-name: route-content;
 }

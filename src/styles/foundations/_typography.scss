@@ -1,0 +1,90 @@
+@use 'sass:map';
+
+$font-families: (
+  'display': ('Space Grotesk', 'Inter', sans-serif),
+  'body': ('Inter', sans-serif),
+  'mono': ('IBM Plex Mono', 'SFMono-Regular', 'SF Mono', Consolas, monospace)
+);
+
+$font-weights: (
+  'regular': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+  'black': 800
+);
+
+$type-scale: (
+  'label-sm': (
+    'family': map.get($font-families, 'body'),
+    'size': 0.72rem,
+    'line-height': 1.2,
+    'letter-spacing': 0.24em,
+    'weight': map.get($font-weights, 'bold'),
+    'transform': uppercase
+  ),
+  'label-md': (
+    'family': map.get($font-families, 'body'),
+    'size': 0.8rem,
+    'line-height': 1.2,
+    'letter-spacing': 0.18em,
+    'weight': map.get($font-weights, 'bold'),
+    'transform': uppercase
+  ),
+  'body-sm': (
+    'family': map.get($font-families, 'body'),
+    'size': 0.95rem,
+    'line-height': 1.6,
+    'letter-spacing': 0,
+    'weight': map.get($font-weights, 'regular'),
+    'transform': none
+  ),
+  'body-md': (
+    'family': map.get($font-families, 'body'),
+    'size': 1rem,
+    'line-height': 1.7,
+    'letter-spacing': 0,
+    'weight': map.get($font-weights, 'regular'),
+    'transform': none
+  ),
+  'body-lg': (
+    'family': map.get($font-families, 'body'),
+    'size': 1.15rem,
+    'line-height': 1.7,
+    'letter-spacing': 0,
+    'weight': map.get($font-weights, 'regular'),
+    'transform': none
+  ),
+  'title-sm': (
+    'family': map.get($font-families, 'display'),
+    'size': 1.35rem,
+    'line-height': 1.15,
+    'letter-spacing': -0.03em,
+    'weight': map.get($font-weights, 'bold'),
+    'transform': none
+  ),
+  'title-md': (
+    'family': map.get($font-families, 'display'),
+    'size': clamp(1.75rem, 2vw, 2.35rem),
+    'line-height': 1.05,
+    'letter-spacing': -0.04em,
+    'weight': map.get($font-weights, 'bold'),
+    'transform': none
+  ),
+  'display-md': (
+    'family': map.get($font-families, 'display'),
+    'size': clamp(2.8rem, 5vw, 4.5rem),
+    'line-height': 0.95,
+    'letter-spacing': -0.06em,
+    'weight': map.get($font-weights, 'black'),
+    'transform': uppercase
+  ),
+  'hero': (
+    'family': map.get($font-families, 'display'),
+    'size': clamp(4.25rem, 12vw, 8.5rem),
+    'line-height': 0.85,
+    'letter-spacing': -0.08em,
+    'weight': map.get($font-weights, 'black'),
+    'transform': uppercase
+  )
+);

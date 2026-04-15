@@ -1,0 +1,173 @@
+@use '../tools/functions' as fn;
+@use '../tools/mixins' as mixins;
+
+.editorial-card {
+  min-height: 100%;
+  padding: fn.space(8);
+  border-top: 2px solid rgba(55, 58, 59, 0.95);
+  border-radius: fn.radius('base');
+  background: var(--color-surface-container-low);
+  box-shadow: var(--shadow-panel);
+  transition:
+    background-color fn.duration('base') fn.easing('standard'),
+    transform fn.duration('base') fn.easing('decelerate');
+}
+
+.editorial-card:hover {
+  background: var(--color-surface-container);
+  transform: translateY(-2px);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: fn.radius('base');
+  background: var(--color-surface-container-high);
+  color: var(--color-on-surface-variant);
+  padding: fn.space(2) fn.space(4);
+  font-family: fn.text-style('label-sm', 'family');
+  font-size: fn.text-style('label-sm', 'size');
+  font-weight: fn.text-style('label-sm', 'weight');
+  letter-spacing: fn.text-style('label-sm', 'letter-spacing');
+  text-transform: fn.text-style('label-sm', 'transform');
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: fn.space(8);
+  padding-block: fn.space(8);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: fn.space(4);
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(68, 220, 228, 0),
+    rgba(68, 220, 228, 0.4),
+    rgba(68, 220, 228, 0)
+  );
+}
+
+.timeline-item {
+  position: relative;
+  margin-left: fn.space(10);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(fn.space(6));
+  transition:
+    opacity fn.duration('slow') fn.easing('decelerate'),
+    transform fn.duration('slow') fn.easing('decelerate');
+}
+
+.timeline-item::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.timeline-item.in-view {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+.timeline-img {
+  position: absolute;
+  top: fn.space(6);
+  left: fn.space(4);
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-left: calc(fn.space(2) * -1);
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 0.55rem rgba(68, 220, 228, 0.08);
+}
+
+.timeline-content {
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid rgba(55, 58, 59, 0.95);
+  border-radius: fn.radius('lg');
+  background: var(--color-surface-container);
+  box-shadow: var(--shadow-panel);
+}
+
+.timeline-img-header {
+  position: relative;
+  min-height: 13rem;
+  background-color: var(--color-surface-container-lowest);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.timeline-img-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17, 20, 21, 0.88), rgba(17, 20, 21, 0.2));
+}
+
+.timeline-img-header h2 {
+  @include mixins.text-style('title-sm');
+  position: absolute;
+  right: fn.space(6);
+  bottom: fn.space(5);
+  left: fn.space(6);
+  z-index: 1;
+}
+
+.date {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  margin: calc(fn.space(4) * -1) 0 fn.space(5) fn.space(6);
+  padding: fn.space(2) fn.space(4);
+  border-radius: fn.radius('base');
+  background: rgba(68, 220, 228, 0.12);
+  color: var(--color-primary);
+  font-family: fn.text-style('label-sm', 'family');
+  font-size: fn.text-style('label-sm', 'size');
+  font-weight: fn.text-style('label-sm', 'weight');
+  letter-spacing: fn.text-style('label-sm', 'letter-spacing');
+  text-transform: fn.text-style('label-sm', 'transform');
+}
+
+.timeline-card p {
+  padding-inline: fn.space(6);
+  padding-bottom: fn.space(4);
+}
+
+.timeline-card p:last-of-type {
+  padding-bottom: fn.space(6);
+}
+
+@include mixins.mq('lg') {
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-img {
+    left: 50%;
+    margin-left: -0.425rem;
+  }
+
+  .timeline-item {
+    margin-left: 0;
+  }
+
+  .timeline-content {
+    width: calc(50% - #{fn.space(8)});
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content {
+    margin-left: auto;
+  }
+}

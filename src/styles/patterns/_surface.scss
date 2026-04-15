@@ -1,0 +1,13 @@
+@use '../tools/functions' as fn;
+@use '../tools/mixins' as mixins;
+
+.surface-panel {
+  border-radius: fn.radius('lg');
+  background: var(--color-surface-container-low);
+  box-shadow: var(--shadow-panel);
+}
+
+.glass-panel {
+  @include mixins.glass-panel;
+  border-radius: fn.radius('lg');
+}

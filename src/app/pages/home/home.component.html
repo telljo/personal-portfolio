@@ -1,18 +1,108 @@
-<div class="home__main">
-  <div class="home__top-section">
-    <div class="home__title-container">
-      <h2 class="home__first-name">josh</h2>
-      <h2 class="home__last-name">TELL</h2>
+<section class="home-hero">
+  <div class="u-container home-hero__grid">
+    <div class="home-hero__content">
+      <div class="home-hero__eyebrow">
+        <span class="home-hero__eyebrow-line"></span>
+        <span>Senior Full-Stack Engineer</span>
+      </div>
+
+      <h1 class="home-hero__title">
+        <span class="home-hero__title-line">Josh</span>
+        <span class="home-hero__title-line home-hero__title-line--accent">Tell</span>
+      </h1>
+
+      <p class="home-hero__summary">
+        Architecting scalable digital ecosystems through
+        <strong>precision engineering</strong> and intentional design. I build the
+        systems that define the modern web.
+      </p>
+
+      <div class="home-hero__actions">
+        <a class="button button--primary" routerLink="/projects">
+          View My Work
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a class="button button--ghost" routerLink="/experience">Methodology</a>
+      </div>
     </div>
-    <img class="spin circle" src="../../../assets/Images/josh-profile.png" height="200" width="200">
-  </div>
 
-  <h2 class="home__job-title">SOFTWARE DEVELOPER</h2>
-  <div class="home__button-container">
-    <a class="home__button-link" routerLink="/experience" routerLinkActive="active-link"><span>VIEW MY WORK</span></a>
-  </div>
+    <div class="home-hero__visual">
+      <div class="home-hero__portrait-frame">
+        <div class="home-hero__portrait-shell">
+          <img
+            alt="Portrait of Josh Tell"
+            class="home-hero__portrait"
+            src="assets/Images/josh-profile.png"
+          >
+        </div>
+      </div>
 
-  <div class="home__mobile-navigation-container">
-    <p class="home__mobile-navigation-hint">Hint: you can swipe between pages ;)</p>
+      <aside class="home-hero__badge">
+        <p class="home-hero__badge-label">Core Competency</p>
+        <div class="home-hero__badge-icons" aria-hidden="true">
+          <span class="fa fa-code"></span>
+          <span class="fa fa-database"></span>
+          <span class="fa fa-cloud"></span>
+        </div>
+      </aside>
+    </div>
   </div>
-</div>
+</section>
+
+<section class="home-highlights">
+  <div class="u-container home-highlights__grid">
+    <article class="editorial-card home-highlights__card home-highlights__card--wide">
+      <div class="home-highlights__copy">
+        <h2>Distributed Systems</h2>
+        <p>
+          Designing high-availability infrastructure that scales with global demand
+          without compromising latency.
+        </p>
+      </div>
+      <div class="home-highlights__meta">
+        <span class="home-highlights__index">01</span>
+        <span class="fa fa-code-fork" aria-hidden="true"></span>
+      </div>
+    </article>
+
+    <article class="editorial-card home-highlights__card">
+      <div class="home-highlights__copy">
+        <h2>Frontend Architect</h2>
+        <p>
+          Building performance-first interfaces with deliberate systems thinking
+          and durable component patterns.
+        </p>
+      </div>
+      <div class="home-highlights__meta">
+        <span class="home-highlights__index">02</span>
+        <span class="fa fa-clone" aria-hidden="true"></span>
+      </div>
+    </article>
+
+    <article class="editorial-card home-highlights__card">
+      <div class="home-highlights__copy">
+        <h2>Clean Code</h2>
+        <p>
+          Maintainability as a first-class feature, with systems that stay readable
+          long after launch.
+        </p>
+      </div>
+      <div class="home-highlights__meta">
+        <span class="home-highlights__index">03</span>
+        <span class="fa fa-terminal" aria-hidden="true"></span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer class="home-footer">
+  <div class="u-container home-footer__content">
+    <div class="home-footer__brand">joshtell.dev</div>
+    <div class="home-footer__links">
+      <a href="https://github.com/telljo" rel="noreferrer" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/josh-tell/" rel="noreferrer" target="_blank">LinkedIn</a>
+      <a href="https://github.com/telljo/personal-portfolio" rel="noreferrer" target="_blank">Source</a>
+    </div>
+    <div class="home-footer__legal">© {{ currentYear }} Built with Precision</div>
+  </div>
+</footer>

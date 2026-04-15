@@ -1,6 +1,6 @@
-<div class="box" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
+<div class="app-shell" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
   <navbar></navbar>
-  <div class="row content">
+  <main class="app-shell__content">
     <router-outlet></router-outlet>
-  </div>
+  </main>
 </div>

@@ -1,125 +1,144 @@
+@use '../../../styles/api' as design;
+
 :host.navbar {
-  nav {
-    position: fixed;
-    width: 100%;
-    view-transition-name: site-navbar;
-    margin: auto;
+  display: block;
+}
+
+.navbar__shell {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  padding-top: design.space(3);
+  view-transition-name: site-navbar;
+}
+
+.navbar__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: design.space(4);
+  min-height: var(--nav-height);
+  padding-block: design.space(3);
+  border-radius: var(--radius-lg);
+  background: rgba(17, 20, 21, 0.32);
+  border: 1px solid transparent;
+  backdrop-filter: blur(20px);
+  transition:
+    background-color 280ms ease,
+    border-color 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.navbar__shell--scrolled .navbar__inner {
+  background: var(--surface-glass);
+  border-color: rgba(133, 147, 148, 0.14);
+  box-shadow: var(--shadow-ambient);
+}
+
+.navbar__brand {
+  @include design.text-style('label-md', true);
+  color: var(--color-primary);
+}
+
+.navbar__links,
+.navbar__cta {
+  display: none;
+}
+
+.navbar__button {
+  @include design.button-reset;
+  @include design.focus-ring;
+  justify-self: end;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-base);
+  color: var(--color-primary);
+  view-transition-name: navbar-toggle;
+}
+
+.navbar__button .fa {
+  font-size: 1rem;
+}
+
+.navbar__background {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(12, 15, 16, 0.76);
+  backdrop-filter: blur(14px);
+}
+
+.navbar__mobile-nav {
+  position: fixed;
+  inset: auto design.space(4) design.space(4);
+  z-index: 61;
+  display: flex;
+  flex-direction: column;
+  gap: design.space(3);
+  padding: design.space(6);
+  border: 1px solid rgba(133, 147, 148, 0.14);
+  border-radius: var(--radius-lg);
+  background: rgba(25, 28, 29, 0.96);
+  box-shadow: var(--shadow-panel);
+}
+
+.navbar__brand--mobile {
+  width: fit-content;
+  margin-bottom: design.space(2);
+}
+
+.navbar__brand--mobile .navbar__logo {
+  height: 1.05rem;
+}
+
+.navbar__mobile-link {
+  @include design.text-style('title-sm');
+  color: rgba(225, 227, 228, 0.72);
+}
+
+.navbar__mobile-link--active {
+  color: var(--color-primary);
+}
+
+.navbar__mobile-cta {
+  margin-top: design.space(4);
+}
+
+@include design.mq('md') {
+  .navbar__inner {
+    grid-template-columns: auto 1fr auto;
+    gap: design.space(8);
+  }
+
+  .navbar__button {
+    display: none;
+  }
+
+  .navbar__links {
     display: flex;
     justify-content: center;
-    gap: 1em;
-    align-items: center;
-    height: 60px;
-    z-index: 50;
-    height: 60px;
-    flex: 0 1 auto;
-
-    &.scrolled {
-      background-color: #fff;
-      box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
-
-      .navbar__link {
-        color: rgba(32,41,47,.6);
-
-        &--active {
-          color: #20292f;
-
-          &:hover {
-            color: #20292f;
-          }
-        }
-
-        &:hover {
-          color: #20292f;
-        }
-      }
-    }
+    gap: design.space(8);
   }
 
   .navbar__link {
-    color: white;
-    font-size: 1.5em;
-    text-decoration: none;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    &:hover {
-      color: rgba(32,41,47,.6);
-    }
-
-    &--active {
-      color: #20292f;
-
-      &:hover {
-        color: #20292f;
-      }
-    }
+    @include design.text-style('label-md');
+    color: rgba(225, 227, 228, 0.58);
   }
 
-  @media (max-width: 769px) {
-    nav {
-      display: none;
-    }
-
-    .navbar__background {
-      width: 100%;
-      height: 100%;
-      background: #2f4f4f;
-      opacity: 0.9;
-      position: fixed;
-      z-index: 60;
-    }
-
-    .navbar__mobile-nav {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      z-index: 910;
-    }
-
-    .navbar__button {
-      background: none;
-      color: #fff;
-      position: fixed;
-      view-transition-name: navbar-toggle;
-      z-index: 913;
-      width: 60px;
-      height: 60px;
-      border: 0px;
-    }
-
-    .navbar__mobile-link {
-      text-decoration: none;
-      width: 120px;
-      display: flex;
-      margin-bottom: 10px;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font: 20px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-      font-weight: 700;
-
-      &--active {
-        background: none;
-        text-decoration: underline;
-      }
-    }
+  .navbar__link:hover {
+    color: var(--color-on-surface);
   }
 
-  @media (min-width: 770px) {
-    .navbar__button {
-        display: none;
-    }
-    .navbar__mobile-nav {
-        display: none;
-    }
+  .navbar__link--active {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.65em;
+  }
+
+  .navbar__cta {
+    display: inline-flex;
+    min-height: 2.75rem;
+    padding-inline: design.space(5);
   }
 }
