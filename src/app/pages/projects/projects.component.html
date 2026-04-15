@@ -1,106 +1,118 @@
-<div class="projects__content">
-  <div class="projects__title">
-    <h2 class="title">PROJECTS</h2>
-  </div>
+<main class="projects-page">
+  <section class="projects-hero">
+    <div class="u-container projects-hero__container">
+      <div class="projects-hero__eyebrow">
+        <span class="projects-hero__eyebrow-line"></span>
+        <span>Selected Builds</span>
+      </div>
 
-  <div class="timeline timeline--projects">
-    <div class="timeline-img"></div>
-    <div class="timeline-item" appInView>
-      <div class="timeline-content timeline-card">
-        <div class="timeline-img-header">
-          <h2>Footprints</h2>
-        </div>
-        <div class="date">OCT 2024 - PRESENT</div>
-        <p>
-          In preparation for a career break to travel the world, I created
-          Footprints, a web application designed to help users document
-          their travels and share their experiences with others. The app
-          allows users to create a profile, add trips, and share their
-          experiences with others. The app is built using Ruby on Rails,
-          Hotwire, and Bootstrap.
-        </p>
-        <p><i>Ruby on Rails, Hotwire, HTML, CSS</i></p>
-        <a
-          class="bnt-more"
-          href="https://footprints.fly.dev/trips/1"
-          target="_blank"
-          >More</a
+      <h1 class="projects-hero__title">
+        <span>Systems In</span>
+        <span class="projects-hero__title-accent">Practice.</span>
+      </h1>
+
+      <p class="projects-hero__summary">
+        A curated look at the products, experiments, and long-running side
+        projects that have shaped how I think about interfaces, software
+        architecture, and user value.
+      </p>
+    </div>
+  </section>
+
+  <section class="projects-timeline">
+    <div class="u-container projects-timeline__container">
+      <div class="projects-timeline__rail" aria-hidden="true"></div>
+
+      @for (project of projects; track project.title; let isOdd = $odd) {
+        <article
+          class="projects-timeline__row"
+          [class.projects-timeline__row--reverse]="isOdd"
+          appInView
         >
+          <div class="projects-timeline__date">
+            <span>{{ project.period }}</span>
+          </div>
+
+          <div class="projects-timeline__node" aria-hidden="true"></div>
+
+          <div class="projects-timeline__content">
+            <div class="project-card" [class.project-card--primary]="project.highlight">
+              <div
+                class="project-card__media"
+                [style.background-image]="'linear-gradient(to top, rgba(17, 20, 21, 0.92), rgba(17, 20, 21, 0.2)), url(' + project.image + ')'"
+              >
+                <h2>{{ project.title }}</h2>
+              </div>
+
+              <div class="project-card__body">
+                <p class="project-card__summary">{{ project.summary }}</p>
+
+                <ul class="project-card__bullets">
+                  @for (bullet of project.bullets; track bullet) {
+                    <li>
+                      <span class="fa fa-check-circle" aria-hidden="true"></span>
+                      <span>{{ bullet }}</span>
+                    </li>
+                  }
+                </ul>
+
+                <div class="project-card__footer">
+                  <div class="project-card__stack">
+                    @for (item of project.stack; track item) {
+                      <span class="chip">{{ item }}</span>
+                    }
+                  </div>
+
+                  <a
+                    class="button button--ghost project-card__link"
+                    [href]="project.href"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    View Project
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="projects-ecosystem">
+    <div class="u-container">
+      <h2 class="projects-ecosystem__title">
+        Build <span>Modes</span>
+      </h2>
+
+      <div class="projects-ecosystem__grid">
+        @for (item of projectModes; track item.title) {
+          <article
+            class="projects-ecosystem__card"
+            [class.projects-ecosystem__card--wide]="item.wide"
+          >
+            <span class="fa {{ item.icon }}" aria-hidden="true"></span>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.summary }}</p>
+
+            @if (item.footnote) {
+              <div class="projects-ecosystem__footnote">{{ item.footnote }}</div>
+            }
+          </article>
+        }
+
+        <article class="projects-ecosystem__cta">
+          <div>
+            <h3>Want to collaborate on your next build?</h3>
+            <p>
+              I enjoy shaping projects from first pass to polish, especially
+              where engineering quality and interface quality both matter.
+            </p>
+          </div>
+          <a class="button button--primary" routerLink="/contact">Start A Conversation</a>
+        </article>
       </div>
     </div>
-    <div></div>
-
-    <div class="timeline-img"></div>
-    <div class="timeline-item" appInView>
-      <div class="timeline-content timeline-card">
-        <div class="timeline-img-header">
-          <h2>Bookshelf</h2>
-        </div>
-        <div class="date">JAN 2023 - PRESENT</div>
-        <p>
-          During my exploration of
-          <a class="inText" href="https://hotwired.dev/" target="_blank"
-            >Hotwire</a
-          >, I embarked on a practical learning journey by creating
-          something tailored to my needs. The result is a streamlined
-          website reminiscent of Goodreads, designed to facilitate book
-          cataloguing, reviewing, and discovery.
-        </p>
-        <p><i>Ruby on Rails, Hotwire, HTML, CSS</i></p>
-        <a
-          class="bnt-more"
-          href="https://old-mountain-8141.fly.dev/books"
-          target="_blank"
-          >More</a
-        >
-      </div>
-    </div>
-    <div></div>
-
-    <div class="timeline-img"></div>
-    <div class="timeline-item" appInView>
-      <div class="timeline-content timeline-card">
-        <div class="timeline-img-header">
-          <h2>Personal Portfolio</h2>
-        </div>
-        <div class="date">MARCH 2020 - PRESENT</div>
-        <p>
-          I designed and developed my personal portfolio website using
-          Angular and HTML/SCSS. After gaining some experience with Angular
-          during a side project at work, I set out to put my new found
-          knowledge to use and this website is the result. This project was
-          a great learning process for me and futhered my interest in
-          front-end web development.
-        </p>
-        <p><i>Angular, HTML, CSS, Git</i></p>
-        <a class="bnt-more" href="https://www.joshtell.dev" target="_blank"
-          >More</a
-        >
-      </div>
-    </div>
-    <div></div>
-
-    <div class="timeline-img"></div>
-    <div class="timeline-item" appInView>
-      <div class="timeline-content timeline-card">
-        <div class="timeline-img-header">
-          <h2>Otago University Squash Club</h2>
-        </div>
-        <div class="date">MARCH 2018 - OCTOBER 2019</div>
-        <p>
-          The University Of Otago squash club used Weebly to build and
-          maintain their website. As my first experience using a CMS, I
-          contributed to the club by updating and maintaining the website
-          during my time studying as an undergraduate.
-        </p>
-        <p><i>Angular, HTML, CSS, Git</i></p>
-        <a
-          class="bnt-more"
-          href="https://www.unisquash.net/"
-          target="_blank"
-          >More</a
-        >
-      </div>
-    </div>
-  </div>
-</div>
+  </section>
+</main>

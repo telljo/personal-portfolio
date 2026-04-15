@@ -1,41 +1,135 @@
-<div class="contact__content">
-  <div class="contact__title">
-    <h2 class="title">CONTACT</h2>
+<main class="contact-page">
+  <div class="u-container contact-page__grid">
+    <section class="contact-editorial">
+      <div class="contact-editorial__copy">
+        <div class="contact-editorial__eyebrow">
+          <span class="contact-editorial__eyebrow-line"></span>
+          <span>Connect</span>
+        </div>
+        <h1 class="contact-editorial__title">
+          Let's Build
+          <span>Something</span>
+          <span class="contact-editorial__title-accent">Scaleable.</span>
+        </h1>
+        <p class="contact-editorial__summary">
+          Whether you have a specific project in mind or just want to talk shop
+          about product engineering, scalable systems, or front-end architecture,
+          I’m always open to interesting conversations.
+        </p>
+      </div>
+
+      <div class="contact-editorial__cards">
+        <article class="contact-info-card contact-info-card--location">
+          <div>
+            <span class="contact-info-card__label">Location</span>
+            <p class="contact-info-card__text">Currently based in Asia // Working globally</p>
+          </div>
+          <span class="fa fa-map-marker" aria-hidden="true"></span>
+        </article>
+      </div>
+
+      <div class="contact-code">
+        <div class="contact-code__dots" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <pre>
+          <code>
+const software_developer = &#123;
+  status: "AVAILABLE_FOR_HIRE",
+  focus: ["Angular", "Rails", "Design Systems"],
+  latency: "&lt; 1 business day"
+&#125;;
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section class="contact-interface">
+      <div class="contact-form-shell">
+        <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)" class="contact-form">
+          <div class="contact-form__field">
+            <label for="name">Identifier / Name</label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              [(ngModel)]="contactFormModel.name"
+              placeholder="E.g. Alan Turing"
+              required
+            >
+          </div>
+
+          <div class="contact-form__field">
+            <label for="email">Endpoint / Email</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              [(ngModel)]="contactFormModel.email"
+              placeholder="name@domain.com"
+              email
+              required
+            >
+          </div>
+
+          <div class="contact-form__field">
+            <label for="subject">Channel / Subject</label>
+            <input
+              id="subject"
+              type="text"
+              name="subject"
+              [(ngModel)]="contactFormModel.subject"
+              placeholder="Project inquiry"
+              required
+            >
+          </div>
+
+          <div class="contact-form__field">
+            <label for="message">Payload / Message</label>
+            <textarea
+              id="message"
+              name="message"
+              [(ngModel)]="contactFormModel.message"
+              placeholder="System brief or general inquiry..."
+              rows="6"
+              required
+            ></textarea>
+          </div>
+
+          <div class="contact-form__actions">
+            <button
+              class="button button--primary contact-form__submit"
+              type="submit"
+              [disabled]="contactForm.invalid"
+            >
+              Send Message
+              <span class="fa fa-arrow-right" aria-hidden="true"></span>
+            </button>
+
+            <p class="contact-form__hint">
+              This opens your mail client with a prefilled message to
+              <a href="mailto:jtell1997@gmail.com">jtell1997@gmail.com</a>.
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <div class="contact-interface__nodes">
+        <p>Active nodes:</p>
+        <div class="contact-interface__node-links">
+          <a href="https://github.com/telljo" rel="noreferrer" target="_blank" aria-label="GitHub profile">
+            <span class="fa fa-github" aria-hidden="true"></span>
+          </a>
+          <a href="https://www.linkedin.com/in/josh-tell/" rel="noreferrer" target="_blank" aria-label="LinkedIn profile">
+            <span class="fa fa-linkedin" aria-hidden="true"></span>
+          </a>
+          <a href="https://wa.me/64272220453" rel="noreferrer" target="_blank" aria-label="WhatsApp contact">
+            <span class="fa fa-whatsapp" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </section>
   </div>
-  <div class="contact__panel">
-    <div class="contact__links">
-      <div class="contact__link">
-        <a class="contact__cert-link" href="https://www.linkedin.com/in/josh-tell/" target="_blank"></a>
-        <a href="https://www.linkedin.com/in/josh-tell/" target="_blank" class="fa-contact fa fa-linkedin"></a>
-        <div class="contact__details">
-          <h3>LinkedIn</h3>
-          <p>Josh Tell</p>
-        </div>
-      </div>
-      <div class="contact__link">
-        <a class="contact__cert-link" href="mailto:josh@joshtell.dev" target="_blank"></a>
-        <a href="mailto:josh@joshtell.dev" target="_blank" class="fa-contact fa fa-envelope"></a>
-        <div class="contact__details">
-          <h3>Email</h3>
-          <p>josh&#64;joshtell.dev</p>
-        </div>
-      </div>
-      <div class="contact__link">
-        <a class="contact__cert-link" href="https://github.com/telljo" target="_blank"></a>
-        <a href="https://github.com/telljo" target="_blank" class="fa-contact fa fa-github"></a>
-        <div class="contact__details">
-          <h3>Github</h3>
-          <p>telljo</p>
-        </div>
-      </div>
-      <div class="contact__link">
-        <a class="contact__cert-link" href="https://wa.me/64272220453" target="_blank"></a>
-        <a href="https://wa.me/64272220453" target="_blank" class="fa-contact fa fa-whatsapp"></a>
-        <div class="contact__details">
-          <h3>WhatsApp</h3>
-          <p>+64272220453</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</main>
