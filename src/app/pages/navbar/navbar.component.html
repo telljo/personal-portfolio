@@ -1,30 +1,56 @@
-<button (click)="toggleNav()" class="navbar__button fa fa-bars fa-2x"></button>
-@if (navShow()) {
-  <div class="navbar__background">
-    <nav class="navbar__mobile-nav">
+<nav class="navbar__shell" [class.navbar__shell--scrolled]="navScrolled()">
+  <div class="u-container navbar__inner">
+    <a class="navbar__brand" routerLink="/">joshtell.dev</a>
+
+    <div class="navbar__links">
       @for (link of navLinks; track link.path) {
         <a
-          (click)="closeNav()"
-          class="navbar__mobile-link"
+          class="navbar__link"
           [routerLink]="link.path"
-          routerLinkActive="navbar__mobile-link--active"
+          routerLinkActive="navbar__link--active"
           [routerLinkActiveOptions]="exactMatchOptions"
         >
           {{ link.label }}
         </a>
       }
-    </nav>
-  </div>
-}
-<nav [class.scrolled]="navScrolled()">
-  @for (link of navLinks; track link.path) {
-    <a
-      class="navbar__link"
-      [routerLink]="link.path"
-      routerLinkActive="navbar__link--active"
-      [routerLinkActiveOptions]="exactMatchOptions"
+    </div>
+
+    <button
+      (click)="toggleNav()"
+      class="navbar__button"
+      type="button"
+      aria-label="Toggle navigation"
+      [attr.aria-expanded]="navShow()"
     >
-      {{ link.label }}
-    </a>
-  }
+      <app-icon [name]="navShow() ? 'times' : 'bars'"></app-icon>
+    </button>
+  </div>
 </nav>
+
+@if (navShow()) {
+  <div (click)="closeNav()" class="navbar__background"></div>
+  <nav class="navbar__mobile-nav">
+    <div class="navbar__mobile-header">
+      <a class="navbar__brand navbar__brand--mobile" routerLink="/" (click)="closeNav()">joshtell.dev</a>
+      <button
+        (click)="closeNav()"
+        class="navbar__mobile-close"
+        type="button"
+        aria-label="Close navigation"
+      >
+        <app-icon name="times"></app-icon>
+      </button>
+    </div>
+    @for (link of navLinks; track link.path) {
+      <a
+        (click)="closeNav()"
+        class="navbar__mobile-link"
+        [routerLink]="link.path"
+        routerLinkActive="navbar__mobile-link--active"
+        [routerLinkActiveOptions]="exactMatchOptions"
+      >
+        {{ link.label }}
+      </a>
+    }
+  </nav>
+}

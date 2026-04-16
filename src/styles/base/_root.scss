@@ -1,0 +1,38 @@
+@use '../tools/functions' as fn;
+
+:root {
+  color-scheme: dark;
+  --color-background: #{fn.color('background')};
+  --color-surface: #{fn.color('surface')};
+  --color-surface-dim: #{fn.color('surface-dim')};
+  --color-surface-bright: #{fn.color('surface-bright')};
+  --color-surface-variant: #{fn.color('surface-variant')};
+  --color-surface-container-lowest: #{fn.color('surface-container-lowest')};
+  --color-surface-container-low: #{fn.color('surface-container-low')};
+  --color-surface-container: #{fn.color('surface-container')};
+  --color-surface-container-high: #{fn.color('surface-container-high')};
+  --color-surface-container-highest: #{fn.color('surface-container-highest')};
+  --color-primary: #{fn.color('primary')};
+  --color-primary-container: #{fn.color('primary-container')};
+  --color-primary-fixed: #{fn.color('primary-fixed')};
+  --color-primary-fixed-dim: #{fn.color('primary-fixed-dim')};
+  --color-outline: #{fn.color('outline')};
+  --color-outline-variant: #{fn.color('outline-variant')};
+  --color-on-background: #{fn.color('on-background')};
+  --color-on-surface: #{fn.color('on-surface')};
+  --color-on-surface-variant: #{fn.color('on-surface-variant')};
+  --color-on-primary: #{fn.color('on-primary')};
+  --ghost-border: #{fn.token('ghost-border')};
+  --surface-glass: #{fn.token('surface-glass')};
+  --surface-glow: #{fn.token('surface-glow')};
+  --shadow-ambient: #{fn.shadow('ambient')};
+  --shadow-panel: #{fn.shadow('panel')};
+  --shadow-glow: #{fn.shadow('glow')};
+  --radius-sm: #{fn.radius('sm')};
+  --radius-base: #{fn.radius('base')};
+  --radius-lg: #{fn.radius('lg')};
+  --nav-height: #{fn.token('nav-height')};
+  --content-width: #{fn.token('content-width')};
+  --route-transition-duration: #{fn.duration('route')};
+  --route-transition-easing: #{fn.easing('decelerate')};
+}

@@ -1,0 +1,25 @@
+@use '../tools/functions' as fn;
+@use '../tools/mixins' as mixins;
+
+input,
+textarea,
+select {
+  @include mixins.focus-ring;
+  width: 100%;
+  border: 1px solid var(--ghost-border);
+  border-radius: fn.radius('base');
+  background: var(--color-surface-container-lowest);
+  color: var(--color-on-surface);
+  padding: fn.space(4);
+  transition:
+    border-color fn.duration('base') fn.easing('standard'),
+    box-shadow fn.duration('base') fn.easing('standard');
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(68, 220, 228, 0.12);
+  outline: none;
+}

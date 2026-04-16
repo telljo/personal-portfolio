@@ -1,4 +1,72 @@
+:host {
+  display: block;
+}
+
+.app-shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-shell__content {
+  min-height: 100dvh;
+  flex: 1 0 auto;
+}
+
+.site-footer {
+  flex-shrink: 0;
+  padding-block: 2rem 2.5rem;
+  border-top: 1px solid rgba(133, 147, 148, 0.12);
+}
+
+.site-footer__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.site-footer__brand,
+.site-footer__legal,
+.site-footer__links a {
+  font-family: 'SFMono-Regular', 'SF Mono', 'Cascadia Mono', 'Segoe UI Mono', Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.site-footer__brand {
+  color: var(--color-primary);
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.site-footer__links a,
+.site-footer__legal {
+  color: rgba(225, 227, 228, 0.68);
+}
+
+.site-footer__links a:hover {
+  color: var(--color-on-surface);
+}
+
+@media (min-width: 64rem) {
+  .site-footer__content {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+
+  .site-footer__links {
+    justify-content: center;
+  }
+}
+
 p a,
 p a:visited {
-	line-height: inherit;
+  line-height: inherit;
 }

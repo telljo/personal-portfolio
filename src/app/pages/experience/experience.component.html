@@ -1,176 +1,144 @@
-<div id="content">
-  <div class="main">
-    <section class="intro">
-      <div id="container">
-        <h2 class="title">ABOUT ME</h2>
-        <div id="top">
-          <div id="col1">
-            <p class="introText">
-              Hello, I'm Josh, a passionate software developer from Aotearoa New
-              Zealand. With over {{ calculateDifference("experience") }} years
-              of experience as a full stack developer, I have honed my skills in
-              creating robust and innovative solutions. I hold a BSc degree in
-              Computer Science, which I obtained from the
-              <a class="inText" href="https://www.otago.ac.nz/" target="_blank"
-                >University of Otago</a
-              >
-              in November 2017. I most recently worked as a Ruby on Rails
-              developer at
-              <a class="inText" href="https://www.banqer.co/" target="_blank"
-                >Banqer</a
-              >, building dynamic web applications that change peoples lives.
-              Now I'm taking a career break to slow travel through Asia with my partner.
-
-
-            </p>
-          </div>
-          <div id="col2">
-            <p class="introText">
-              This career break is not only about travel but also about broadening my perspective and gaining fresh insights that I can bring back to my career in tech.
-              I genuinely believe that technology has the power to transform the
-              world, and I am dedicated to harnessing its potential.
-              If you're looking for a dedicated professional who can
-              navigate the ever-evolving landscape of software development,
-              let's connect and discuss how we can bring your ideas to life.
-            </p>
-          </div>
-        </div>
+<main class="experience-page">
+  <section class="experience-hero">
+    <div class="u-container experience-hero__container">
+      <div class="experience-hero__eyebrow">
+        <span class="experience-hero__eyebrow-line"></span>
+        <span>Career Timeline</span>
       </div>
-    </section>
 
-    <div id="bottomsection">
-      <section id="secondintro">
-        <h2 class="title2">WORK EXPERIENCE</h2>
-      </section>
+      <h1 class="experience-hero__title">
+        <span>My full stack</span>
+        <span class="experience-hero__title-accent">career so far.</span>
+      </h1>
 
-      <section class="timeline">
-        <div class="container">
-          <div class="timeline-img"></div>
+      <p class="experience-hero__summary">
+        Over the past {{yearsOfExperience()}} years, I’ve built and shipped web products across the stack, with a focus on maintainable systems, clean interfaces, and scalable software.
+      </p>
 
-          <div class="timeline-item" appInView>
-            <div class="timeline-content timeline-card">
-              <div class="timeline-img-header">
-                <h2>Senior Software Developer</h2>
-              </div>
-              <div class="date">MARCH 2022 - FEB 2025</div>
-              <p>
-                Designed and developed full stack web
-                applications using the software development lifecycle, including
-                design, coding, testing, and documentation.
-                During my time at Banqer I was promoted from an Intermediate to Senior developer.
-              </p>
-              <p><i>Ruby on Rails, Angular, RxJs, HTML, CSS, Git, AWS</i></p>
-              <a class="bnt-more" href="https://banqer.co/nz/" target="_blank"
-                >More</a
-              >
-            </div>
-          </div>
-          <div></div>
-
-          <div class="timeline-img"></div>
-          <div class="timeline-item" appInView>
-            <div class="timeline-content timeline-card">
-              <div class="timeline-img-header">
-                <h2>Professional Application Developer</h2>
-              </div>
-              <div class="date">FEB 2019 - MARCH 2022</div>
-              <p>
-                I started at DXC in the graduate program, and was selected for
-                the graduate leadership program the following year. I continued
-                progressing to an intermediate full stack developer, which
-                involved working more independently and with greater
-                responsibility.
-              </p>
-              <p>
-                Designing and developing production-level object-oriented
-                applications using the software development lifecycle, including
-                design, coding, testing, and documentation.
-              </p>
-              <p>
-                <i
-                  >C#, .NET, SQL, HTML5, CSS, WCF, Web Services, Angular, IIS</i
-                >
-              </p>
-              <a
-                class="bnt-more"
-                href="https://www.dxc.technology/about_us"
-                target="_blank"
-                >More</a
-              >
-            </div>
-          </div>
-          <div></div>
-
-          <div class="timeline-img"></div>
-          <div class="timeline-item" appInView>
-            <div class="timeline-content timeline-card">
-              <div class="timeline-img-header">
-                <h2>Global Mobility Services Engineer</h2>
-              </div>
-              <div class="date">APRIL 2018 - JAN 2019</div>
-              <p>
-                Provided level 2 mobile support to 40,0000 users accross ANZ
-                globally. This included device acquisition with vendors, device
-                management/compliance, and tech-support through the phone for
-                ServiceNow ticket resolution.
-              </p>
-              <p><i>VMware AirWatch, ServiceNow, Customer Service</i></p>
-              <a
-                class="bnt-more"
-                href="https://www.anz.co.nz/about-us/our-company/anz-new-zealand/"
-                target="_blank"
-                >More</a
-              >
-            </div>
-          </div>
-
-          <div></div>
-
-          <div class="timeline-img"></div>
-          <div class="timeline-item" appInView>
-            <div class="timeline-content timeline-card">
-              <div class="timeline-img-header">
-                <h2>Junior .NET Software Developer</h2>
-              </div>
-              <div class="date">NOV 2017 - APRIL 2018</div>
-              <p>
-                Designed and developed a full stack web application which was
-                hosted in the cloud using Azure App Services.
-              </p>
-              <p><i>C#, .NET, SQL, HTML5, Azure SQL Database</i></p>
-              <a
-                class="bnt-more"
-                href="https://gocloud.systems/"
-                target="_blank"
-                >More</a
-              >
-            </div>
-          </div>
-
-          <div></div>
-
-          <div class="timeline-img"></div>
-          <div class="timeline-item" appInView>
-            <div class="timeline-content timeline-card">
-              <div class="timeline-img-header">
-                <h2>BSc - Computer Science</h2>
-              </div>
-              <div class="date">FEB 2015 - NOV 2017</div>
-              <p>
-                During my three years of study at Otago University, some of the
-                papers I took included Web Development, Networking, AI, Database
-                Theory, and Object Oriented Programming.
-              </p>
-              <a
-                class="bnt-more"
-                href="https://www.otago.ac.nz/"
-                target="_blank"
-                >More</a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- <div class="experience-hero__intro">
+        <p>
+          Hello, I'm Josh, a software developer from Aotearoa New Zealand with a
+          computer science background and a strong bias toward durable systems,
+          clear interfaces, and maintainable delivery. My most recent role was at
+          <a class="inText" href="https://www.banqer.co/" rel="noreferrer" target="_blank">Banqer</a>,
+          where I grew from intermediate to senior while shipping full stack product work.
+        </p>
+        <p>
+          I’m currently on a career break slow-travelling through Asia, using the
+          space to broaden my perspective and sharpen what I want to build next.
+          I care deeply about technology that meaningfully improves people’s lives,
+          and I’m happiest working on thoughtful teams building software with long-term value.
+        </p>
+      </div> -->
     </div>
-  </div>
-</div>
+  </section>
+
+  <section class="experience-timeline">
+    <div class="u-container experience-timeline__container">
+      <div class="experience-timeline__rail" aria-hidden="true"></div>
+
+      @for (entry of experienceEntries; track entry.title; let isOdd = $odd) {
+        <article
+          class="experience-timeline__row"
+          [class.experience-timeline__row--initial]="$first"
+          [class.experience-timeline__row--reverse]="isOdd"
+          appInView
+        >
+          <div class="experience-timeline__date">
+            <span>{{ entry.period }}</span>
+          </div>
+
+          <div class="experience-timeline__node" aria-hidden="true"></div>
+
+          <div class="experience-timeline__content">
+            <div
+              class="experience-card"
+              [class.experience-card--primary]="entry.highlight"
+            >
+              <div class="experience-card__header">
+                <div>
+                  <h2>{{ entry.company }}</h2>
+                  <p class="experience-card__role">{{ entry.title }}</p>
+                </div>
+                <div class="experience-card__logo-shell">
+                  <img
+                    class="experience-card__logo"
+                    [src]="entry.logo"
+                    [alt]="entry.company + ' logo'"
+                    width="72"
+                    height="72"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </div>
+              </div>
+
+              <p class="experience-card__summary">{{ entry.summary }}</p>
+
+              <ul class="experience-card__bullets">
+                @for (bullet of entry.bullets; track bullet) {
+                  <li>
+                    <app-icon name="check-circle"></app-icon>
+                    <span>{{ bullet }}</span>
+                  </li>
+                }
+              </ul>
+
+              <div class="experience-card__footer">
+                <div class="experience-card__stack">
+                  @for (item of entry.stack; track item) {
+                    <span class="chip">{{ item }}</span>
+                  }
+                </div>
+
+                <a
+                  class="button button--ghost experience-card__link"
+                  [href]="entry.href"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  More
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="experience-ecosystem">
+    <div class="u-container">
+      <h2 class="experience-ecosystem__title">
+        Technical <span>Ecosystem</span>
+      </h2>
+
+      <div class="experience-ecosystem__grid">
+        @for (item of ecosystemHighlights; track item.title) {
+        <article
+          class="experience-ecosystem__card"
+          [class.experience-ecosystem__card--wide]="item.wide"
+        >
+          <app-icon [name]="item.icon"></app-icon>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.summary }}</p>
+
+            @if (item.footnote) {
+              <div class="experience-ecosystem__footnote">{{ item.footnote }}</div>
+            }
+          </article>
+        }
+
+        <article class="experience-ecosystem__cta">
+          <div>
+            <h3>Looking for technical consulting?</h3>
+            <p>
+              I help teams build and improve software with a focus on scalability, maintainability, and long-term value.
+            </p>
+          </div>
+          <a class="button button--primary" routerLink="/contact">Get In Touch</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>

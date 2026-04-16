@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use '../foundations' as foundations;
+
+@function color($key) {
+  @return map.get(foundations.$semantic-colors, $key);
+}
+
+@function text-style($key, $property: null) {
+  $entry: map.get(foundations.$type-scale, $key);
+
+  @if $property == null {
+    @return $entry;
+  }
+
+  @return map.get($entry, $property);
+}
+
+@function space($key) {
+  @return map.get(foundations.$spacing-scale, $key);
+}
+
+@function radius($key) {
+  @return map.get(foundations.$radii, $key);
+}
+
+@function shadow($key) {
+  @return map.get(foundations.$shadows, $key);
+}
+
+@function duration($key) {
+  @return map.get(foundations.$durations, $key);
+}
+
+@function easing($key) {
+  @return map.get(foundations.$easings, $key);
+}
+
+@function breakpoint($key) {
+  @return map.get(foundations.$breakpoints, $key);
+}
+
+@function token($key) {
+  @return map.get(foundations.$tokens, $key);
+}

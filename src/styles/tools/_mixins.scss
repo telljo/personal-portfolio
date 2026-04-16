@@ -1,0 +1,52 @@
+@use 'functions' as fn;
+
+@mixin mq($breakpoint) {
+  @media (min-width: fn.breakpoint($breakpoint)) {
+    @content;
+  }
+}
+
+@mixin container($width: fn.token('content-width')) {
+  width: min(calc(100% - (#{fn.space(4)} * 2)), #{$width});
+  margin-inline: auto;
+
+  @include mq('md') {
+    width: min(calc(100% - (#{fn.space(8)} * 2)), #{$width});
+  }
+}
+
+@mixin text-style($key, $slanted: false) {
+  font-family: fn.text-style($key, 'family');
+  font-size: fn.text-style($key, 'size');
+  line-height: fn.text-style($key, 'line-height');
+  letter-spacing: fn.text-style($key, 'letter-spacing');
+  font-weight: fn.text-style($key, 'weight');
+  text-transform: fn.text-style($key, 'transform');
+
+  @if $slanted {
+    display: inline-block;
+    font-style: italic;
+    transform: skewX(-4deg);
+    transform-origin: left center;
+  }
+}
+
+@mixin button-reset {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid fn.color('primary');
+    outline-offset: 4px;
+  }
+}
+
+@mixin glass-panel {
+  background: fn.token('surface-glass');
+  backdrop-filter: blur(20px);
+  box-shadow: fn.shadow('glass');
+}

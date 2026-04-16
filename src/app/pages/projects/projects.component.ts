@@ -1,13 +1,115 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { InViewDirective } from '../../shared/directives/in-view.directive';
+import { IconComponent, type IconName } from '../../shared/icon/icon.component';
+
+type ProjectEntry = {
+  title: string;
+  period: string;
+  summary: string;
+  bullets: string[];
+  stack: string[];
+  href: string;
+  image: string;
+  highlight?: boolean;
+};
+
+type ProjectMode = {
+  icon: IconName;
+  title: string;
+  summary: string;
+  footnote?: string;
+  wide?: boolean;
+};
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [InViewDirective],
+  imports: [InViewDirective, RouterLink, IconComponent],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
   host: { class: 'projects' }
 })
 export class ProjectsComponent {
+  readonly projects: readonly ProjectEntry[] = [
+    {
+      title: 'Footprints',
+      period: '2024 — Present',
+      summary:
+        'A travel journaling product I built in preparation for a career break, designed to help people document trips, places, and stories in a more personal way.',
+      bullets: [
+        'Built a full Rails application for capturing and sharing travel experiences.',
+        'Designed profile, trip, and storytelling flows around real personal use cases.',
+        'Used the project as a focused product exercise in speed, usefulness, and polish.'
+      ],
+      stack: ['Ruby on Rails', 'Hotwire', 'HTML', 'CSS'],
+      href: 'https://footprints.fly.dev/trips/1',
+      image: 'assets/Images/footprints.webp',
+      highlight: true
+    },
+    {
+      title: 'Bookshelf',
+      period: '2023 — Present',
+      summary:
+        'A Goodreads-inspired side project built while exploring Hotwire, focused on streamlined book cataloguing, reviewing, and discovery.',
+      bullets: [
+        'Created a practical learning project tailored to my own reading workflow.',
+        'Explored Hotwire patterns through a complete end-to-end application.',
+        'Focused on simplicity, responsiveness, and product clarity over feature bloat.'
+      ],
+      stack: ['Ruby on Rails', 'Hotwire', 'HTML', 'CSS'],
+      href: 'https://old-mountain-8141.fly.dev/books',
+      image: 'assets/Images/bookshelf.webp'
+    },
+    {
+      title: 'Personal Portfolio',
+      period: '2020 — Present',
+      summary:
+        'My long-running portfolio project, originally built to deepen my Angular knowledge and now used as a living space for refining visual systems and front-end craft.',
+      bullets: [
+        'Designed and developed the site in Angular using HTML and SCSS.',
+        'Used the project to translate side-project learning into a polished public presence.',
+        'Continues to evolve as a space for experimenting with layout, storytelling, and interaction design.'
+      ],
+      stack: ['Angular', 'HTML', 'SCSS', 'Git'],
+      href: 'https://joshtell.dev',
+      image: 'assets/Images/portfolio.webp'
+    },
+    {
+      title: 'Otago University Squash Club',
+      period: '2018 — 2019',
+      summary:
+        'An early web contribution where I maintained and updated a club site, giving me hands-on experience shaping content and structure in a real community context.',
+      bullets: [
+        'Maintained and updated the club site while studying as an undergraduate.',
+        'Learned to work within an existing CMS and improve content quality over time.',
+        'Built confidence in web publishing through practical, user-facing updates.'
+      ],
+      stack: ['CMS', 'HTML', 'CSS', 'Content Design'],
+      href: 'https://www.unisquash.net/',
+      image: 'assets/Images/squash.webp'
+    }
+  ];
+  readonly projectModes: readonly ProjectMode[] = [
+    {
+      icon: 'compass',
+      title: 'Product Thinking',
+      summary:
+        'I like to start with the real problem first, then build toward something clear, useful, and easy to work with.',
+      footnote: 'Real problems // Simple solutions // Strong execution',
+      wide: true
+    },
+    {
+      icon: 'code-fork',
+      title: 'Engineering Range',
+      summary:
+        'A lot of my side projects are a chance to explore new tools, test ideas, and get hands-on with different approaches.'
+    },
+    {
+      icon: 'desktop',
+      title: 'Interface Craft',
+      summary:
+        'I care about clean visual systems, clear interactions, and interfaces that feel thoughtful and well put together.'
+    }
+  ];
 }
