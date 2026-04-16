@@ -51,7 +51,7 @@
                 <ul class="project-card__bullets">
                   @for (bullet of project.bullets; track bullet) {
                     <li>
-                      <span class="fa fa-check-circle" aria-hidden="true"></span>
+                      <app-icon name="check-circle"></app-icon>
                       <span>{{ bullet }}</span>
                     </li>
                   }
@@ -89,13 +89,13 @@
 
       <div class="projects-ecosystem__grid">
         @for (item of projectModes; track item.title) {
-          <article
-            class="projects-ecosystem__card"
-            [class.projects-ecosystem__card--wide]="item.wide"
-          >
-            <span class="fa {{ item.icon }}" aria-hidden="true"></span>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.summary }}</p>
+        <article
+          class="projects-ecosystem__card"
+          [class.projects-ecosystem__card--wide]="item.wide"
+        >
+          <app-icon [name]="item.icon"></app-icon>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.summary }}</p>
 
             @if (item.footnote) {
               <div class="projects-ecosystem__footnote">{{ item.footnote }}</div>

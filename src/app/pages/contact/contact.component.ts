@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
+import { IconComponent } from '../../shared/icon/icon.component';
+
 type ContactFormModel = {
   name: string;
   email: string;
@@ -11,7 +13,7 @@ type ContactFormModel = {
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, IconComponent],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
   host: { class: 'contact' }

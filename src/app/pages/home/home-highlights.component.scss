@@ -1,0 +1,57 @@
+@use '../../../styles/api' as design;
+
+:host {
+  display: block;
+  content-visibility: auto;
+  contain-intrinsic-size: 58rem;
+}
+
+.home-highlights {
+  padding-bottom: design.space(16);
+}
+
+.home-highlights__grid {
+  display: grid;
+  gap: design.space(4);
+}
+
+.home-highlights__card {
+  display: flex;
+  min-height: 15rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.home-highlights__card h2 {
+  @include design.text-style('title-md');
+  margin-bottom: design.space(4);
+}
+
+.home-highlights__meta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: design.space(8);
+  color: var(--color-primary);
+}
+
+.home-highlights__meta app-icon {
+  font-size: 1.15rem;
+}
+
+.home-highlights__index {
+  font-family: design.text-style('hero', 'family');
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1;
+  color: rgba(225, 227, 228, 0.3);
+}
+
+@include design.mq('lg') {
+  .home-highlights__grid {
+    grid-template-columns: 1.45fr 1fr 1fr;
+  }
+
+  .home-highlights__card--wide {
+    grid-column: span 1;
+  }
+}

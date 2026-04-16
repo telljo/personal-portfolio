@@ -1,6 +1,8 @@
 import { Component, HostListener, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
+import { IconComponent } from '../../shared/icon/icon.component';
+
 type NavLink = {
   path: string;
   label: string;
@@ -9,7 +11,7 @@ type NavLink = {
 @Component({
   selector: 'navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, IconComponent],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   host: { class: 'navbar' }

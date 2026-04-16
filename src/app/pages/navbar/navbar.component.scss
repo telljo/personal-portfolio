@@ -85,7 +85,8 @@
   view-transition-name: navbar-toggle;
 }
 
-.navbar__button .fa {
+.navbar__button app-icon,
+.navbar__mobile-close app-icon {
   font-size: 1rem;
 }
 
@@ -175,11 +176,11 @@
 
   .navbar__link {
     @include design.text-style('label-md');
-    color: rgba(225, 227, 228, 0.58);
+    color: rgba(225, 227, 228, 0.68);
   }
 
   .navbar__shell--scrolled .navbar__link {
-    color: rgba(225, 227, 228, 0.82);
+    color: rgba(225, 227, 228, 0.9);
   }
 
   .navbar__link:hover {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { InViewDirective } from '../../shared/directives/in-view.directive';
+import { IconComponent, type IconName } from '../../shared/icon/icon.component';
 
 type ProjectEntry = {
   title: string;
@@ -14,7 +15,7 @@ type ProjectEntry = {
 };
 
 type ProjectMode = {
-  icon: string;
+  icon: IconName;
   title: string;
   summary: string;
   footnote?: string;
@@ -24,7 +25,7 @@ type ProjectMode = {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [InViewDirective, RouterLink],
+  imports: [InViewDirective, RouterLink, IconComponent],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
   host: { class: 'projects' }
@@ -91,7 +92,7 @@ export class ProjectsComponent {
   ];
   readonly projectModes: readonly ProjectMode[] = [
     {
-      icon: 'fa-compass',
+      icon: 'compass',
       title: 'Product Thinking',
       summary:
         'I tend to build from a real user need outward, aiming for products that feel coherent before they feel complex.',
@@ -99,13 +100,13 @@ export class ProjectsComponent {
       wide: true
     },
     {
-      icon: 'fa-code-fork',
+      icon: 'code-fork',
       title: 'Engineering Range',
       summary:
         'Side projects often double as R&D spaces where I can test frameworks, patterns, and delivery approaches.'
     },
     {
-      icon: 'fa-desktop',
+      icon: 'desktop',
       title: 'Interface Craft',
       summary:
         'I care about visual systems, readable interactions, and front-ends that feel intentional rather than assembled.'

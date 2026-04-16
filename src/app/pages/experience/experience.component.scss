@@ -211,7 +211,7 @@
   color: var(--color-on-surface);
 }
 
-.experience-card__bullets .fa {
+.experience-card__bullets app-icon {
   margin-top: 0.25rem;
   color: var(--color-primary);
 }
@@ -265,9 +265,10 @@
   border-left: 4px solid rgba(68, 220, 228, 0.8);
 }
 
-.experience-ecosystem__card .fa {
+.experience-ecosystem__card app-icon {
   margin-bottom: design.space(4);
   color: var(--color-primary);
+  font-size: 1.2rem;
 }
 
 .experience-ecosystem__card h3,

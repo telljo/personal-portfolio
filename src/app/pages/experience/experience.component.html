@@ -67,6 +67,10 @@
                     class="experience-card__logo"
                     [src]="entry.logo"
                     [alt]="entry.company + ' logo'"
+                    width="72"
+                    height="72"
+                    loading="lazy"
+                    decoding="async"
                   >
                 </div>
               </div>
@@ -76,7 +80,7 @@
               <ul class="experience-card__bullets">
                 @for (bullet of entry.bullets; track bullet) {
                   <li>
-                    <span class="fa fa-check-circle" aria-hidden="true"></span>
+                    <app-icon name="check-circle"></app-icon>
                     <span>{{ bullet }}</span>
                   </li>
                 }
@@ -113,13 +117,13 @@
 
       <div class="experience-ecosystem__grid">
         @for (item of ecosystemHighlights; track item.title) {
-          <article
-            class="experience-ecosystem__card"
-            [class.experience-ecosystem__card--wide]="item.wide"
-          >
-            <span class="fa {{ item.icon }}" aria-hidden="true"></span>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.summary }}</p>
+        <article
+          class="experience-ecosystem__card"
+          [class.experience-ecosystem__card--wide]="item.wide"
+        >
+          <app-icon [name]="item.icon"></app-icon>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.summary }}</p>
 
             @if (item.footnote) {
               <div class="experience-ecosystem__footnote">{{ item.footnote }}</div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { InViewDirective } from '../../shared/directives/in-view.directive';
+import { IconComponent, type IconName } from '../../shared/icon/icon.component';
 
 type ExperienceEntry = {
   company: string;
@@ -15,7 +16,7 @@ type ExperienceEntry = {
 };
 
 type EcosystemHighlight = {
-  icon: string;
+  icon: IconName;
   title: string;
   summary: string;
   footnote?: string;
@@ -25,7 +26,7 @@ type EcosystemHighlight = {
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [InViewDirective, RouterLink],
+  imports: [InViewDirective, RouterLink, IconComponent],
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.scss'],
   host: { class: 'experience' }
@@ -114,7 +115,7 @@ export class ExperienceComponent {
   ];
   readonly ecosystemHighlights: readonly EcosystemHighlight[] = [
     {
-      icon: 'fa-cloud',
+      icon: 'cloud',
       title: 'Infrastructure',
       summary:
         'Orchestrating delivery environments, release flows, and high-availability systems with production pragmatism.',
@@ -122,13 +123,13 @@ export class ExperienceComponent {
       wide: true
     },
     {
-      icon: 'fa-database',
+      icon: 'database',
       title: 'Persistence',
       summary:
         'Working across SQL-backed systems, application data modeling, and the trade-offs of long-lived product data.'
     },
     {
-      icon: 'fa-code',
+      icon: 'code',
       title: 'Languages',
       summary:
         'A career shaped mainly by Ruby on Rails, C#, TypeScript, and Angular across product and enterprise domains.'

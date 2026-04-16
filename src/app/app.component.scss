@@ -28,7 +28,7 @@
 .site-footer__brand,
 .site-footer__legal,
 .site-footer__links a {
-  font-family: 'IBM Plex Mono', 'SFMono-Regular', 'SF Mono', Consolas, monospace;
+  font-family: 'SFMono-Regular', 'SF Mono', 'Cascadia Mono', 'Segoe UI Mono', Consolas, monospace;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.24em;
@@ -47,7 +47,7 @@
 
 .site-footer__links a,
 .site-footer__legal {
-  color: rgba(225, 227, 228, 0.45);
+  color: rgba(225, 227, 228, 0.68);
 }
 
 .site-footer__links a:hover {

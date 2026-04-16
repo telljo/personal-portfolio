@@ -184,7 +184,7 @@
   color: var(--color-on-surface);
 }
 
-.project-card__bullets .fa {
+.project-card__bullets app-icon {
   margin-top: 0.25rem;
   color: var(--color-primary);
 }
@@ -238,9 +238,10 @@
   border-left: 4px solid rgba(68, 220, 228, 0.8);
 }
 
-.projects-ecosystem__card .fa {
+.projects-ecosystem__card app-icon {
   margin-bottom: design.space(4);
   color: var(--color-primary);
+  font-size: 1.2rem;
 }
 
 .projects-ecosystem__card h3,

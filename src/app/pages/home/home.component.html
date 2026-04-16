@@ -32,7 +32,14 @@
           <img
             alt="Portrait of Josh Tell"
             class="home-hero__portrait"
-            src="assets/Images/new-profile.webp"
+            src="assets/Images/new-profile-960.webp"
+            srcset="assets/Images/new-profile-480.webp 480w, assets/Images/new-profile-960.webp 960w"
+            sizes="(min-width: 64rem) 28rem, (min-width: 48rem) 70vw, calc(100vw - 2rem)"
+            width="960"
+            height="1280"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
           >
         </div>
       </div>
@@ -40,48 +47,14 @@
   </div>
 </section>
 
-<section class="home-highlights">
-  <div class="u-container home-highlights__grid">
-    <article class="editorial-card home-highlights__card home-highlights__card--wide">
-      <div class="home-highlights__copy">
-        <h2>Distributed Systems</h2>
-        <p>
-          Designing high-availability infrastructure that scales with global demand
-          without compromising latency.
-        </p>
-      </div>
-      <div class="home-highlights__meta">
-        <span class="home-highlights__index">01</span>
-        <span class="fa fa-code-fork" aria-hidden="true"></span>
-      </div>
-    </article>
-
-    <article class="editorial-card home-highlights__card">
-      <div class="home-highlights__copy">
-        <h2>Beautiful Interfaces</h2>
-        <p>
-          Building performance-first interfaces with deliberate systems thinking
-          and durable component patterns.
-        </p>
-      </div>
-      <div class="home-highlights__meta">
-        <span class="home-highlights__index">02</span>
-        <span class="fa fa-clone" aria-hidden="true"></span>
-      </div>
-    </article>
-
-    <article class="editorial-card home-highlights__card">
-      <div class="home-highlights__copy">
-        <h2>Clean Code</h2>
-        <p>
-          Maintainability as a first-class feature, with systems that stay readable
-          long after launch.
-        </p>
-      </div>
-      <div class="home-highlights__meta">
-        <span class="home-highlights__index">03</span>
-        <span class="fa fa-terminal" aria-hidden="true"></span>
-      </div>
-    </article>
-  </div>
-</section>
+@defer (on idle; prefetch on viewport) {
+  <app-home-highlights />
+} @placeholder {
+  <section class="home-highlights-placeholder" aria-hidden="true">
+    <div class="u-container home-highlights-placeholder__grid">
+      <div class="home-highlights-placeholder__card"></div>
+      <div class="home-highlights-placeholder__card"></div>
+      <div class="home-highlights-placeholder__card"></div>
+    </div>
+  </section>
+}

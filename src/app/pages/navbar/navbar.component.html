@@ -22,7 +22,7 @@
       aria-label="Toggle navigation"
       [attr.aria-expanded]="navShow()"
     >
-      <span class="fa" [class.fa-bars]="!navShow()" [class.fa-times]="navShow()"></span>
+      <app-icon [name]="navShow() ? 'times' : 'bars'"></app-icon>
     </button>
   </div>
 </nav>
@@ -38,7 +38,7 @@
         type="button"
         aria-label="Close navigation"
       >
-        <span class="fa fa-times" aria-hidden="true"></span>
+        <app-icon name="times"></app-icon>
       </button>
     </div>
     @for (link of navLinks; track link.path) {
