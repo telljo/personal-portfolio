@@ -107,7 +107,12 @@
   object-fit: cover;
   border-radius: calc(var(--radius-lg) - 0.35rem);
   background: var(--color-surface-container-lowest);
+  filter: grayscale(1) contrast(1.05) brightness(0.92);
   transition: filter 280ms ease;
+}
+
+.home-hero__portrait:hover {
+  filter: grayscale(0) contrast(1.02) brightness(0.98);
 }
 
 .home-highlights {

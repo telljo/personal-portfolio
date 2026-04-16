@@ -48,7 +48,7 @@ export class ExperienceComponent {
       ],
       stack: ['Ruby on Rails', 'Angular', 'RxJS', 'HTML', 'SCSS', 'AWS'],
       href: 'https://banqer.co/nz/',
-      logo: 'assets/Images/banqer-logo.svg',
+      logo: 'assets/Images/banqer.webp',
       highlight: true
     },
     {
@@ -64,7 +64,7 @@ export class ExperienceComponent {
       ],
       stack: ['C#', '.NET', 'SQL', 'Angular', 'IIS', 'Web Services'],
       href: 'https://www.dxc.technology/about_us',
-      logo: 'assets/Images/dxc-logo.png'
+      logo: 'assets/Images/dxc-logo.webp'
     },
     {
       company: 'ANZ',
@@ -79,7 +79,7 @@ export class ExperienceComponent {
       ],
       stack: ['VMware AirWatch', 'ServiceNow', 'Compliance', 'Support'],
       href: 'https://www.anz.co.nz/about-us/our-company/anz-new-zealand/',
-      logo: 'assets/Images/anz-logo.png'
+      logo: 'assets/Images/anz-logo.webp'
     },
     {
       company: 'Go Cloud Systems',
@@ -94,7 +94,7 @@ export class ExperienceComponent {
       ],
       stack: ['C#', '.NET', 'SQL', 'Azure', 'HTML5'],
       href: 'https://gocloud.systems/',
-      logo: 'assets/Images/go-cloud-logo.png'
+      logo: 'assets/Images/gocloud-logo.webp'
     },
     {
       company: 'University of Otago',
@@ -109,7 +109,7 @@ export class ExperienceComponent {
       ],
       stack: ['Computer Science', 'Web Development', 'AI', 'Databases'],
       href: 'https://www.otago.ac.nz/',
-      logo: 'assets/Images/otago-logo.png'
+      logo: 'assets/Images/otago-logo.webp'
     }
   ];
   readonly ecosystemHighlights: readonly EcosystemHighlight[] = [

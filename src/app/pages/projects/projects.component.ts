@@ -43,7 +43,7 @@ export class ProjectsComponent {
       ],
       stack: ['Ruby on Rails', 'Hotwire', 'HTML', 'CSS'],
       href: 'https://footprints.fly.dev/trips/1',
-      image: 'assets/Images/footprints.png',
+      image: 'assets/Images/footprints.webp',
       highlight: true
     },
     {
@@ -58,7 +58,7 @@ export class ProjectsComponent {
       ],
       stack: ['Ruby on Rails', 'Hotwire', 'HTML', 'CSS'],
       href: 'https://old-mountain-8141.fly.dev/books',
-      image: 'assets/Images/bookshelf.png'
+      image: 'assets/Images/bookshelf.webp'
     },
     {
       title: 'Personal Portfolio',
@@ -72,7 +72,7 @@ export class ProjectsComponent {
       ],
       stack: ['Angular', 'HTML', 'SCSS', 'Git'],
       href: 'https://www.joshtell.dev',
-      image: 'assets/Images/portfolio.png'
+      image: 'assets/Images/portfolio.webp'
     },
     {
       title: 'Otago University Squash Club',
@@ -86,7 +86,7 @@ export class ProjectsComponent {
       ],
       stack: ['CMS', 'HTML', 'CSS', 'Content Design'],
       href: 'https://www.unisquash.net/',
-      image: 'assets/Images/squash.png'
+      image: 'assets/Images/squash.webp'
     }
   ];
   readonly projectModes: readonly ProjectMode[] = [

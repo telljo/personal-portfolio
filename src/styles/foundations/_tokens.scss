@@ -7,6 +7,6 @@ $tokens: (
   'content-width-wide': 92rem,
   'nav-height': 5.25rem,
   'ghost-border': color.change(map.get(colors.$semantic-colors, 'outline-variant'), $alpha: 0.18),
-  'surface-glass': color.change(map.get(colors.$semantic-colors, 'surface-variant'), $alpha: 0.7),
+  'surface-glass': color.change(map.get(colors.$semantic-colors, 'surface-variant'), $alpha: 0.9),
   'surface-glow': color.change(map.get(colors.$semantic-colors, 'primary'), $alpha: 0.12)
 );
