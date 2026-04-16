@@ -30,7 +30,6 @@
 
 .projects-hero__title {
   @include design.text-style('display-md', true);
-  max-width: 8ch;
   margin-bottom: design.space(6);
 }
 
@@ -203,6 +202,7 @@
 
 .project-card__link {
   width: fit-content;
+  text-wrap: nowrap;
 }
 
 .projects-ecosystem__title {

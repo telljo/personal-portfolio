@@ -30,7 +30,6 @@
 
 .experience-hero__title {
   @include design.text-style('display-md', true);
-  max-width: 9ch;
   margin-bottom: design.space(6);
 }
 

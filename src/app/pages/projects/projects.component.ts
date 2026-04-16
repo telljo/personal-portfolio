@@ -72,7 +72,7 @@ export class ProjectsComponent {
         'Continues to evolve as a space for experimenting with layout, storytelling, and interaction design.'
       ],
       stack: ['Angular', 'HTML', 'SCSS', 'Git'],
-      href: 'https://www.joshtell.dev',
+      href: 'https://joshtell.dev',
       image: 'assets/Images/portfolio.webp'
     },
     {
@@ -95,21 +95,21 @@ export class ProjectsComponent {
       icon: 'compass',
       title: 'Product Thinking',
       summary:
-        'I tend to build from a real user need outward, aiming for products that feel coherent before they feel complex.',
-      footnote: 'Usefulness // Simplicity // Momentum',
+        'I like to start with the real problem first, then build toward something clear, useful, and easy to work with.',
+      footnote: 'Real problems // Simple solutions // Strong execution',
       wide: true
     },
     {
       icon: 'code-fork',
       title: 'Engineering Range',
       summary:
-        'Side projects often double as R&D spaces where I can test frameworks, patterns, and delivery approaches.'
+        'A lot of my side projects are a chance to explore new tools, test ideas, and get hands-on with different approaches.'
     },
     {
       icon: 'desktop',
       title: 'Interface Craft',
       summary:
-        'I care about visual systems, readable interactions, and front-ends that feel intentional rather than assembled.'
+        'I care about clean visual systems, clear interactions, and interfaces that feel thoughtful and well put together.'
     }
   ];
 }
