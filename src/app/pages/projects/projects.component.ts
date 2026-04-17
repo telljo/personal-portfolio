@@ -58,7 +58,7 @@ export class ProjectsComponent {
         'Focused on simplicity, responsiveness, and product clarity over feature bloat.'
       ],
       stack: ['Ruby on Rails', 'Hotwire', 'HTML', 'CSS'],
-      href: 'https://old-mountain-8141.fly.dev/books',
+      href: 'https://bookshelf.joshtell.dev/',
       image: 'assets/Images/bookshelf.webp'
     },
     {
