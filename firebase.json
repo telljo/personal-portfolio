@@ -15,8 +15,7 @@
         "source": "/api/contact",
         "function": {
           "functionId": "sendContactEmail",
-          "region": "asia-southeast2",
-          "pinTag": true
+          "region": "asia-southeast2"
         }
       },
       {
