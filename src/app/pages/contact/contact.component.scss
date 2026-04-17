@@ -135,8 +135,9 @@
 }
 
 .contact-code {
-  padding: design.space(6);
+  padding: design.space(4);
   padding-bottom: 0;
+  overflow: hidden;
   border-top: 2px solid rgba(68, 220, 228, 0.2);
   background: var(--color-surface-container-lowest);
   box-shadow: var(--shadow-panel);
@@ -157,11 +158,12 @@
 
 .contact-code pre {
   margin: 0;
+  max-width: 100%;
   overflow-x: auto;
   color: rgba(102, 247, 255, 0.95);
   font-family: design.text-style('label-sm', 'family');
-  font-size: 0.85rem;
-  line-height: 1.7;
+  font-size: clamp(0.74rem, 2.7vw, 0.85rem);
+  line-height: 1.65;
 }
 
 .contact-form-shell {
