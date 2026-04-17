@@ -9,6 +9,20 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/contact",
+        "function": {
+          "functionId": "sendContactEmail",
+          "region": "asia-southeast2",
+          "pinTag": true
+        }
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }
