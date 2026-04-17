@@ -1,4 +1,8 @@
 {
+  "functions": {
+    "source": "functions",
+    "codebase": "portfolio"
+  },
   "hosting": {
     "public": "dist/personal-portfolio/browser",
     "ignore": [

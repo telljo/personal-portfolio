@@ -110,11 +110,21 @@ const software_developer = &#123;
             <button
               class="button button--primary contact-form__submit"
               type="submit"
-              [disabled]="contactForm.invalid"
+              [disabled]="contactForm.invalid || isSubmitting()"
             >
-              Send Message
+              {{ isSubmitting() ? 'Sending...' : 'Send Message' }}
               <app-icon name="arrow-right"></app-icon>
             </button>
+            @if (submissionState() !== 'idle' && submissionMessage()) {
+              <p
+                class="contact-form__feedback"
+                [class.contact-form__feedback--success]="submissionState() === 'success'"
+                [class.contact-form__feedback--error]="submissionState() === 'error'"
+                aria-live="polite"
+              >
+                {{ submissionMessage() }}
+              </p>
+            }
           </div>
         </form>
       </div>
