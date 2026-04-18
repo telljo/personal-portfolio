@@ -20,6 +20,8 @@ type ContactFormModel = {
 })
 export class ContactComponent {
   readonly emailAddress = 'jtell1997@gmail.com';
+  readonly subjectMaxLength = 120;
+  readonly messageMaxLength = 1500;
   readonly contactFormModel: ContactFormModel = {
     name: '',
     email: '',
@@ -44,7 +46,7 @@ export class ContactComponent {
     this.submissionState.set('idle');
     this.submissionMessage.set('');
 
-     try {
+    try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {

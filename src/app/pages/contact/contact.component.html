@@ -48,21 +48,55 @@
   latency: "&lt; 1 business day"
 &#125;;</code></pre>
       </div>
+
+      <div class="contact-interface__nodes">
+        <p>Active nodes:</p>
+        <div class="contact-interface__node-links">
+          <a href="https://github.com/telljo" rel="noreferrer" target="_blank" aria-label="GitHub profile">
+            <app-icon name="github"></app-icon>
+          </a>
+          <a href="https://www.linkedin.com/in/josh-tell/" rel="noreferrer" target="_blank" aria-label="LinkedIn profile">
+            <app-icon name="linkedin"></app-icon>
+          </a>
+          <a href="https://wa.me/64272220453" rel="noreferrer" target="_blank" aria-label="WhatsApp contact">
+            <app-icon name="whatsapp"></app-icon>
+          </a>
+        </div>
+      </div>
     </section>
 
     <section class="contact-interface">
       <div class="editorial-card contact-form-shell">
-        <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)" class="contact-form">
+        <div class="contact-form-shell__header">
+          <p class="contact-form-shell__eyebrow">Email me</p>
+          <h2 class="contact-form-shell__title">Start the conversation</h2>
+          <p class="contact-form-shell__summary">
+            Send over a project brief, job opportunity, or idea and I’ll get back to you soon.
+            If you prefer, you can also
+            <a [href]="'mailto:' + emailAddress">email me directly</a>.
+          </p>
+        </div>
+
+        <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)" class="contact-form" novalidate>
           <div class="contact-form__field">
             <label for="name">Name</label>
             <input
               id="name"
               type="text"
               name="name"
+              #nameModel="ngModel"
               [(ngModel)]="contactFormModel.name"
               placeholder="E.g. Alan Turing"
+              autocomplete="name"
+              [attr.aria-invalid]="nameModel.invalid && (nameModel.touched || contactForm.submitted)"
+              aria-describedby="name-error"
               required
             >
+            @if (nameModel.invalid && (nameModel.touched || contactForm.submitted)) {
+              <p id="name-error" class="contact-form__message contact-form__message--error">
+                Please add your name so I know who I’m replying to.
+              </p>
+            }
           </div>
 
           <div class="contact-form__field">
@@ -71,11 +105,21 @@
               id="email"
               type="email"
               name="email"
+              #emailModel="ngModel"
               [(ngModel)]="contactFormModel.email"
               placeholder="name@domain.com"
+              autocomplete="email"
+              inputmode="email"
+              [attr.aria-invalid]="emailModel.invalid && (emailModel.touched || contactForm.submitted)"
+              aria-describedby="email-error"
               email
               required
             >
+            @if (emailModel.invalid && (emailModel.touched || contactForm.submitted)) {
+              <p id="email-error" class="contact-form__message contact-form__message--error">
+                Enter a valid email address so I can get back to you.
+              </p>
+            }
           </div>
 
           <div class="contact-form__field">
@@ -84,10 +128,28 @@
               id="subject"
               type="text"
               name="subject"
+              #subjectModel="ngModel"
               [(ngModel)]="contactFormModel.subject"
               placeholder="Project inquiry"
+              autocomplete="off"
+              [maxLength]="subjectMaxLength"
+              [attr.aria-invalid]="subjectModel.invalid && (subjectModel.touched || contactForm.submitted)"
+              aria-describedby="subject-note subject-error"
               required
             >
+            <div class="contact-form__meta-row">
+              <p id="subject-note" class="contact-form__message">
+                A short subject helps me triage quickly.
+              </p>
+              <p class="contact-form__counter">
+                {{ contactFormModel.subject.length }}/{{ subjectMaxLength }}
+              </p>
+            </div>
+            @if (subjectModel.invalid && (subjectModel.touched || contactForm.submitted)) {
+              <p id="subject-error" class="contact-form__message contact-form__message--error">
+                Add a short subject for your message.
+              </p>
+            }
           </div>
 
           <div class="contact-form__field">
@@ -95,11 +157,30 @@
             <textarea
               id="message"
               name="message"
+              #messageModel="ngModel"
               [(ngModel)]="contactFormModel.message"
               placeholder="System brief or general inquiry..."
               rows="6"
+              autocomplete="off"
+              spellcheck="true"
+              [maxLength]="messageMaxLength"
+              [attr.aria-invalid]="messageModel.invalid && (messageModel.touched || contactForm.submitted)"
+              aria-describedby="message-note message-error"
               required
             ></textarea>
+            <div class="contact-form__meta-row">
+              <p id="message-note" class="contact-form__message">
+                Include context, timeline, and what kind of help you’re after.
+              </p>
+              <p class="contact-form__counter">
+                {{ contactFormModel.message.length }}/{{ messageMaxLength }}
+              </p>
+            </div>
+            @if (messageModel.invalid && (messageModel.touched || contactForm.submitted)) {
+              <p id="message-error" class="contact-form__message contact-form__message--error">
+                A quick summary of what you need will help me respond well.
+              </p>
+            }
           </div>
 
           <div class="contact-form__actions">
@@ -123,21 +204,6 @@
             }
           </div>
         </form>
-      </div>
-
-      <div class="contact-interface__nodes">
-        <p>Active nodes:</p>
-        <div class="contact-interface__node-links">
-          <a href="https://github.com/telljo" rel="noreferrer" target="_blank" aria-label="GitHub profile">
-            <app-icon name="github"></app-icon>
-          </a>
-          <a href="https://www.linkedin.com/in/josh-tell/" rel="noreferrer" target="_blank" aria-label="LinkedIn profile">
-            <app-icon name="linkedin"></app-icon>
-          </a>
-          <a href="https://wa.me/64272220453" rel="noreferrer" target="_blank" aria-label="WhatsApp contact">
-            <app-icon name="whatsapp"></app-icon>
-          </a>
-        </div>
       </div>
     </section>
   </div>

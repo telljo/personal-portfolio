@@ -11,6 +11,7 @@ type ExperienceEntry = {
   bullets: string[];
   stack: string[];
   href: string;
+  linkLabel: string;
   logo: string;
   highlight?: boolean;
 };
@@ -48,6 +49,7 @@ export class ExperienceComponent {
       ],
       stack: ['Ruby on Rails', 'Angular', 'RxJS', 'HTML', 'SCSS', 'AWS'],
       href: 'https://banqer.co/nz/',
+      linkLabel: 'Visit Banqer',
       logo: 'assets/Images/banqer.webp',
       highlight: true
     },
@@ -64,6 +66,7 @@ export class ExperienceComponent {
       ],
       stack: ['C#', '.NET', 'SQL', 'Angular', 'IIS', 'Web Services'],
       href: 'https://www.dxc.technology/about_us',
+      linkLabel: 'Visit DXC Technology',
       logo: 'assets/Images/dxc-logo.webp'
     },
     {
@@ -79,6 +82,7 @@ export class ExperienceComponent {
       ],
       stack: ['VMware AirWatch', 'ServiceNow', 'Compliance', 'Support'],
       href: 'https://www.anz.co.nz/about-us/our-company/anz-new-zealand/',
+      linkLabel: 'Visit ANZ New Zealand',
       logo: 'assets/Images/anz-logo.webp'
     },
     {
@@ -94,6 +98,7 @@ export class ExperienceComponent {
       ],
       stack: ['C#', '.NET', 'SQL', 'Azure', 'HTML5'],
       href: 'https://gocloud.systems/',
+      linkLabel: 'Visit Go Cloud Systems',
       logo: 'assets/Images/gocloud-logo.webp'
     },
     {
@@ -109,6 +114,7 @@ export class ExperienceComponent {
       ],
       stack: ['Computer Science', 'Web Development', 'AI', 'Databases'],
       href: 'https://www.otago.ac.nz/',
+      linkLabel: 'Visit University of Otago',
       logo: 'assets/Images/otago-logo.webp'
     }
   ];

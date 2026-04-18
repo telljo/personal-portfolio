@@ -14,22 +14,6 @@
       <p class="experience-hero__summary">
         Over the past {{yearsOfExperience()}} years, I’ve built and shipped web products across the stack, with a focus on maintainable systems, clean interfaces, and scalable software.
       </p>
-
-      <!-- <div class="experience-hero__intro">
-        <p>
-          Hello, I'm Josh, a software developer from Aotearoa New Zealand with a
-          computer science background and a strong bias toward durable systems,
-          clear interfaces, and maintainable delivery. My most recent role was at
-          <a class="inText" href="https://www.banqer.co/" rel="noreferrer" target="_blank">Banqer</a>,
-          where I grew from intermediate to senior while shipping full stack product work.
-        </p>
-        <p>
-          I’m currently on a career break slow-travelling through Asia, using the
-          space to broaden my perspective and sharpen what I want to build next.
-          I care deeply about technology that meaningfully improves people’s lives,
-          and I’m happiest working on thoughtful teams building software with long-term value.
-        </p>
-      </div> -->
     </div>
   </section>
 
@@ -94,10 +78,11 @@
                 <a
                   class="button button--ghost experience-card__link"
                   [href]="entry.href"
+                  [attr.aria-label]="entry.linkLabel + ' (opens in a new tab)'"
                   rel="noreferrer"
                   target="_blank"
                 >
-                  More
+                  {{ entry.linkLabel }}
                 </a>
               </div>
             </div>

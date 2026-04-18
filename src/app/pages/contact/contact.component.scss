@@ -171,16 +171,36 @@
   padding: design.space(8);
   background: var(--color-surface-container);
   box-shadow: var(--shadow-panel);
+  overflow: hidden;
 }
 
-.contact-form-shell__meta {
-  position: absolute;
-  top: design.space(4);
-  right: design.space(5);
-  font-family: design.text-style('label-sm', 'family');
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  color: rgba(68, 220, 228, 0.16);
+.contact-form-shell__header {
+  display: grid;
+  gap: design.space(3);
+  margin-bottom: design.space(7);
+  padding-bottom: design.space(6);
+  border-bottom: 1px solid rgba(133, 147, 148, 0.14);
+}
+
+.contact-form-shell__eyebrow {
+  @include design.text-style('label-md');
+  margin: 0;
+  color: var(--color-primary);
+}
+
+.contact-form-shell__title {
+  @include design.text-style('title-md', true);
+  margin: 0;
+}
+
+.contact-form-shell__summary {
+  margin: 0;
+  max-width: 36rem;
+  color: rgba(225, 227, 228, 0.82);
+}
+
+.contact-form-shell__summary a {
+  color: var(--color-primary-fixed);
 }
 
 .contact-form {
@@ -198,6 +218,10 @@
   color: rgba(133, 147, 148, 0.85);
 }
 
+.contact-form__field:focus-within label {
+  color: var(--color-primary-fixed);
+}
+
 .contact-form__field input,
 .contact-form__field textarea {
   border: 0;
@@ -211,6 +235,17 @@
   box-shadow: none;
 }
 
+.contact-form__field input:focus,
+.contact-form__field textarea:focus {
+  border-bottom-color: var(--color-primary);
+  box-shadow: inset 0 -1px 0 rgba(68, 220, 228, 0.24);
+}
+
+.contact-form__field input[aria-invalid='true'],
+.contact-form__field textarea[aria-invalid='true'] {
+  border-bottom-color: rgba(255, 117, 117, 0.9);
+}
+
 .contact-form__field input::placeholder,
 .contact-form__field textarea::placeholder {
   color: rgba(133, 147, 148, 0.55);
@@ -219,6 +254,30 @@
 .contact-form__field textarea {
   min-height: 11rem;
   resize: vertical;
+}
+
+.contact-form__meta-row {
+  display: flex;
+  justify-content: space-between;
+  gap: design.space(3);
+  align-items: baseline;
+}
+
+.contact-form__message {
+  @include design.text-style('label-sm');
+  margin: 0;
+  color: rgba(133, 147, 148, 0.72);
+}
+
+.contact-form__message--error {
+  color: rgba(255, 194, 194, 0.95);
+}
+
+.contact-form__counter {
+  @include design.text-style('label-sm');
+  margin: 0;
+  flex-shrink: 0;
+  color: rgba(133, 147, 148, 0.7);
 }
 
 .contact-form__actions {
@@ -273,7 +332,6 @@
 
 .contact-interface__nodes p {
   @include design.text-style('label-sm');
-  color: rgba(133, 147, 148, 0.8);
 }
 
 .contact-interface__node-links {
@@ -297,8 +355,8 @@
 }
 
 @include design.mq('md') {
-  .contact-editorial__meta-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .contact-form-shell__header {
+    margin-bottom: design.space(8);
   }
 
   .contact-form__submit {
