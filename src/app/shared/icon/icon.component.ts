@@ -10,6 +10,7 @@ export type IconName =
   | 'code-fork'
   | 'compass'
   | 'database'
+  | 'external-link'
   | 'desktop'
   | 'github'
   | 'linkedin'
@@ -88,6 +89,13 @@ export type IconName =
           <rect x="3" y="4" width="18" height="12" rx="2"></rect>
           <path d="M8 20h8"></path>
           <path d="M12 16v4"></path>
+        </svg>
+      }
+      @case ('external-link') {
+        <svg viewBox="0 0 24 24">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <path d="M15 3h6v6"></path>
+          <path d="M10 14L21 3"></path>
         </svg>
       }
       @case ('github') {

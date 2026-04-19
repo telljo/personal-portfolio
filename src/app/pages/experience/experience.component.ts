@@ -11,9 +11,14 @@ type ExperienceEntry = {
   bullets: string[];
   stack: string[];
   href: string;
-  linkLabel: string;
   logo: string;
   highlight?: boolean;
+  badge?: ExperienceBadge;
+};
+
+type ExperienceBadge = {
+  title: string;
+  colour: 'teal' | 'green' | 'amber';
 };
 
 type EcosystemHighlight = {
@@ -38,6 +43,25 @@ export class ExperienceComponent {
   readonly experienceEntries: readonly ExperienceEntry[] = [
     {
       company: 'Banqer',
+      title: 'Software Development Services',
+      period: '2025 — Present',
+      summary:
+        'Provided high-level software development consulting and feature development for Banqer’s core platform, with a focus on performance, maintainability, and developer experience.',
+      bullets: [
+        'Delivered targeted feature development and implementation support as a contractor.',
+        'Developed specialized platform features across the Rails application stack.',
+      ],
+      stack: ['Ruby on Rails', 'Angular', 'Consulting'],
+      href: 'https://banqer.co/nz/',
+      logo: 'assets/Images/banqer.webp',
+      highlight: true,
+      badge: {
+        title: 'Contract',
+        colour: 'teal'
+      }
+    },
+    {
+      company: 'Banqer',
       title: 'Senior Software Developer',
       period: '2022 — 2025',
       summary:
@@ -47,11 +71,13 @@ export class ExperienceComponent {
         'Progressed from intermediate to senior developer through consistent delivery and growing technical leadership.',
         'Worked across product design, coding, testing, and documentation in a high-impact product environment.'
       ],
-      stack: ['Ruby on Rails', 'Angular', 'RxJS', 'HTML', 'SCSS', 'AWS'],
+      stack: ['Ruby on Rails', 'Angular', 'RxJS', 'AWS'],
       href: 'https://banqer.co/nz/',
-      linkLabel: 'Visit Banqer',
       logo: 'assets/Images/banqer.webp',
-      highlight: true
+      badge: {
+        title: 'Full-Time',
+        colour: 'green'
+      }
     },
     {
       company: 'DXC Technology',
@@ -64,10 +90,13 @@ export class ExperienceComponent {
         'Designed and delivered object-oriented applications through design, coding, testing, and documentation phases.',
         'Worked with enterprise integration patterns and production support in a large-scale delivery setting.'
       ],
-      stack: ['C#', '.NET', 'SQL', 'Angular', 'IIS', 'Web Services'],
+      stack: ['C#', '.NET', 'SQL', 'Angular'],
       href: 'https://www.dxc.technology/about_us',
-      linkLabel: 'Visit DXC Technology',
-      logo: 'assets/Images/dxc-logo.webp'
+      logo: 'assets/Images/dxc-logo.webp',
+      badge: {
+        title: 'Full-Time',
+        colour: 'green'
+      }
     },
     {
       company: 'ANZ',
@@ -80,10 +109,13 @@ export class ExperienceComponent {
         'Handled device acquisition, compliance management, and vendor coordination.',
         'Resolved ServiceNow tickets through direct technical support and operational follow-through.'
       ],
-      stack: ['VMware AirWatch', 'ServiceNow', 'Compliance', 'Support'],
+      stack: ['VMware', 'ServiceNow', 'Support'],
       href: 'https://www.anz.co.nz/about-us/our-company/anz-new-zealand/',
-      linkLabel: 'Visit ANZ New Zealand',
-      logo: 'assets/Images/anz-logo.webp'
+      logo: 'assets/Images/anz-logo.webp',
+      badge: {
+        title: 'Full-Time',
+        colour: 'green'
+      }
     },
     {
       company: 'Go Cloud Systems',
@@ -96,10 +128,13 @@ export class ExperienceComponent {
         'Gained hands-on experience across backend, frontend, and database layers.',
         'Built production-ready software in a fast-moving delivery environment.'
       ],
-      stack: ['C#', '.NET', 'SQL', 'Azure', 'HTML5'],
+      stack: ['C#', '.NET', 'SQL', 'Azure'],
       href: 'https://gocloud.systems/',
-      linkLabel: 'Visit Go Cloud Systems',
-      logo: 'assets/Images/gocloud-logo.webp'
+      logo: 'assets/Images/gocloud-logo.webp',
+      badge: {
+        title: 'Full-Time',
+        colour: 'green'
+      }
     },
     {
       company: 'University of Otago',
@@ -114,8 +149,11 @@ export class ExperienceComponent {
       ],
       stack: ['Computer Science', 'Web Development', 'AI', 'Databases'],
       href: 'https://www.otago.ac.nz/',
-      linkLabel: 'Visit University of Otago',
-      logo: 'assets/Images/otago-logo.webp'
+      logo: 'assets/Images/otago-logo.webp',
+      badge: {
+        title: 'Education',
+        colour: 'amber'
+      }
     }
   ];
   readonly ecosystemHighlights: readonly EcosystemHighlight[] = [
