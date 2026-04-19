@@ -1,5 +1,7 @@
-import { Component, HostListener, signal } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, HostListener, inject, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { filter } from 'rxjs';
 
 import { IconComponent } from '../../shared/icon/icon.component';
 
@@ -18,6 +20,7 @@ type NavLink = {
 })
 
 export class NavbarComponent {
+  private readonly router = inject(Router);
   readonly navLinks: readonly NavLink[] = [
     { path: '/', label: 'Home' },
     { path: '/experience', label: 'Experience' },
@@ -27,6 +30,17 @@ export class NavbarComponent {
   readonly exactMatchOptions = { exact: true };
   readonly navShow = signal(false);
   readonly navScrolled = signal(false);
+
+  constructor() {
+    this.router.events
+      .pipe(
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+        takeUntilDestroyed()
+      )
+      .subscribe(() => {
+        this.closeNav();
+      });
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {

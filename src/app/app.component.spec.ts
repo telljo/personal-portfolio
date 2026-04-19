@@ -17,10 +17,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'AngularCV'`, () => {
+  it('should expose the current year for the footer', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('AngularCV');
+    expect(app.currentYear).toEqual(new Date().getFullYear());
   });
 
   it('should render the navbar shell', () => {

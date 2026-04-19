@@ -90,9 +90,12 @@ strong {
   text-underline-offset: 0.2em;
 }
 
+::view-transition {
+  pointer-events: none;
+}
+
 ::view-transition-old(route-content),
 ::view-transition-new(route-content) {
-  animation-delay: 120ms;
   animation-duration: var(--route-transition-duration);
   animation-timing-function: var(--route-transition-easing);
   animation-fill-mode: both;

@@ -31,7 +31,7 @@
   <div (click)="closeNav()" class="navbar__background"></div>
   <nav class="navbar__mobile-nav">
     <div class="navbar__mobile-header">
-      <a class="navbar__brand navbar__brand--mobile" routerLink="/" (click)="closeNav()">joshtell.dev</a>
+      <a class="navbar__brand navbar__brand--mobile" routerLink="/">joshtell.dev</a>
       <button
         (click)="closeNav()"
         class="navbar__mobile-close"
@@ -43,7 +43,6 @@
     </div>
     @for (link of navLinks; track link.path) {
       <a
-        (click)="closeNav()"
         class="navbar__mobile-link"
         [routerLink]="link.path"
         routerLinkActive="navbar__mobile-link--active"
