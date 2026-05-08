@@ -51,7 +51,7 @@ export class ProjectsComponent {
       title: 'Bookshelf',
       period: '2023 — Present',
       summary:
-        'A Goodreads-inspired side project built while exploring Hotwire, focused on streamlined book cataloguing, reviewing, and discovery.',
+        'A Goodreads-inspired side project built while exploring Hotwire, focused on streamlined book cataloguing, reviewing, and discovery. It also happens to be a catalogue of the books I have read and enjoyed over the last few years.',
       bullets: [
         'Created a practical learning project tailored to my own reading workflow.',
         'Explored Hotwire patterns through a complete end-to-end application.',
