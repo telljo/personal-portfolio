@@ -42,6 +42,34 @@ export class ExperienceComponent {
   readonly yearsOfExperience = signal(this.calculateDifference());
   readonly experienceEntries: readonly ExperienceEntry[] = [
     {
+      company: 'IFSO',
+      title: 'Software Development Services',
+      period: '2025 — Present',
+      summary:
+        'Designed and delivered digital services for the Insurance & Financial Services Ombudsman Scheme, modernising its consumer complaint intake and introducing Salesforce and AI-enabled case-management workflows.',
+      bullets: [
+        'Built a React and Craft CMS complaint intake experience integrated with Salesforce through AWS Lambda, including conditional workflows and document uploads.',
+        'Developed Salesforce and Agentforce solutions for generating draft case notes from case records and supporting documents.',
+        'Provided ongoing technical consulting across solution design, requirements discovery, deployment, and stakeholder testing.',
+      ],
+      stack: [
+        'React',
+        'TypeScript',
+        'Craft CMS',
+        'AWS',
+        'Salesforce',
+        'Agentforce',
+        'Consulting',
+      ],
+      href: 'https://www.ifso.nz/',
+      logo: 'assets/Images/ifso.webp',
+      highlight: true,
+      badge: {
+        title: 'Contract',
+        colour: 'teal',
+      },
+    },
+    {
       company: 'Banqer',
       title: 'Software Development Services',
       period: '2025 — Present',
@@ -54,7 +82,6 @@ export class ExperienceComponent {
       stack: ['Ruby on Rails', 'Angular', 'Consulting'],
       href: 'https://banqer.co/nz/',
       logo: 'assets/Images/banqer.webp',
-      highlight: true,
       badge: {
         title: 'Contract',
         colour: 'teal'

@@ -122,14 +122,12 @@
   transition:
     opacity 560ms ease,
     transform 560ms ease;
-  border-top: 2px solid rgba(133, 147, 148, 0.25);
   border-radius: var(--radius-lg);
   background: var(--color-surface-container-low);
   box-shadow: var(--shadow-panel);
 }
 
 .project-card--primary {
-  border-top-color: rgba(68, 220, 228, 0.85);
   background: var(--color-surface-container);
 }
 
@@ -139,7 +137,6 @@
   align-items: flex-end;
   min-height: 15rem;
   padding: design.space(6);
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
