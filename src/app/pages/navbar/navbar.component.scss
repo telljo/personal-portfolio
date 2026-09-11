@@ -150,6 +150,22 @@
   color: rgba(225, 227, 228, 0.72);
 }
 
+.navbar__link,
+.navbar__mobile-link {
+  @include design.focus-ring;
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: design.space(3) design.space(4);
+  border-radius: var(--radius-base);
+  transition: background-color 180ms ease, color 180ms ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: rgba(68, 220, 228, 0.08);
+  }
+}
+
 .navbar__mobile-link--active {
   color: var(--color-primary);
 }
@@ -171,11 +187,12 @@
   .navbar__links {
     display: flex;
     justify-content: center;
-    gap: design.space(8);
+    gap: design.space(2);
   }
 
   .navbar__link {
     @include design.text-style('label-md');
+    justify-content: center;
     color: rgba(225, 227, 228, 0.68);
   }
 

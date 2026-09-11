@@ -44,7 +44,7 @@ export class ExperienceComponent {
     {
       company: 'IFSO',
       title: 'Software Development Services',
-      period: '2025 — Present',
+      period: '2026 — Present',
       summary:
         'Designed and delivered digital services for the Insurance & Financial Services Ombudsman Scheme, modernising its consumer complaint intake and introducing Salesforce and AI-enabled case-management workflows.',
       bullets: [

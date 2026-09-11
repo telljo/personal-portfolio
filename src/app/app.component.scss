@@ -1,3 +1,5 @@
+@use '../styles/api' as design;
+
 :host {
   display: block;
 }
@@ -42,7 +44,23 @@
 .site-footer__links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: design.space(2);
+}
+
+.site-footer__links a {
+  @include design.focus-ring;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: design.space(3) design.space(4);
+  border-radius: var(--radius-base);
+  transition: background-color 180ms ease, color 180ms ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: rgba(68, 220, 228, 0.08);
+  }
 }
 
 .site-footer__links a,
