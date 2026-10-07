@@ -1,138 +1,67 @@
-<main class="experience-page">
-  <section class="experience-hero">
-    <div class="u-container experience-hero__container">
-      <div class="experience-hero__eyebrow">
-        <span class="experience-hero__eyebrow-line"></span>
-        <span>Career Timeline</span>
-      </div>
-
-      <h1 class="experience-hero__title">
-        <span>My full stack</span>
-        <span class="experience-hero__title-accent">career so far.</span>
-      </h1>
-
-      <p class="experience-hero__summary">
-        Over the past {{yearsOfExperience()}} years, I’ve built and shipped web products across the stack, with a focus on maintainable systems, clean interfaces, and scalable software.
-      </p>
-    </div>
-  </section>
-
-  <section class="experience-timeline">
-    <div class="u-container experience-timeline__container">
-      <div class="experience-timeline__rail" aria-hidden="true"></div>
-
-      @for (entry of experienceEntries; track entry.title; let isOdd = $odd) {
-        <article
-          class="experience-timeline__row"
-          [class.experience-timeline__row--initial]="$first"
-          [class.experience-timeline__row--reverse]="isOdd"
-          appInView
-        >
-          <div class="experience-timeline__date">
-            <span>{{ entry.period }}</span>
-          </div>
-
-          <div class="experience-timeline__node" aria-hidden="true"></div>
-
-          <div class="experience-timeline__content">
-            <div
-              class="experience-card"
-              [class.experience-card--primary]="entry.highlight"
-            >
-              <div class="experience-card__header">
-                <div class="experience-card__header-details">
-                  <span class="experience-card__header-title">
-                    <h2>{{ entry.company }}</h2>
-                    @if (entry.badge) {
-                      <span
-                        [class]="'experience-card__badge experience-card__badge--' + entry.badge.colour"
-                      >
-                        {{ entry.badge.title }}
-                      </span>
-                    }
-                  </span>
-                  <p class="experience-card__role">{{ entry.title }}</p>
-                </div>
-                <div class="experience-card__logo-shell">
-                  <img
-                    class="experience-card__logo"
-                    [src]="entry.logo"
-                    [alt]="entry.company + ' logo'"
-                    width="72"
-                    height="72"
-                    loading="lazy"
-                    decoding="async"
-                  >
-                </div>
-              </div>
-
-              <p class="experience-card__summary">{{ entry.summary }}</p>
-
-              <ul class="experience-card__bullets">
-                @for (bullet of entry.bullets; track bullet) {
-                  <li>
-                    <app-icon name="check-circle"></app-icon>
-                    <span>{{ bullet }}</span>
-                  </li>
-                }
-              </ul>
-
-              <div class="experience-card__footer">
-                <div class="experience-card__stack">
-                  @for (item of entry.stack; track item) {
-                    <span class="chip">{{ item }}</span>
-                  }
-                </div>
-
-                <a
-                  class="button button--ghost experience-card__link"
-                  [href]="entry.href"
-                  [attr.aria-label]="`Visit ${entry.company}`"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <app-icon name="external-link"></app-icon>
-                </a>
-              </div>
+<div class="page page--with-invitation u-container">
+  <header class="page-heading">
+    <h1>Experience.</h1>
+    <p>{{ yearsOfExperience() }} years working across product teams, enterprise applications, and independent contracts.</p>
+  </header>
+  <section aria-labelledby="recent-experience-title">
+    <div class="section-heading"><h2 id="recent-experience-title">Recent work</h2></div>
+    <div class="experience-list">
+      @for (entry of recentExperience; track entry.company + entry.title) {
+        <article class="experience-entry">
+          <div class="experience-entry__identity">
+            <p class="work-entry__meta">{{ entry.period }}</p>
+            <div class="experience-entry__company">
+              <img class="experience-entry__logo" [src]="entry.logo" alt="" width="80" height="64" loading="lazy" decoding="async">
+              <h3><a [href]="entry.href" target="_blank" rel="noreferrer">{{ entry.company }}</a></h3>
             </div>
+            <p>{{ entry.title }}</p>
+            <span class="experience-entry__engagement">{{ entry.badge?.title }}</span>
+          </div>
+          <div class="experience-entry__copy">
+            <p>{{ entry.summary }}</p>
+            <ul class="work-entry__details">
+              @for (bullet of entry.bullets; track bullet) { <li>{{ bullet }}</li> }
+            </ul>
+            <ul class="stack-list" aria-label="Technologies and skills">
+              @for (item of entry.stack; track item) { <li>{{ item }}</li> }
+            </ul>
           </div>
         </article>
       }
     </div>
   </section>
-
-  <section class="experience-ecosystem">
-    <div class="u-container">
-      <h2 class="experience-ecosystem__title">
-        Technical <span>Ecosystem</span>
-      </h2>
-
-      <div class="experience-ecosystem__grid">
-        @for (item of ecosystemHighlights; track item.title) {
-        <article
-          class="experience-ecosystem__card"
-          [class.experience-ecosystem__card--wide]="item.wide"
-        >
-          <app-icon [name]="item.icon"></app-icon>
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.summary }}</p>
-
-            @if (item.footnote) {
-              <div class="experience-ecosystem__footnote">{{ item.footnote }}</div>
-            }
-          </article>
-        }
-
-        <article class="experience-ecosystem__cta">
-          <div>
-            <h3>Looking for technical consulting?</h3>
-            <p>
-              I help teams build and improve software with a focus on scalability, maintainability, and long-term value.
-            </p>
-          </div>
-          <a class="button button--primary" routerLink="/contact">Get In Touch</a>
-        </article>
-      </div>
-    </div>
+  <section class="earlier-experience" aria-labelledby="earlier-experience-title">
+    <div class="section-heading"><h2 id="earlier-experience-title">Earlier experience & education</h2></div>
+    @for (entry of earlierExperience; track entry.company) {
+      <details class="career-detail">
+        <summary>
+          <span class="career-detail__period">{{ entry.period }}</span>
+          <span class="career-detail__identity">
+            <img class="experience-entry__logo" [src]="entry.logo" alt="" width="80" height="64" loading="lazy" decoding="async">
+            <span class="career-detail__text"><span class="career-detail__company">{{ entry.company }}</span><span>{{ entry.title }}</span></span>
+          </span>
+          <span class="career-detail__action" aria-hidden="true"></span>
+        </summary>
+        <div class="career-detail__body">
+          <p>{{ entry.summary }}</p>
+          <ul class="work-entry__details">
+            @for (bullet of entry.bullets; track bullet) { <li>{{ bullet }}</li> }
+          </ul>
+          <ul class="stack-list" aria-label="Technologies and skills">
+            @for (item of entry.stack; track item) { <li>{{ item }}</li> }
+          </ul>
+          <a class="text-link" [href]="entry.href" target="_blank" rel="noreferrer">Visit {{ entry.company }} <app-icon name="external-link" /></a>
+        </div>
+      </details>
+    }
   </section>
-</main>
+</div>
+<section class="contact-invitation">
+  <div class="contact-invitation__content u-container">
+    <div class="contact-invitation__copy">
+      <h2>Looking for an engineer?</h2>
+      <p>Get in touch about a project or an engineering role.</p>
+    </div>
+    <a class="button button--primary" routerLink="/contact">Start a conversation</a>
+  </div>
+</section>

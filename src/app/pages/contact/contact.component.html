@@ -1,209 +1,56 @@
-<main class="contact-page">
-  <div class="u-container contact-page__grid">
-    <section class="contact-editorial">
-      <div class="contact-editorial__copy">
-        <div class="contact-editorial__eyebrow">
-          <span class="contact-editorial__eyebrow-line"></span>
-          <span>Connect with me</span>
+<div class="page u-container contact-page">
+  <header class="page-heading">
+    <h1>Get in touch.</h1>
+    <p>Have a project in mind, an engineering opportunity, or a question about my work? I'd like to hear from you.</p>
+    <a class="contact-email text-link" [href]="'mailto:' + emailAddress">{{ emailAddress }} <app-icon name="external-link" /></a>
+  </header>
+  <div class="contact-layout">
+    <section aria-labelledby="contact-form-title">
+      <h2 id="contact-form-title">Send a message</h2>
+      <p class="contact-form-intro">All three fields are required. @if (draftStorageAvailable()) { Your draft is saved in this tab as you write. }</p>
+      <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)" class="contact-form" novalidate>
+        <div class="contact-form__field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" #nameModel="ngModel" [(ngModel)]="contactFormModel.name" (ngModelChange)="saveDraft()" autocomplete="name" maxlength="120" [attr.aria-invalid]="nameModel.invalid && (nameModel.touched || contactForm.submitted)" [attr.aria-describedby]="nameModel.invalid && (nameModel.touched || contactForm.submitted) ? 'name-error' : null" required>
+          @if (nameModel.invalid && (nameModel.touched || contactForm.submitted)) {
+            <p id="name-error" class="field-error">Please add your name.</p>
+          }
         </div>
-        <h1 class="contact-editorial__title">
-          Let's Build
-          <span class="contact-editorial__title-accent">Something</span>
-        </h1>
-        <p class="contact-editorial__summary">
-          Whether you have a specific project in mind or just want to talk shop
-          about product engineering, scalable systems, or front-end architecture,
-          I’m always open to interesting conversations.
-        </p>
-      </div>
-
-      <div class="contact-editorial__cards">
-        <article class="contact-info-card contact-info-card--location">
-          <div>
-            <div class="contact-location">
-              <div class="contact-location__row">
-                <span class="contact-location__meta">From</span>
-                <p class="contact-location__value">Aotearoa, New Zealand</p>
-              </div>
-              <div class="contact-location__row">
-                <span class="contact-location__meta">Currently</span>
-                <p class="contact-location__value">Queenstown-Lakes District, New Zealand</p>
-              </div>
-            </div>
+        <div class="contact-form__field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" #emailModel="ngModel" [(ngModel)]="contactFormModel.email" (ngModelChange)="saveDraft()" autocomplete="email" inputmode="email" maxlength="254" [attr.aria-invalid]="emailModel.invalid && (emailModel.touched || contactForm.submitted)" [attr.aria-describedby]="emailModel.invalid && (emailModel.touched || contactForm.submitted) ? 'email-error' : null" email required>
+          @if (emailModel.invalid && (emailModel.touched || contactForm.submitted)) {
+            <p id="email-error" class="field-error">Enter a valid email address so I can reply.</p>
+          }
+        </div>
+        <div class="contact-form__field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" #messageModel="ngModel" [(ngModel)]="contactFormModel.message" (ngModelChange)="saveDraft()" rows="6" spellcheck="true" [maxLength]="messageMaxLength" [attr.aria-invalid]="messageModel.invalid && (messageModel.touched || contactForm.submitted)" [attr.aria-describedby]="messageModel.invalid && (messageModel.touched || contactForm.submitted) ? 'message-note message-error' : 'message-note'" required></textarea>
+          <div class="contact-form__meta-row">
+            <p id="message-note">A little context and any timeline will help.</p>
+            <span>{{ contactFormModel.message.length }}/{{ messageMaxLength }}</span>
           </div>
-          <app-icon name="map-marker"></app-icon>
-        </article>
-      </div>
-
-      <div class="contact-code">
-        <div class="contact-code__dots" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
+          @if (messageModel.invalid && (messageModel.touched || contactForm.submitted)) {
+            <p id="message-error" class="field-error">Add a message about what you have in mind.</p>
+          }
         </div>
-        <pre><code>const software_developer = &#123;
-  status: "AVAILABLE_FOR_HIRE",
-  focus: ["Angular", "React", "Rails"],
-  latency: "&lt; 1 business day"
-&#125;;</code></pre>
-      </div>
-
-      <div class="contact-interface__nodes">
-        <p>Connect with me:</p>
-        <div class="contact-interface__node-links">
-          <a href="https://github.com/telljo" rel="noreferrer" target="_blank" aria-label="GitHub profile">
-            <app-icon name="github"></app-icon>
-          </a>
-          <a href="https://www.linkedin.com/in/josh-tell/" rel="noreferrer" target="_blank" aria-label="LinkedIn profile">
-            <app-icon name="linkedin"></app-icon>
-          </a>
-          <a href="https://wa.me/64272220453" rel="noreferrer" target="_blank" aria-label="WhatsApp contact">
-            <app-icon name="whatsapp"></app-icon>
-          </a>
+        <div class="contact-form__actions">
+          <button class="button button--primary" type="submit" [disabled]="isSubmitting()">{{ isSubmitting() ? 'Sending…' : 'Send message' }}</button>
+          @if (submissionState() !== 'idle' && submissionMessage()) {
+            <div class="contact-form__feedback" [class.contact-form__feedback--error]="submissionState() === 'error'" aria-live="polite">
+              <p>{{ submissionMessage() }}</p>
+              @if (submissionState() === 'error') { <a class="text-link" [href]="'mailto:' + emailAddress">Email me directly instead</a> }
+            </div>
+          }
         </div>
-      </div>
+      </form>
     </section>
-
-    <section class="contact-interface">
-      <div class="editorial-card contact-form-shell">
-        <div class="contact-form-shell__header">
-          <p class="contact-form-shell__eyebrow">Email me</p>
-          <h2 class="contact-form-shell__title">Start the conversation</h2>
-          <p class="contact-form-shell__summary">
-            Send over a project brief, job opportunity, or idea and I’ll get back to you soon.
-            If you prefer, you can also
-            <a [href]="'mailto:' + emailAddress">email me directly</a>.
-          </p>
-        </div>
-
-        <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)" class="contact-form" novalidate>
-          <div class="contact-form__field">
-            <label for="name">Name</label>
-            <input
-              id="name"
-              type="text"
-              name="name"
-              #nameModel="ngModel"
-              [(ngModel)]="contactFormModel.name"
-              placeholder="E.g. Alan Turing"
-              autocomplete="name"
-              [attr.aria-invalid]="nameModel.invalid && (nameModel.touched || contactForm.submitted)"
-              aria-describedby="name-error"
-              required
-            >
-            @if (nameModel.invalid && (nameModel.touched || contactForm.submitted)) {
-              <p id="name-error" class="contact-form__message contact-form__message--error">
-                Please add your name so I know who I’m replying to.
-              </p>
-            }
-          </div>
-
-          <div class="contact-form__field">
-            <label for="email">Email</label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              #emailModel="ngModel"
-              [(ngModel)]="contactFormModel.email"
-              placeholder="name@domain.com"
-              autocomplete="email"
-              inputmode="email"
-              [attr.aria-invalid]="emailModel.invalid && (emailModel.touched || contactForm.submitted)"
-              aria-describedby="email-error"
-              email
-              required
-            >
-            @if (emailModel.invalid && (emailModel.touched || contactForm.submitted)) {
-              <p id="email-error" class="contact-form__message contact-form__message--error">
-                Enter a valid email address so I can get back to you.
-              </p>
-            }
-          </div>
-
-          <div class="contact-form__field">
-            <label for="subject">Subject</label>
-            <input
-              id="subject"
-              type="text"
-              name="subject"
-              #subjectModel="ngModel"
-              [(ngModel)]="contactFormModel.subject"
-              placeholder="Project inquiry"
-              autocomplete="off"
-              [maxLength]="subjectMaxLength"
-              [attr.aria-invalid]="subjectModel.invalid && (subjectModel.touched || contactForm.submitted)"
-              aria-describedby="subject-note subject-error"
-              required
-            >
-            <div class="contact-form__meta-row">
-              <p id="subject-note" class="contact-form__message">
-                A short subject helps me triage quickly.
-              </p>
-              <p class="contact-form__counter">
-                {{ contactFormModel.subject.length }}/{{ subjectMaxLength }}
-              </p>
-            </div>
-            @if (subjectModel.invalid && (subjectModel.touched || contactForm.submitted)) {
-              <p id="subject-error" class="contact-form__message contact-form__message--error">
-                Add a short subject for your message.
-              </p>
-            }
-          </div>
-
-          <div class="contact-form__field">
-            <label for="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              #messageModel="ngModel"
-              [(ngModel)]="contactFormModel.message"
-              placeholder="System brief or general inquiry..."
-              rows="6"
-              autocomplete="off"
-              spellcheck="true"
-              [maxLength]="messageMaxLength"
-              [attr.aria-invalid]="messageModel.invalid && (messageModel.touched || contactForm.submitted)"
-              aria-describedby="message-note message-error"
-              required
-            ></textarea>
-            <div class="contact-form__meta-row">
-              <p id="message-note" class="contact-form__message">
-                Include context, timeline, and what kind of help you’re after.
-              </p>
-              <p class="contact-form__counter">
-                {{ contactFormModel.message.length }}/{{ messageMaxLength }}
-              </p>
-            </div>
-            @if (messageModel.invalid && (messageModel.touched || contactForm.submitted)) {
-              <p id="message-error" class="contact-form__message contact-form__message--error">
-                A quick summary of what you need will help me respond well.
-              </p>
-            }
-          </div>
-
-          <div class="contact-form__actions">
-            <button
-              class="button button--primary contact-form__submit"
-              type="submit"
-              [disabled]="contactForm.invalid || isSubmitting()"
-            >
-              {{ isSubmitting() ? 'Sending...' : 'Send Message' }}
-              <app-icon name="arrow-right"></app-icon>
-            </button>
-            @if (submissionState() !== 'idle' && submissionMessage()) {
-              <p
-                class="contact-form__feedback"
-                [class.contact-form__feedback--success]="submissionState() === 'success'"
-                [class.contact-form__feedback--error]="submissionState() === 'error'"
-                aria-live="polite"
-              >
-                {{ submissionMessage() }}
-              </p>
-            }
-          </div>
-        </form>
-      </div>
-    </section>
+    <aside class="contact-details" aria-labelledby="elsewhere-title">
+      <h2 id="elsewhere-title">Elsewhere</h2>
+      <a class="text-link" href="https://github.com/telljo" target="_blank" rel="noreferrer">GitHub <app-icon name="external-link" /></a>
+      <a class="text-link" href="https://www.linkedin.com/in/josh-tell/" target="_blank" rel="noreferrer">LinkedIn <app-icon name="external-link" /></a>
+      <a class="text-link" href="https://wa.me/64272220453" target="_blank" rel="noreferrer">WhatsApp <app-icon name="external-link" /></a>
+      <p>Based in the South Island, New Zealand.</p>
+    </aside>
   </div>
-</main>
+</div>

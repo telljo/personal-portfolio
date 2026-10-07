@@ -1,8 +1,8 @@
 @use 'sass:map';
 
 $font-families: (
-  'display': ('Space Grotesk', 'Inter', sans-serif),
-  'body': ('Inter', sans-serif),
+  'display': ('Space Grotesk', 'Source Sans 3', sans-serif),
+  'body': ('Source Sans 3', sans-serif),
   'mono': ('SFMono-Regular', 'SF Mono', 'Cascadia Mono', 'Segoe UI Mono', Consolas, monospace)
 );
 
@@ -75,15 +75,15 @@ $type-scale: (
     'family': map.get($font-families, 'display'),
     'size': clamp(2.8rem, 5vw, 4.5rem),
     'line-height': 0.95,
-    'letter-spacing': -0.06em,
+    'letter-spacing': -0.04em,
     'weight': map.get($font-weights, 'black'),
     'transform': uppercase
   ),
   'hero': (
     'family': map.get($font-families, 'display'),
-    'size': clamp(4.25rem, 12vw, 8.5rem),
+    'size': clamp(3.5rem, 7vw, 5.5rem),
     'line-height': 0.85,
-    'letter-spacing': -0.08em,
+    'letter-spacing': -0.04em,
     'weight': map.get($font-weights, 'black'),
     'transform': uppercase
   )

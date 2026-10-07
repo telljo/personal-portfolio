@@ -2,7 +2,8 @@ import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core
 import {
   ActivatedRouteSnapshot,
   provideRouter,
-  withViewTransitions
+  withViewTransitions,
+  withInMemoryScrolling
 } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -76,6 +77,7 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideRouter(
       routes,
+      withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' }),
       withViewTransitions({
         skipInitialTransition: true,
         onViewTransitionCreated: ({ from, to, transition }) => {

@@ -1,0 +1,45 @@
+{
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "fn.text-style('body-md",
+        "createdAt": "2026-10-07T19:46:23.522Z",
+        "reason": "Sass token resolves to the documented body/display font in src/styles/foundations/_typography.scss; parser false positive."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "fn.text-style('hero",
+        "createdAt": "2026-10-07T19:46:23.559Z",
+        "reason": "Sass token resolves to the documented body/display font in src/styles/foundations/_typography.scss; parser false positive."
+      },
+      {
+        "rule": "overused-font",
+        "value": "space grotesk",
+        "createdAt": "2026-10-07T19:49:02.424Z",
+        "reason": "Agent: retained the established heading family documented in DESIGN.md while replacing Inter body copy in this refinement; preserves the incumbent heading identity."
+      },
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/app/pages/projects/projects.component.html"
+        ],
+        "createdAt": "2026-10-07T20:13:51.621Z",
+        "reason": "Agent: Angular [src] bindings resolve to portfolio-content.ts logos and ProjectsComponent image assets. All six rendered project-page images were confirmed complete with nonzero naturalWidth; standalone HTML parsing misses these bindings."
+      },
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/app/pages/experience/experience.component.html"
+        ],
+        "createdAt": "2026-10-07T21:25:13.146Z",
+        "reason": "Agent: Angular [src] bindings resolve to existing ExperienceEntry.logo assets. All seven rendered logos were confirmed loaded with nonzero naturalWidth; the standalone parser misses these bindings."
+      }
+    ]
+  }
+}

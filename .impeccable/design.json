@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T19:35:31.974285+00:00",
+  "title": "Design System: Josh Tell Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "background": {
+        "role": "neutral",
+        "displayName": "Charcoal",
+        "tonalRamp": [
+          "oklch(15% 0.00514 219.74)",
+          "oklch(26.43% 0.00514 219.74)",
+          "oklch(37.86% 0.00514 219.74)",
+          "oklch(49.29% 0.00514 219.74)",
+          "oklch(60.71% 0.00514 219.74)",
+          "oklch(72.14% 0.00514 219.74)",
+          "oklch(83.57% 0.00514 219.74)",
+          "oklch(95% 0.00514 219.74)"
+        ]
+      },
+      "surface-container-low": {
+        "role": "neutral",
+        "displayName": "Low charcoal",
+        "tonalRamp": [
+          "oklch(15% 0.00495 219.69)",
+          "oklch(26.43% 0.00495 219.69)",
+          "oklch(37.86% 0.00495 219.69)",
+          "oklch(49.29% 0.00495 219.69)",
+          "oklch(60.71% 0.00495 219.69)",
+          "oklch(72.14% 0.00495 219.69)",
+          "oklch(83.57% 0.00495 219.69)",
+          "oklch(95% 0.00495 219.69)"
+        ]
+      },
+      "primary": {
+        "role": "primary",
+        "displayName": "Clear cyan",
+        "tonalRamp": [
+          "oklch(15% 0.12390 200.23)",
+          "oklch(26.43% 0.12390 200.23)",
+          "oklch(37.86% 0.12390 200.23)",
+          "oklch(49.29% 0.12390 200.23)",
+          "oklch(60.71% 0.12390 200.23)",
+          "oklch(72.14% 0.12390 200.23)",
+          "oklch(83.57% 0.12390 200.23)",
+          "oklch(95% 0.12390 200.23)"
+        ]
+      },
+      "primary-fixed": {
+        "role": "primary",
+        "displayName": "Bright cyan",
+        "tonalRamp": [
+          "oklch(15% 0.12372 200.28)",
+          "oklch(26.43% 0.12372 200.28)",
+          "oklch(37.86% 0.12372 200.28)",
+          "oklch(49.29% 0.12372 200.28)",
+          "oklch(60.71% 0.12372 200.28)",
+          "oklch(72.14% 0.12372 200.28)",
+          "oklch(83.57% 0.12372 200.28)",
+          "oklch(95% 0.12372 200.28)"
+        ]
+      },
+      "primary-fixed-dim": {
+        "role": "primary",
+        "displayName": "Pressed cyan",
+        "tonalRamp": [
+          "oklch(15% 0.12397 200.22)",
+          "oklch(26.43% 0.12397 200.22)",
+          "oklch(37.86% 0.12397 200.22)",
+          "oklch(49.29% 0.12397 200.22)",
+          "oklch(60.71% 0.12397 200.22)",
+          "oklch(72.14% 0.12397 200.22)",
+          "oklch(83.57% 0.12397 200.22)",
+          "oklch(95% 0.12397 200.22)"
+        ]
+      },
+      "on-primary": {
+        "role": "primary",
+        "displayName": "Deep cyan ink",
+        "tonalRamp": [
+          "oklch(15% 0.05200 198.75)",
+          "oklch(26.43% 0.05200 198.75)",
+          "oklch(37.86% 0.05200 198.75)",
+          "oklch(49.29% 0.05200 198.75)",
+          "oklch(60.71% 0.05200 198.75)",
+          "oklch(72.14% 0.05200 198.75)",
+          "oklch(83.57% 0.05200 198.75)",
+          "oklch(95% 0.05200 198.75)"
+        ]
+      },
+      "on-surface": {
+        "role": "neutral",
+        "displayName": "Light cool text",
+        "tonalRamp": [
+          "oklch(15% 0.00256 228.79)",
+          "oklch(26.43% 0.00256 228.79)",
+          "oklch(37.86% 0.00256 228.79)",
+          "oklch(49.29% 0.00256 228.79)",
+          "oklch(60.71% 0.00256 228.79)",
+          "oklch(72.14% 0.00256 228.79)",
+          "oklch(83.57% 0.00256 228.79)",
+          "oklch(95% 0.00256 228.79)"
+        ]
+      },
+      "on-surface-variant": {
+        "role": "neutral",
+        "displayName": "Soft cool text",
+        "tonalRamp": [
+          "oklch(15% 0.01539 202.02)",
+          "oklch(26.43% 0.01539 202.02)",
+          "oklch(37.86% 0.01539 202.02)",
+          "oklch(49.29% 0.01539 202.02)",
+          "oklch(60.71% 0.01539 202.02)",
+          "oklch(72.14% 0.01539 202.02)",
+          "oklch(83.57% 0.01539 202.02)",
+          "oklch(95% 0.01539 202.02)"
+        ]
+      },
+      "outline": {
+        "role": "neutral",
+        "displayName": "Readable outline",
+        "tonalRamp": [
+          "oklch(15% 0.01622 201.96)",
+          "oklch(26.43% 0.01622 201.96)",
+          "oklch(37.86% 0.01622 201.96)",
+          "oklch(49.29% 0.01622 201.96)",
+          "oklch(60.71% 0.01622 201.96)",
+          "oklch(72.14% 0.01622 201.96)",
+          "oklch(83.57% 0.01622 201.96)",
+          "oklch(95% 0.01622 201.96)"
+        ]
+      },
+      "outline-variant": {
+        "role": "neutral",
+        "displayName": "Quiet rule",
+        "tonalRamp": [
+          "oklch(15% 0.01676 202.22)",
+          "oklch(26.43% 0.01676 202.22)",
+          "oklch(37.86% 0.01676 202.22)",
+          "oklch(49.29% 0.01676 202.22)",
+          "oklch(60.71% 0.01676 202.22)",
+          "oklch(72.14% 0.01676 202.22)",
+          "oklch(83.57% 0.01676 202.22)",
+          "oklch(95% 0.01676 202.22)"
+        ]
+      },
+      "error": {
+        "role": "neutral",
+        "displayName": "Error coral",
+        "tonalRamp": [
+          "oklch(15% 0.08908 26.76)",
+          "oklch(26.43% 0.08908 26.76)",
+          "oklch(37.86% 0.08908 26.76)",
+          "oklch(49.29% 0.08908 26.76)",
+          "oklch(60.71% 0.08908 26.76)",
+          "oklch(72.14% 0.08908 26.76)",
+          "oklch(83.57% 0.08908 26.76)",
+          "oklch(95% 0.08908 26.76)"
+        ]
+      },
+      "surface-intro": {
+        "role": "neutral",
+        "displayName": "Intro ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.01489 213.26)",
+          "oklch(26.43% 0.02481 213.26)",
+          "oklch(37.86% 0.02481 213.26)",
+          "oklch(49.29% 0.02481 213.26)",
+          "oklch(60.71% 0.02481 213.26)",
+          "oklch(72.14% 0.02481 213.26)",
+          "oklch(83.57% 0.02481 213.26)",
+          "oklch(95.00% 0.00827 213.26)"
+        ]
+      },
+      "outline-navigation": {
+        "role": "neutral",
+        "displayName": "Navigation rule",
+        "tonalRamp": [
+          "oklch(15.00% 0.01766 209.52)",
+          "oklch(26.43% 0.02944 209.52)",
+          "oklch(37.86% 0.02944 209.52)",
+          "oklch(49.29% 0.02944 209.52)",
+          "oklch(60.71% 0.02944 209.52)",
+          "oklch(72.14% 0.02944 209.52)",
+          "oklch(83.57% 0.02944 209.52)",
+          "oklch(95.00% 0.00981 209.52)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "hero": {
+        "displayName": "Hero",
+        "purpose": "Home name."
+      },
+      "page-heading": {
+        "displayName": "Page heading",
+        "purpose": "Shared route headings."
+      },
+      "section-heading": {
+        "displayName": "Section heading",
+        "purpose": "Shared section introductions."
+      },
+      "entry-title": {
+        "displayName": "Entry title",
+        "purpose": "Organisation and project names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Work descriptions and controls."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Contact field labels."
+      },
+      "metadata": {
+        "displayName": "Metadata",
+        "purpose": "Dates, hints, and captions; skill labels share the size with semibold emphasis."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "button-state",
+        "value": "180ms ease",
+        "purpose": "Button fill, border, and text transitions."
+      },
+      {
+        "name": "base",
+        "value": "280ms",
+        "purpose": "Link and field state changes."
+      },
+      {
+        "name": "standard",
+        "value": "cubic-bezier(0.2, 0, 0, 1)",
+        "purpose": "Link and field transition easing."
+      },
+      {
+        "name": "route",
+        "value": "420ms",
+        "purpose": "Native horizontal route transition."
+      },
+      {
+        "name": "decelerate",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Route transition easing."
+      },
+      {
+        "name": "reduced-route",
+        "value": "1ms",
+        "purpose": "Route transition when reduced motion is requested."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "md",
+        "value": "48rem"
+      },
+      {
+        "name": "lg",
+        "value": "64rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main contact or submission action.",
+      "html": "<button class=\"ds-button ds-primary\">Get in touch <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M5 12h14\"></path><path d=\"m13 5 7 7-7 7\"></path></svg></button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:.75rem;min-height:3rem;padding:.75rem 1.5rem;border:1px solid transparent;border-radius:var(--radius-sm);font-family:Source Sans 3,sans-serif;font-size:1rem;font-weight:600;letter-spacing:0;text-transform:none;transition:background-color 180ms ease,border-color 180ms ease,color 180ms ease;cursor:pointer}.ds-button:focus-visible{outline:2px solid var(--color-primary);outline-offset:4px}.ds-button:disabled{opacity:.6;cursor:wait}.ds-primary{background:var(--color-primary);color:var(--color-on-primary)}.ds-primary:hover{background:var(--color-primary-fixed)}.ds-primary:active{background:var(--color-primary-fixed-dim)}.ds-primary svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.85;stroke-linecap:round;stroke-linejoin:round}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "An outlined alternative action.",
+      "html": "<button class=\"ds-button ds-ghost\">View experience</button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:.75rem;min-height:3rem;padding:.75rem 1.5rem;border:1px solid transparent;border-radius:var(--radius-sm);font-family:Source Sans 3,sans-serif;font-size:1rem;font-weight:600;letter-spacing:0;text-transform:none;transition:background-color 180ms ease,border-color 180ms ease,color 180ms ease;cursor:pointer}.ds-button:focus-visible{outline:2px solid var(--color-primary);outline-offset:4px}.ds-button:disabled{opacity:.6;cursor:wait}.ds-ghost{border-color:var(--color-outline);background:transparent;color:var(--color-on-surface)}.ds-ghost:hover{background:var(--color-surface-container-low)}"
+    },
+    {
+      "name": "Contact Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Visible label, comfortable field, and a specific validation message.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-email\">Email</label><input id=\"ds-email\" type=\"email\" aria-describedby=\"ds-email-note\"><p id=\"ds-email-note\">Enter the address I can reply to.</p></div>",
+      "css": ".ds-field{display:grid;gap:.5rem;font-family:Source Sans 3,sans-serif;color:var(--color-on-surface);line-height:1.7}.ds-field label{font-weight:500}.ds-field input{width:100%;min-width:0;padding:1rem;border:1px solid var(--color-outline);border-radius:var(--radius-sm);background:var(--color-surface-container-low);color:var(--color-on-surface);font:inherit;caret-color:var(--color-primary);transition:border-color 280ms cubic-bezier(.2,0,0,1),box-shadow 280ms cubic-bezier(.2,0,0,1)}.ds-field input:focus{border-color:var(--color-primary);outline:2px solid var(--color-primary);outline-offset:3px}.ds-field input[aria-invalid=\"true\"]{border-color:#ffb4ab}.ds-field p{margin:0;font-size:.875rem;color:var(--color-on-surface-variant)}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Personal brand and understated current-route underline.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Portfolio\"><a class=\"ds-brand\" href=\"#home\" aria-label=\"Josh Tell home\"><img src=\"/assets/Images/logo.webp\" width=\"1024\" height=\"1024\" alt=\"\"></a><div class=\"ds-nav-links\"><a href=\"#experience\" aria-current=\"page\">Experience</a><a href=\"#projects\">Projects</a><a href=\"#contact\">Contact</a></div></nav>",
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2rem;min-height:4.5rem;border-bottom:1px solid var(--color-outline-navigation);background:var(--color-surface-intro);font-family:Source Sans 3,sans-serif}.ds-brand{display:inline-flex;align-items:center;border:1px solid var(--color-outline-variant);border-radius:var(--radius-lg);overflow:hidden}.ds-brand img{display:block;width:3.5rem;height:3.5rem;object-fit:contain}.ds-nav-links{display:flex;flex-wrap:wrap;gap:1rem}.ds-nav a{text-decoration:none;min-height:2.75rem;display:inline-flex;align-items:center}.ds-nav-links a{padding:.75rem .5rem;color:var(--color-on-surface-variant);transition:color 280ms cubic-bezier(.2,0,0,1)}.ds-nav-links a:hover{color:var(--color-on-surface)}.ds-nav a[aria-current]{color:var(--color-primary);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.4em}.ds-nav a:focus-visible{outline:2px solid var(--color-primary);outline-offset:4px}.ds-brand{transition:border-color 160ms cubic-bezier(.2,0,0,1),transform 160ms cubic-bezier(.16,1,.3,1)}.ds-brand:focus-visible{border-color:var(--color-primary)}@media(hover:hover) and (pointer:fine){.ds-brand:hover{border-color:var(--color-primary);transform:translateY(-2px)}.ds-brand:active{transform:translateY(0)}}@media(prefers-reduced-motion:reduce){.ds-brand{transition:border-color 160ms cubic-bezier(.2,0,0,1)}.ds-brand:hover{transform:none}}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "text-link",
+      "description": "Underlined inline action with the shared SVG arrow.",
+      "html": "<a class=\"ds-text-link\" href=\"#work\">View my work <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M5 12h14\"></path><path d=\"m13 5 7 7-7 7\"></path></svg></a>",
+      "css": ".ds-text-link{display:inline-flex;width:fit-content;min-height:2.75rem;align-items:center;gap:.75rem;color:var(--color-primary);font-family:Source Sans 3,sans-serif;text-decoration:underline;text-decoration-color:rgba(68,220,228,.5);text-underline-offset:.3em;transition:color 280ms cubic-bezier(.2,0,0,1)}.ds-text-link:hover{color:var(--color-primary-fixed);text-decoration-color:currentColor}.ds-text-link:focus-visible{outline:2px solid var(--color-primary);outline-offset:4px}.ds-text-link svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.85;stroke-linecap:round;stroke-linejoin:round}"
+    },
+    {
+      "name": "Work Row",
+      "kind": "custom",
+      "refersTo": "work-row",
+      "description": "Flat identity and work narrative separated by a thin rule.",
+      "html": "<article class=\"ds-work\"><div><h3>Client work</h3><p class=\"ds-meta\">Contract engineering</p></div><div><p class=\"ds-focus\">Specific work, in plain language.</p><p class=\"ds-copy\">Describe the client context and engineering contribution using confirmed portfolio facts.</p></div></article>",
+      "css": ".ds-work{display:grid;gap:1.5rem;padding:2rem 0 2.5rem;border-top:1px solid var(--color-outline-variant);font-family:Source Sans 3,sans-serif;line-height:1.7;color:var(--color-on-surface-variant)}.ds-work h3{font-family:Space Grotesk,Source Sans 3,sans-serif;font-size:1.75rem;line-height:1.2;font-weight:500;letter-spacing:-.025em;margin:0 0 .5rem;color:var(--color-on-surface)}.ds-work p{margin:0}.ds-meta{font-size:.875rem}.ds-work .ds-focus{font-size:1.25rem;font-weight:500;line-height:1.4;margin-bottom:1rem;color:var(--color-on-surface)}.ds-copy{max-width:65ch}@media(min-width:48rem){.ds-work{grid-template-columns:1fr 2fr;gap:3rem}}"
+    },
+    {
+      "name": "Career Detail",
+      "kind": "custom",
+      "refersTo": "career-detail",
+      "description": "Native compact disclosure for earlier experience.",
+      "html": "<details class=\"ds-career\"><summary><span class=\"ds-career-identity\"><img src=\"/assets/Images/dxc-logo.webp\" alt=\"\" width=\"80\" height=\"64\"><span class=\"ds-career-name\">DXC Technology</span></span><span class=\"ds-career-action\" aria-hidden=\"true\"></span></summary><p>Expand to read confirmed role details.</p></details>",
+      "css": ".ds-career{border-top:1px solid var(--color-outline-variant);font-family:Source Sans 3,sans-serif;line-height:1.7;color:var(--color-on-surface-variant)}.ds-career summary{display:grid;grid-template-columns:1fr auto;gap:.75rem 1rem;padding:1.5rem 0;cursor:pointer;list-style:none}.ds-career summary::-webkit-details-marker{display:none}.ds-career summary:focus-visible{outline:2px solid var(--color-primary);outline-offset:4px}.ds-career-name{font-size:1.25rem;font-weight:600;color:var(--color-on-surface)}.ds-career-action{align-self:center;width:1rem;height:1rem;position:relative}.ds-career-action::before,.ds-career-action::after{content:\"\";position:absolute;background:var(--color-primary)}.ds-career-action::before{width:1rem;height:1px;top:50%}.ds-career-action::after{width:1px;height:1rem;left:50%}.ds-career[open] .ds-career-action::after{display:none}.ds-career p{max-width:65ch;margin:0;padding-bottom:2rem}.ds-career-identity{display:grid;grid-template-columns:5rem minmax(0,1fr);align-items:center;gap:1rem;min-width:0}.ds-career-identity img{display:block;width:5rem;height:4rem;object-fit:contain;border-radius:var(--radius-sm)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The simpler incumbent charcoal/cyan portfolio",
+    "overview": "The approved incumbent direction is a simpler dark charcoal and cyan portfolio: clear, personal, and grounded in Josh's actual work. Space Grotesk headings, Source Sans 3 copy, original photographs, and project screenshots carry the identity. Plain, specific language lets engineering experience and contracting contexts earn attention.\n\nThe finished pages use generous left-aligned headings and flat, rule-separated entries. Cyan marks actions and selected states. Broad ink-to-charcoal introductions add atmosphere. Compact charcoal contact rows provide a calm ending; content remains the main visual interest. This records the approved refinement and the supplied product voice, so no new metaphor, aesthetic decision, or preference interview is needed.",
+    "keyCharacteristics": [
+      "Dark charcoal with restrained blue-green surface variation and a cyan action accent.",
+      "Sentence-case headings and readable, restrained type.",
+      "Flat work rows, original imagery, and open spacing.",
+      "Visible focus, native links and details, and clear form feedback."
+    ],
+    "rules": [
+      {
+        "name": "The Action Accent Rule",
+        "body": "Use cyan for actions, current navigation, engagement labels, and interaction indicators. Keep ordinary descriptions in the neutral text colors.",
+        "section": "colors"
+      },
+      {
+        "name": "The Plain Heading Rule",
+        "body": "Use left-aligned, sentence-case Space Grotesk headings at the observed medium weight. Keep metadata in Source Sans 3 without decorative uppercase labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Work Rule",
+        "body": "Separate work entries with thin rules and whitespace. Let the content and original images provide hierarchy rather than adding raised card shells.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the charcoal/cyan identity and Space Grotesk/Source Sans 3 pairing.",
+      "Do use sentence-case, left-aligned headings and plain, specific personal language.",
+      "Do show original photographs and screenshots clearly, with natural image proportions where the build does so.",
+      "Do preserve visible focus, underlined text links, readable neutral copy, and useful field errors.",
+      "Do use the shared container, spacing rhythm, and mobile-first column collapse for new surfaces."
+    ],
+    "donts": [
+      "Don't add generic marketing slogans, fabricated outcomes, testimonials, or availability promises.",
+      "Don't reintroduce dark screenshot gradients, repeated reveal effects, or decorative card frames around every work entry.",
+      "Don't substitute Unicode glyphs for the existing SVG icon system.",
+      "Don't inherit unused legacy uppercase display styles, decorative label styles, glow shadows, or glass surfaces as the four-route house style."
+    ]
+  }
+}

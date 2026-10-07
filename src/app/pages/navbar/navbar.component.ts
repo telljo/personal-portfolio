@@ -1,4 +1,4 @@
-import { Component, HostListener, inject, signal } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs';
@@ -29,7 +29,7 @@ export class NavbarComponent {
   ];
   readonly exactMatchOptions = { exact: true };
   readonly navShow = signal(false);
-  readonly navScrolled = signal(false);
+  @ViewChild('menuToggle') private menuToggle?: ElementRef<HTMLButtonElement>;
 
   constructor() {
     this.router.events
@@ -42,9 +42,12 @@ export class NavbarComponent {
       });
   }
 
-  @HostListener('window:scroll', [])
-  onWindowScroll(): void {
-    this.navScrolled.set(window.scrollY > 50);
+  @HostListener('window:keydown.escape')
+  onEscape(): void {
+    if (this.navShow()) {
+      this.closeNav();
+      this.menuToggle?.nativeElement.focus();
+    }
   }
 
   toggleNav(): void {

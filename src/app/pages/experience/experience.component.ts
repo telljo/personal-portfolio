@@ -1,92 +1,21 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { InViewDirective } from '../../shared/directives/in-view.directive';
-import { IconComponent, type IconName } from '../../shared/icon/icon.component';
-
-type ExperienceEntry = {
-  company: string;
-  title: string;
-  period: string;
-  summary: string;
-  bullets: string[];
-  stack: string[];
-  href: string;
-  logo: string;
-  highlight?: boolean;
-  badge?: ExperienceBadge;
-};
-
-type ExperienceBadge = {
-  title: string;
-  colour: 'teal' | 'green' | 'amber';
-};
-
-type EcosystemHighlight = {
-  icon: IconName;
-  title: string;
-  summary: string;
-  footnote?: string;
-  wide?: boolean;
-};
+import { IconComponent } from '../../shared/icon/icon.component';
+import { contractEngagements, type ExperienceEntry } from '../../shared/portfolio-content';
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [InViewDirective, RouterLink, IconComponent],
+  imports: [RouterLink, IconComponent],
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.scss'],
-  host: { class: 'experience' }
+  host: { class: 'experience page-canvas' }
 })
 export class ExperienceComponent {
   private startDate: Date = new Date('2017-11-01');
   readonly yearsOfExperience = signal(this.calculateDifference());
   readonly experienceEntries: readonly ExperienceEntry[] = [
-    {
-      company: 'IFSO',
-      title: 'Software Development Services',
-      period: '2026 — Present',
-      summary:
-        'Designed and delivered digital services for the Insurance & Financial Services Ombudsman Scheme, modernising its consumer complaint intake and introducing Salesforce and AI-enabled case-management workflows.',
-      bullets: [
-        'Built a React and Craft CMS complaint intake experience integrated with Salesforce through AWS Lambda, including conditional workflows and document uploads.',
-        'Developed Salesforce and Agentforce solutions for generating draft case notes from case records and supporting documents.',
-        'Provided ongoing technical consulting across solution design, requirements discovery, deployment, and stakeholder testing.',
-      ],
-      stack: [
-        'React',
-        'TypeScript',
-        'Craft CMS',
-        'AWS',
-        'Salesforce',
-        'Agentforce',
-        'Consulting',
-      ],
-      href: 'https://www.ifso.nz/',
-      logo: 'assets/Images/ifso.webp',
-      highlight: true,
-      badge: {
-        title: 'Contract',
-        colour: 'teal',
-      },
-    },
-    {
-      company: 'Banqer',
-      title: 'Software Development Services',
-      period: '2025 — Present',
-      summary:
-        'Provided high-level software development consulting and feature development for Banqer’s core platform, with a focus on performance, maintainability, and developer experience.',
-      bullets: [
-        'Delivered targeted feature development and implementation support as a contractor.',
-        'Developed specialized platform features across the Rails application stack.',
-      ],
-      stack: ['Ruby on Rails', 'Angular', 'Consulting'],
-      href: 'https://banqer.co/nz/',
-      logo: 'assets/Images/banqer.webp',
-      badge: {
-        title: 'Contract',
-        colour: 'teal'
-      }
-    },
+    ...contractEngagements,
     {
       company: 'Banqer',
       title: 'Senior Software Developer',
@@ -183,28 +112,8 @@ export class ExperienceComponent {
       }
     }
   ];
-  readonly ecosystemHighlights: readonly EcosystemHighlight[] = [
-    {
-      icon: 'cloud',
-      title: 'Infrastructure',
-      summary:
-        'Building practical delivery systems across cloud environments, release pipelines, and production workflows.',
-      footnote: 'AWS // Azure // CI-CD // Cloud delivery',
-      wide: true
-    },
-    {
-      icon: 'database',
-      title: 'Data & Architecture',
-      summary:
-        'Working with relational databases, data modelling, and the trade-offs that come with software built to last.'
-    },
-    {
-      icon: 'code',
-      title: 'Languages',
-      summary:
-        'My background is grounded in Ruby on Rails, C#, TypeScript, and Angular across both product and enterprise teams.'
-    }
-  ];
+  readonly recentExperience = this.experienceEntries.slice(0, 3);
+  readonly earlierExperience = this.experienceEntries.slice(3);
 
   calculateDifference(): string {
     const today = new Date();

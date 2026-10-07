@@ -1,219 +1,102 @@
 @use '../../../styles/api' as design;
-
-:host.navbar {
+:host  {
   display: block;
 }
-
-.navbar__shell {
+.navbar__shell  {
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
-  padding-top: design.space(3);
+  background: var(--color-surface-intro);
+  border-bottom: 1px solid var(--color-outline-navigation);
   view-transition-name: site-navbar;
 }
-
-.navbar__inner {
+.navbar__inner  {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: design.space(4);
   min-height: var(--nav-height);
-  padding: design.space(3);
-  border-radius: var(--radius-lg);
-  background: rgba(17, 20, 21, 0.32);
-  border: 1px solid transparent;
-  backdrop-filter: blur(20px);
-  position: relative;
-  transition:
-    background-color 280ms ease,
-    border-color 280ms ease,
-    box-shadow 280ms ease,
-    min-height 280ms ease,
-    padding 280ms ease,
-    transform 280ms ease;
 }
-
-.navbar__inner::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: -1px;
-  left: 0;
-  height: 1px;
-  border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    rgba(68, 220, 228, 0),
-    rgba(68, 220, 228, 0.28),
-    rgba(68, 220, 228, 0)
-  );
-  opacity: 0;
-  transition: opacity 280ms ease;
-}
-
-.navbar__shell--scrolled .navbar__inner {
-  min-height: 4.5rem;
-  padding-block: design.space(2);
-  background: rgba(17, 20, 21, 0.92);
-  border-color: rgba(133, 147, 148, 0.16);
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
-  transform: translateY(-1px);
-}
-
-.navbar__shell--scrolled .navbar__inner::after {
-  opacity: 1;
-}
-
-.navbar__brand {
-  @include design.text-style('label-md', true);
-  color: var(--color-primary);
-}
-
-.navbar__links,
-.navbar__cta {
-  display: none;
-}
-
-.navbar__button {
-  @include design.button-reset;
-  @include design.focus-ring;
-  justify-self: end;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: var(--radius-base);
-  color: var(--color-primary);
-  view-transition-name: navbar-toggle;
-}
-
-.navbar__button app-icon,
-.navbar__mobile-close app-icon {
-  font-size: 1rem;
-}
-
-.navbar__background {
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  background: rgba(12, 15, 16, 0.76);
-  backdrop-filter: blur(14px);
-}
-
-.navbar__mobile-nav {
-  position: fixed;
-  top: design.space(4);
-  right: design.space(4);
-  left: design.space(4);
-  z-index: 61;
-  display: flex;
-  flex-direction: column;
-  gap: design.space(3);
-  padding: design.space(6);
-  border: 1px solid rgba(133, 147, 148, 0.14);
-  border-radius: var(--radius-lg);
-  background: rgba(25, 28, 29, 0.96);
-  box-shadow: var(--shadow-panel);
-  max-height: calc(100dvh - #{design.space(8)});
-  overflow-y: auto;
-}
-
-.navbar__mobile-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: design.space(4);
-  margin-bottom: design.space(2);
-}
-
-.navbar__brand--mobile {
-  width: fit-content;
-}
-
-.navbar__brand--mobile .navbar__logo {
-  height: 1.05rem;
-}
-
-.navbar__mobile-close {
-  @include design.button-reset;
-  @include design.focus-ring;
+.navbar__brand  {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--radius-base);
-  color: var(--color-primary);
-  background: rgba(12, 15, 16, 0.72);
+  justify-self: start;
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition:
+    border-color design.duration('fast') design.easing('standard'),
+    transform design.duration('fast') design.easing('decelerate');
 }
-
-.navbar__mobile-link {
-  @include design.text-style('title-sm');
-  color: rgba(225, 227, 228, 0.72);
+.navbar__brand:focus-visible  {
+  border-color: var(--color-primary);
 }
-
-.navbar__link,
-.navbar__mobile-link {
-  @include design.focus-ring;
+@media (hover: hover) and (pointer: fine)  {
+  .navbar__brand:hover  {
+    border-color: var(--color-primary);
+  }
+}
+@media (prefers-reduced-motion: reduce)  {
+  .navbar__brand  {
+    transition: border-color design.duration('fast') design.easing('standard');
+  }
+  .navbar__brand:hover  {
+    transform: none;
+  }
+}
+.navbar__logo  {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+}
+.navbar__button  {
+  @include design.button-reset;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--color-on-surface);
+  display: grid;
+  place-items: center;
+}
+.navbar__links  {
+  display: none;
+  grid-column: 1 / -1;
+  padding-block: design.space(3) design.space(5);
+}
+.navbar__links--open  {
+  display: grid;
+}
+.navbar__link  {
   display: flex;
   align-items: center;
   min-height: 2.75rem;
   padding: design.space(3) design.space(4);
-  border-radius: var(--radius-base);
-  transition: background-color 180ms ease, color 180ms ease;
-
-  &:hover,
-  &:focus-visible {
-    background-color: rgba(68, 220, 228, 0.08);
-  }
+  color: var(--color-on-surface-variant);
+  font-size: 1rem;
 }
-
-.navbar__mobile-link--active {
+.navbar__link:hover  {
+  color: var(--color-on-surface);
+}
+.navbar__link--active  {
   color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.4em;
 }
-
-.navbar__mobile-cta {
-  margin-top: design.space(4);
-}
-
-@include design.mq('md') {
-  .navbar__inner {
-    grid-template-columns: auto 1fr auto;
+@include design.mq('md')  {
+  .navbar__inner  {
+    grid-template-columns: auto 1fr;
     gap: design.space(8);
   }
-
-  .navbar__button {
+  .navbar__button  {
     display: none;
   }
-
-  .navbar__links {
+  .navbar__links, .navbar__links--open  {
     display: flex;
-    justify-content: center;
-    gap: design.space(2);
+    justify-self: end;
+    gap: design.space(4);
+    grid-column: auto;
+    padding: 0;
   }
-
-  .navbar__link {
-    @include design.text-style('label-md');
-    justify-content: center;
-    color: rgba(225, 227, 228, 0.68);
-  }
-
-  .navbar__shell--scrolled .navbar__link {
-    color: rgba(225, 227, 228, 0.9);
-  }
-
-  .navbar__link:hover {
-    color: var(--color-on-surface);
-  }
-
-  .navbar__link--active {
-    color: var(--color-primary);
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.65em;
-  }
-
-  .navbar__cta {
-    display: inline-flex;
-    min-height: 2.75rem;
-    padding-inline: design.space(5);
+  .navbar__link  {
+    padding-inline: design.space(2);
   }
 }

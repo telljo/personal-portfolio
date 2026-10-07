@@ -17,7 +17,7 @@ const portfolioRoutes: Routes = [
     data: {
       name: 'Home',
       description:
-        'Josh Tell is a senior full stack engineer building scalable web products, durable interfaces, and thoughtful product experiences.',
+        'Josh Tell is a senior full stack engineer and contractor based in New Zealand. Explore client work, personal projects, and engineering experience.',
       canonicalPath: canonicalPath('/')
     } satisfies SeoData
   },
@@ -31,7 +31,7 @@ const portfolioRoutes: Routes = [
     data: {
       name: 'Experience',
       description:
-        'Explore Josh Tell’s software engineering experience across Banqer, DXC Technology, ANZ, Go Cloud Systems, and the University of Otago.',
+        'Explore Josh Tell’s software engineering and contracting experience at IFSO, Banqer, DXC Technology, ANZ, and Go Cloud Systems.',
       canonicalPath: canonicalPath('experience')
     } satisfies SeoData
   },
@@ -45,7 +45,7 @@ const portfolioRoutes: Routes = [
     data: {
       name: 'Projects',
       description:
-        'Browse featured software projects by Josh Tell, including client work, side projects, and product experiments focused on scalable user experiences.',
+        'Explore Josh Tell’s client work for IFSO and Banqer, alongside personal projects including Footprints and Bookshelf.',
       canonicalPath: canonicalPath('projects')
     } satisfies SeoData
   },

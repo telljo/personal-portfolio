@@ -1,405 +1,139 @@
 @use '../../../styles/api' as design;
-
-:host.experience {
+:host  {
   display: block;
 }
-
-.experience-page {
-  padding-top: calc(var(--nav-height) + #{design.space(12)});
-  padding-bottom: design.space(16);
-}
-
-.experience-hero {
-  padding-bottom: design.space(16);
-}
-
-.experience-hero__eyebrow {
-  @include design.text-style('label-md');
-  display: inline-flex;
-  align-items: center;
-  gap: design.space(4);
-  margin-bottom: design.space(6);
-  color: var(--color-primary);
-}
-
-.experience-hero__eyebrow-line {
-  width: 3rem;
-  height: 2px;
-  background: currentColor;
-}
-
-.experience-hero__title {
-  @include design.text-style('display-md', true);
-  margin-bottom: design.space(6);
-}
-
-.experience-hero__title span {
-  display: block;
-}
-
-.experience-hero__title-accent {
-  color: var(--color-primary-container);
-}
-
-.experience-hero__summary {
-  max-width: 44rem;
-  margin-bottom: design.space(8);
-  font-size: 1.1rem;
-}
-
-.experience-hero__intro {
+.experience-entry  {
   display: grid;
   gap: design.space(6);
-  max-width: 72rem;
+  padding-block: design.space(8) design.space(10);
+  border-top: 1px solid var(--color-outline-variant);
 }
-
-.experience-hero__intro p {
-  margin: 0;
-}
-
-.experience-timeline {
-  padding-bottom: design.space(20);
-}
-
-.experience-timeline__container {
-  position: relative;
+.experience-entry__identity  {
   display: grid;
-  gap: design.space(12);
-}
-
-.experience-timeline__rail {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0.3125rem;
-  width: 2px;
-  background: linear-gradient(
-    to bottom,
-    rgba(68, 220, 228, 0.7),
-    rgba(60, 73, 74, 0.55),
-    rgba(25, 28, 29, 0.15)
-  );
-  opacity: 0.35;
-}
-
-.experience-timeline__row {
-  position: relative;
-  display: grid;
-  gap: design.space(4);
-  padding-left: design.space(8);
-}
-
-.experience-timeline__row.in-view {
-  .experience-timeline__date,
-  .experience-card {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.experience-timeline__row--initial .experience-timeline__date {
-  animation: experience-timeline-enter 420ms ease 120ms forwards;
-}
-
-.experience-timeline__row--initial .experience-card {
-  animation: experience-timeline-enter 560ms ease 180ms forwards;
-}
-
-.experience-timeline__date {
-  @include design.text-style('title-md', true);
-  color: rgba(225, 227, 228, 0.2);
-  opacity: 0;
-  transform: translateY(design.space(4));
-  transition:
-    opacity 420ms ease,
-    transform 420ms ease;
-}
-
-.experience-timeline__node {
-  position: absolute;
-  top: 1rem;
-  left: 0;
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-  background: var(--color-primary);
-  box-shadow: 0 0 18px rgba(68, 220, 228, 0.5);
-}
-
-.experience-card {
-  opacity: 0;
-  transform: translateY(design.space(6));
-  transition:
-    opacity 560ms ease,
-    transform 560ms ease;
-  padding: design.space(8);
-  border-top: 2px solid rgba(133, 147, 148, 0.25);
-  border-radius: var(--radius-base);
-  background: var(--color-surface-container-low);
-  box-shadow: var(--shadow-panel);
-}
-
-.experience-card--primary {
-  border-top-color: rgba(68, 220, 228, 0.85);
-  background: var(--color-surface-container);
-}
-
-.experience-card__header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: design.space(5);
-  margin-bottom: design.space(6);
-}
-
-.experience-card__header-details {
-  display: flex;
-  flex-direction: column;
+  align-content: start;
   gap: design.space(2);
 }
-
-.experience-card__header-title {
-  display: flex;
-  flex-wrap: wrap;
+.experience-entry__identity h3  {
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+.experience-entry__company  {
+  display: grid;
+  grid-template-columns: #{design.space(20)} minmax(0, 1fr);
   align-items: center;
-  gap: design.space(3);
+  gap: design.space(4);
 }
-
-.experience-card__badge {
-  --experience-card-badge-color: var(--color-primary);
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 1.55rem;
-  padding: 0.125rem 0.7rem;
-  border: 1px solid color-mix(in srgb, var(--experience-card-badge-color) 45%, transparent);
-  border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--experience-card-badge-color) 8%, transparent);
-  color: var(--experience-card-badge-color);
-  font-size: 0.72rem;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
-.experience-card__badge--teal {
-  --experience-card-badge-color: var(--color-primary);
-}
-
-.experience-card__badge--green {
-  --experience-card-badge-color: #8ce99a;
-}
-
-.experience-card__badge--amber {
-  --experience-card-badge-color: #ffd166;
-}
-
-.experience-card__header h2 {
-  @include design.text-style('title-md');
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.experience-card__role {
-  @include design.text-style('label-md');
-  color: var(--color-primary);
-}
-
-@keyframes experience-timeline-enter {
-  from {
-    opacity: 0;
-    transform: translateY(design.space(6));
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.experience-card__logo-shell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 4.5rem;
-  height: 4.5rem;
-  border-radius: var(--radius-base);
-  overflow: hidden;
-  background: var(--color-surface-container-highest);
-}
-
-.experience-card__logo {
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
+.experience-entry__logo  {
+  width: design.space(20);
+  height: design.space(16);
   object-fit: contain;
+  border-radius: var(--radius-sm);
 }
-
-.experience-card__summary {
-  margin-bottom: design.space(6);
+.experience-entry__identity h3 a:hover  {
+  color: var(--color-primary);
 }
-
-.experience-card__bullets {
+.experience-entry__engagement  {
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  margin-top: design.space(2);
+}
+.experience-entry__copy  {
+  max-width: 65ch;
+}
+.earlier-experience  {
+  padding-top: design.space(16);
+}
+.career-detail  {
+  border-top: 1px solid var(--color-outline-variant);
+}
+.career-detail:last-child  {
+  border-bottom: 1px solid var(--color-outline-variant);
+}
+.career-detail summary  {
   display: grid;
-  gap: design.space(4);
-  margin: 0 0 design.space(6);
-  padding: 0;
+  grid-template-columns: 1fr auto;
+  gap: design.space(3) design.space(4);
+  cursor: pointer;
   list-style: none;
+  padding-block: design.space(6);
 }
-
-.experience-card__bullets li {
-  display: flex;
-  gap: design.space(4);
-  color: var(--color-on-surface);
+.career-detail summary::-webkit-details-marker  {
+  display: none;
 }
-
-.experience-card__bullets app-icon {
-  margin-top: 0.25rem;
-  color: var(--color-primary);
+.career-detail__period  {
+  color: var(--color-on-surface-variant);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
 }
-
-.experience-card__footer {
-  display: flex;
-  flex-direction: column;
-  gap: design.space(5);
-}
-
-.experience-hero__container {
-  display: flex;
-  flex-direction: column;
-  gap: design.space(2);
-}
-
-.experience-card__stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: design.space(2);
-}
-
-.experience-card__link {
-  width: fit-content;
-  font-size: 1em;
-}
-
-.experience-ecosystem__title {
-  @include design.text-style('title-md', true);
-  margin-bottom: design.space(8);
-  text-transform: uppercase;
-}
-
-.experience-ecosystem__title span {
-  color: var(--color-primary);
-}
-
-.experience-ecosystem__grid {
+.career-detail__identity  {
   display: grid;
+  grid-template-columns: #{design.space(20)} minmax(0, 1fr);
+  align-items: center;
   gap: design.space(4);
+  min-width: 0;
+  grid-column: 1;
+  color: var(--color-on-surface-variant);
 }
-
-.experience-ecosystem__card,
-.experience-ecosystem__cta {
-  padding: design.space(6);
-  border-radius: var(--radius-base);
-  background: var(--color-surface-container-low);
-  box-shadow: var(--shadow-panel);
+.career-detail__text  {
+  display: grid;
+  gap: design.space(1);
 }
-
-.experience-ecosystem__card {
-  border-left: 4px solid rgba(68, 220, 228, 0.8);
+.career-detail__company  {
+  color: var(--color-on-surface);
+  font-size: 1.25rem;
+  font-weight: 600;
 }
-
-.experience-ecosystem__card app-icon {
-  margin-bottom: design.space(4);
-  color: var(--color-primary);
-  font-size: 1.2rem;
+.career-detail__action  {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+  width: 1rem;
+  height: 1rem;
+  position: relative;
 }
-
-.experience-ecosystem__card h3,
-.experience-ecosystem__cta h3 {
-  @include design.text-style('title-sm');
-  margin-bottom: design.space(3);
+.career-detail__action::before, .career-detail__action::after  {
+  content: '';
+  position: absolute;
+  background: var(--color-primary);
 }
-
-.experience-ecosystem__footnote {
-  @include design.text-style('label-sm');
-  margin-top: design.space(4);
-  color: var(--color-primary);
+.career-detail__action::before  {
+  width: 1rem;
+  height: 1px;
+  top: 50%;
 }
-
-.experience-ecosystem__cta {
-  display: flex;
-  flex-direction: column;
-  gap: design.space(6);
-  background: var(--color-surface-container-lowest);
+.career-detail__action::after  {
+  width: 1px;
+  height: 1rem;
+  left: 50%;
 }
-
-@include design.mq('md') {
-  .experience-hero__intro {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.career-detail[open] .career-detail__action::after  {
+  display: none;
+}
+.career-detail__body  {
+  max-width: 65ch;
+  padding-bottom: design.space(8);
+}
+.career-detail__body .text-link  {
+  margin-top: design.space(5);
+}
+@include design.mq('md')  {
+  .experience-entry  {
+    grid-template-columns: 1fr 2fr;
+    gap: design.space(12);
   }
-
-  .experience-card__footer {
-    flex-direction: row;
+  .career-detail summary  {
+    grid-template-columns: 12rem 1fr auto;
     align-items: center;
-    justify-content: space-between;
+    gap: design.space(6);
   }
-
-  .experience-ecosystem__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .career-detail__identity  {
+    grid-column: 2;
   }
-
-  .experience-ecosystem__card--wide {
-    grid-column: span 2;
+  .career-detail__action  {
+    grid-column: 3;
+    grid-row: 1;
   }
-
-  .experience-ecosystem__cta {
-    grid-column: span 4;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
-@include design.mq('lg') {
-  .experience-timeline__rail {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .experience-timeline__row {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: start;
-    gap: design.space(10);
-    padding-left: 0;
-  }
-
-  .experience-timeline__row--reverse .experience-timeline__date {
-    order: 2;
-    justify-self: start;
-    padding-left: design.space(12);
-    text-align: left;
-  }
-
-  .experience-timeline__row--reverse .experience-timeline__content {
-    order: 1;
-    padding-right: design.space(12);
-  }
-
-  .experience-timeline__date {
-    justify-self: end;
-    padding-right: design.space(12);
-    text-align: right;
-  }
-
-  .experience-timeline__content {
-    padding-left: design.space(12);
-  }
-
-  .experience-timeline__node {
-    left: 50%;
-    transform: translateX(-50%);
+  .career-detail__body  {
+    margin-left: calc(12rem + #{design.space(6)} + #{design.space(20)} + #{design.space(4)});
   }
 }

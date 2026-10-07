@@ -4,14 +4,12 @@
 html {
   background: var(--color-background);
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
   overflow-x: hidden;
-  background:
-    radial-gradient(circle at 85% 18%, rgba(68, 220, 228, 0.12), transparent 24rem),
-    radial-gradient(circle at 10% 82%, rgba(68, 220, 228, 0.08), transparent 20rem),
-    var(--color-background);
+  background: var(--color-background);
   color: var(--color-on-background);
   font-family: fn.text-style('body-md', 'family');
   line-height: fn.text-style('body-md', 'line-height');
@@ -20,16 +18,11 @@ body {
   overscroll-behavior-y: none;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.035;
-  background-image: radial-gradient(circle, rgba(68, 220, 228, 0.95) 1px, transparent 1px);
-  background-size: 28px 28px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), transparent 80%);
-}
+body { scrollbar-color: var(--color-outline) var(--color-background); }
+:where(a, button, input, textarea, summary):focus-visible { outline: 2px solid var(--color-primary); outline-offset: 4px; }
+h1, h2, h3, h4 { font-family: 'Space Grotesk', 'Source Sans 3', sans-serif; font-weight: 500; letter-spacing: -0.025em; text-wrap: balance; }
+p { text-wrap: pretty; }
+html { scroll-padding-top: calc(var(--nav-height) + 2rem); }
 
 app-root,
 main {

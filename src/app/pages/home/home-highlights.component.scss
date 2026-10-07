@@ -1,57 +1,35 @@
 @use '../../../styles/api' as design;
-
-:host {
+:host  {
   display: block;
-  content-visibility: auto;
-  contain-intrinsic-size: 58rem;
 }
-
-.home-highlights {
-  padding-bottom: design.space(16);
-}
-
-.home-highlights__grid {
+.home-personal  {
   display: grid;
-  gap: design.space(4);
+  gap: design.space(8);
+  padding-block: design.space(20);
+  align-items: center;
 }
-
-.home-highlights__card {
-  display: flex;
-  min-height: 15rem;
-  flex-direction: column;
-  justify-content: space-between;
+.home-personal__copy  {
+  display: grid;
+  gap: design.space(6);
 }
-
-.home-highlights__card h2 {
-  @include design.text-style('title-md');
-  margin-bottom: design.space(4);
+.home-personal__copy h2  {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
 }
-
-.home-highlights__meta {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-top: design.space(8);
-  color: var(--color-primary);
+.home-personal__copy p  {
+  max-width: 50ch;
 }
-
-.home-highlights__meta app-icon {
-  font-size: 1.15rem;
+.home-personal__image  {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: block;
 }
-
-.home-highlights__index {
-  font-family: design.text-style('hero', 'family');
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
-  line-height: 1;
-  color: rgba(225, 227, 228, 0.3);
+.home-personal__image img  {
+  width: 100%;
+  height: auto;
 }
-
-@include design.mq('lg') {
-  .home-highlights__grid {
-    grid-template-columns: 1.45fr 1fr 1fr;
-  }
-
-  .home-highlights__card--wide {
-    grid-column: span 1;
+@include design.mq('md')  {
+  .home-personal  {
+    grid-template-columns: 1fr 1fr;
+    gap: design.space(12);
   }
 }

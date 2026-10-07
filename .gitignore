@@ -29,6 +29,17 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+# Local Impeccable tooling (keep PRODUCT.md and .impeccable/config.json)
+/.agents/skills/impeccable/
+/.github/skills/impeccable/
+/.github/agents/impeccable-*.agent.md
+/.github/hooks/impeccable.json
+/.codex/hooks.json
+/.impeccable/config.local.json
+/.impeccable/critique/
+/.impeccable/live/
+/.impeccable/review/
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/

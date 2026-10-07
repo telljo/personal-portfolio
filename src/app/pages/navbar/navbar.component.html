@@ -1,55 +1,15 @@
-<nav class="navbar__shell" [class.navbar__shell--scrolled]="navScrolled()">
+<nav class="navbar__shell" aria-label="Main navigation">
   <div class="u-container navbar__inner">
-    <a class="navbar__brand" routerLink="/">joshtell.dev</a>
-
-    <div class="navbar__links">
-      @for (link of navLinks; track link.path) {
-        <a
-          class="navbar__link"
-          [routerLink]="link.path"
-          routerLinkActive="navbar__link--active"
-          [routerLinkActiveOptions]="exactMatchOptions"
-        >
-          {{ link.label }}
-        </a>
-      }
-    </div>
-
-    <button
-      (click)="toggleNav()"
-      class="navbar__button"
-      type="button"
-      aria-label="Toggle navigation"
-      [attr.aria-expanded]="navShow()"
-    >
+    <a class="navbar__brand" routerLink="/" aria-label="Josh Tell home">
+      <img src="assets/Images/logo.webp" alt="" width="1024" height="1024" class="navbar__logo">
+    </a>
+    <button #menuToggle (click)="toggleNav()" class="navbar__button" type="button" [attr.aria-label]="navShow() ? 'Close navigation' : 'Open navigation'" aria-controls="main-navigation-links" [attr.aria-expanded]="navShow()">
       <app-icon [name]="navShow() ? 'times' : 'bars'"></app-icon>
     </button>
+    <div id="main-navigation-links" class="navbar__links" [class.navbar__links--open]="navShow()">
+      @for (link of navLinks; track link.path) {
+        <a class="navbar__link" [routerLink]="link.path" routerLinkActive="navbar__link--active" [routerLinkActiveOptions]="exactMatchOptions" ariaCurrentWhenActive="page">{{ link.label }}</a>
+      }
+    </div>
   </div>
 </nav>
-
-@if (navShow()) {
-  <div (click)="closeNav()" class="navbar__background"></div>
-  <nav class="navbar__mobile-nav">
-    <div class="navbar__mobile-header">
-      <a class="navbar__brand navbar__brand--mobile" routerLink="/">joshtell.dev</a>
-      <button
-        (click)="closeNav()"
-        class="navbar__mobile-close"
-        type="button"
-        aria-label="Close navigation"
-      >
-        <app-icon name="times"></app-icon>
-      </button>
-    </div>
-    @for (link of navLinks; track link.path) {
-      <a
-        class="navbar__mobile-link"
-        [routerLink]="link.path"
-        routerLinkActive="navbar__mobile-link--active"
-        [routerLinkActiveOptions]="exactMatchOptions"
-      >
-        {{ link.label }}
-      </a>
-    }
-  </nav>
-}

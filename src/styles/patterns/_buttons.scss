@@ -1,53 +1,41 @@
 @use '../tools/functions' as fn;
 @use '../tools/mixins' as mixins;
-
-.button,
-.bnt-more {
+.button, .bnt-more  {
   @include mixins.focus-ring;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: fn.space(3);
-  min-height: 3.5rem;
-  padding: 0 fn.space(6);
+  min-height: 3rem;
+  padding: fn.space(3) fn.space(6);
   border: 1px solid transparent;
-  border-radius: fn.radius('base');
-  font-family: fn.text-style('label-md', 'family');
-  font-size: fn.text-style('label-md', 'size');
-  font-weight: fn.text-style('label-md', 'weight');
-  letter-spacing: fn.text-style('label-md', 'letter-spacing');
-  text-transform: fn.text-style('label-md', 'transform');
-  transition:
-    background-color fn.duration('base') fn.easing('standard'),
-    border-color fn.duration('base') fn.easing('standard'),
-    box-shadow fn.duration('base') fn.easing('standard'),
-    color fn.duration('base') fn.easing('standard'),
-    transform fn.duration('fast') fn.easing('standard');
+  border-radius: fn.radius('sm');
+  font-family: fn.text-style('body-md', 'family');
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
 }
-
-.button:hover,
-.bnt-more:hover {
-  transform: translateY(-1px);
-}
-
-.button--primary,
-.bnt-more {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+.button--primary, .bnt-more  {
+  background: var(--color-primary);
   color: var(--color-on-primary);
 }
-
-.button--primary:hover,
-.bnt-more:hover {
-  box-shadow: var(--shadow-glow);
+.button--primary:hover, .bnt-more:hover  {
+  background: var(--color-primary-fixed);
 }
-
-.button--ghost {
-  border-color: var(--ghost-border);
-  background: rgba(25, 28, 29, 0.45);
+.button--primary:active, .bnt-more:active  {
+  background: var(--color-primary-fixed-dim);
+}
+.button--ghost  {
+  border-color: var(--color-outline);
+  background: transparent;
   color: var(--color-on-surface);
 }
-
-.button--ghost:hover {
+.button--ghost:hover  {
   background: var(--color-surface-container-low);
-  border-color: rgba(133, 147, 148, 0.3);
+}
+.button:disabled  {
+  cursor: wait;
+  opacity: 0.6;
 }

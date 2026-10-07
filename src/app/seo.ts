@@ -18,7 +18,7 @@ export type ResolvedSeoData = {
 
 export const DEFAULT_SEO: ResolvedSeoData = {
   description:
-    'Josh Tell is a senior full stack engineer building scalable web products, durable interfaces, and thoughtful product experiences.',
+    'Josh Tell is a senior full stack engineer and contractor based in New Zealand. Explore client work, personal projects, and engineering experience.',
   canonicalPath: '/',
   robots: DEFAULT_ROBOTS
 };

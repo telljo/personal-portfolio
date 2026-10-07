@@ -1,42 +1,39 @@
-<section class="home-highlights">
-  <div class="u-container home-highlights__grid">
-    <article class="editorial-card home-highlights__card home-highlights__card--wide">
-      <div class="home-highlights__copy">
-        <h2>Distributed Systems</h2>
-        <p>
-          Building scalable, reliable systems that perform well as products and teams grow.
-        </p>
-      </div>
-      <div class="home-highlights__meta">
-        <span class="home-highlights__index">01</span>
-        <app-icon name="code-fork"></app-icon>
-      </div>
-    </article>
-
-    <article class="editorial-card home-highlights__card">
-      <div class="home-highlights__copy">
-        <h2>Clean Interfaces</h2>
-        <p>
-          Creating polished, intuitive interfaces that feel great to use and easy to maintain.
-        </p>
-      </div>
-      <div class="home-highlights__meta">
-        <span class="home-highlights__index">02</span>
-        <app-icon name="desktop"></app-icon>
-      </div>
-    </article>
-
-    <article class="editorial-card home-highlights__card">
-      <div class="home-highlights__copy">
-        <h2>Clear Code</h2>
-        <p>
-          Writing clear, maintainable code that is easy to work with now and later.
-        </p>
-      </div>
-      <div class="home-highlights__meta">
-        <span class="home-highlights__index">03</span>
-        <app-icon name="terminal"></app-icon>
-      </div>
-    </article>
+<section class="home-work u-container" aria-labelledby="recent-work-title">
+  <div class="section-heading">
+    <h2 id="recent-work-title">Recent client work</h2>
+    <a class="text-link" routerLink="/projects">See the work <app-icon name="arrow-right" /></a>
+  </div>
+  <div class="work-list">
+    @for (work of clientWork; track work.company) {
+      <article class="work-entry">
+        <div class="work-entry__identity">
+          <h3>{{ work.company }}</h3>
+          <p class="work-entry__meta">Contract · {{ work.period }}</p>
+        </div>
+        <div class="work-entry__copy">
+          <p class="work-entry__focus">{{ work.focus }}</p>
+          <p>{{ work.summary }}</p>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+<section class="home-personal u-container" aria-labelledby="personal-work-title">
+  <div class="home-personal__copy">
+    <h2 id="personal-work-title">Built for myself.</h2>
+    <p>A travel journal during a career break. A catalogue of the books I've read. Side projects are where I try things out and build around my own interests.</p>
+    <a class="text-link" routerLink="/projects" fragment="personal-projects">Explore personal projects <app-icon name="arrow-right" /></a>
+  </div>
+  <a class="home-personal__image" routerLink="/projects" fragment="personal-projects" aria-label="Explore Footprints and other personal projects">
+    <img src="assets/Images/footprints.webp" alt="Screenshot of Footprints, my travel journaling application" width="2906" height="1412" loading="lazy" decoding="async">
+  </a>
+</section>
+<section class="contact-invitation">
+  <div class="contact-invitation__content u-container">
+    <div class="contact-invitation__copy">
+      <h2>Have something in mind?</h2>
+      <p>A project, an engineering role, or a question about my work — I'd like to hear from you.</p>
+    </div>
+    <a class="button button--primary" routerLink="/contact">Get in touch</a>
   </div>
 </section>
