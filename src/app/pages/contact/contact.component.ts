@@ -1,4 +1,4 @@
-import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
+import { afterNextRender, ChangeDetectorRef, Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { IconComponent } from '../../shared/icon/icon.component';
 
@@ -24,6 +24,14 @@ export class ContactComponent {
   readonly submissionState = signal<'idle' | 'success' | 'error'>('idle');
 
   constructor() {
+    const changeDetector = inject(ChangeDetectorRef);
+    afterNextRender(() => {
+      this.restoreDraft();
+      changeDetector.markForCheck();
+    });
+  }
+
+  private restoreDraft(): void {
     try {
       const draft = JSON.parse(sessionStorage.getItem(draftKey) ?? 'null');
       if (draft && typeof draft === 'object') {

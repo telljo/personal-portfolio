@@ -5,6 +5,7 @@
   },
   "hosting": {
     "public": "dist/personal-portfolio/browser",
+    "trailingSlash": false,
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -46,10 +47,6 @@
           "functionId": "sendContactEmail",
           "region": "asia-southeast2"
         }
-      },
-      {
-        "source": "**",
-        "destination": "/index.html"
       }
     ]
   }

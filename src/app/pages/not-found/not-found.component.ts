@@ -10,6 +10,6 @@ import { IconComponent } from '../../shared/icon/icon.component';
   templateUrl: './not-found.component.html',
   styleUrl: './not-found.component.scss',
   changeDetection: ChangeDetectionStrategy.Eager,
-  host: { class: 'not-found' }
+  host: { class: 'not-found page-canvas' }
 })
 export class NotFoundComponent {}

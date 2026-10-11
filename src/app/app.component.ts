@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { Meta } from '@angular/platform-browser';
-import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterOutlet, TitleStrategy } from '@angular/router';
 import { filter, map, startWith } from 'rxjs';
 
 import { NavbarComponent } from './pages/navbar/navbar.component';
@@ -29,6 +29,7 @@ export class AppComponent {
   private readonly document = inject(DOCUMENT);
   private readonly meta = inject(Meta);
   private readonly router = inject(Router);
+  private readonly titleStrategy = inject(TitleStrategy);
   private readonly currentUrl = toSignal(
     this.router.events.pipe(
       filter((event): event is NavigationEnd => event instanceof NavigationEnd),
@@ -72,7 +73,8 @@ export class AppComponent {
 
   private applySeoTags(seoData: ResolvedSeoData): void {
     const canonicalUrl = new URL(seoData.canonicalPath, `${SITE_URL}/`).toString();
-    const pageTitle = this.document.title;
+    // NavigationEnd is emitted before the router updates document.title.
+    const pageTitle = this.titleStrategy.buildTitle(this.router.routerState.snapshot) ?? this.document.title;
 
     this.meta.updateTag({ name: 'description', content: seoData.description });
     this.meta.updateTag({
@@ -163,7 +165,7 @@ export class AppComponent {
     const script = existingScript ?? this.document.createElement('script');
 
     script.type = 'application/ld+json';
-    script.dataset['structuredData'] = id;
+    script.setAttribute('data-structured-data', id);
     script.textContent = JSON.stringify(value);
 
     if (!existingScript) {

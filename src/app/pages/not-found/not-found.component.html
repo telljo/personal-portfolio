@@ -1,50 +1,23 @@
-<main class="not-found-page">
-  <div class="u-container not-found-page__shell">
-    <section class="not-found-page__content">
-      <div class="not-found-page__eyebrow">
-        <span class="not-found-page__eyebrow-line"></span>
-        <span>Error // 404</span>
-      </div>
+<section class="page u-container not-found-page" aria-labelledby="not-found-title">
+  <div class="not-found-page__content">
+    <header class="page-heading">
+      <h1 id="not-found-title">Page not found.</h1>
+      <p>Error 404. The page you’re looking for isn’t here.</p>
+    </header>
 
-      <p class="not-found-page__code">404</p>
-      <h1 class="not-found-page__title">
-        Wrong
-        <span>Route.</span>
-      </h1>
-      <p class="not-found-page__copy">
-        The page you were looking for doesn’t exist anymore, or the route was
-        never part of this system. Let’s get you back to something useful.
-      </p>
+    <div class="not-found-page__actions">
+      <a class="button button--primary" routerLink="/">Back to home</a>
+      <a class="text-link" routerLink="/projects">
+        View projects <app-icon name="arrow-right" />
+      </a>
+    </div>
 
-      <div class="not-found-page__actions">
-        <a class="button button--primary" routerLink="/">
-          Return Home
-          <app-icon name="arrow-right"></app-icon>
-        </a>
-        <a class="button button--ghost" routerLink="/projects">View Projects</a>
-      </div>
-    </section>
-
-    <aside class="not-found-page__panel">
-      <div class="not-found-page__panel-meta">ROUTE_STATUS: NOT_FOUND</div>
-
-      <div class="not-found-page__terminal">
-        <div class="not-found-page__dots" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <pre><code>&gt; resolve("/missing-route")
-status: 404
-hint: try "/", "/experience", "/projects", or "/contact"</code></pre>
-      </div>
-
-      <div class="not-found-page__links">
-        <a routerLink="/">Portfolio</a>
-        <a routerLink="/experience">Experience</a>
-        <a routerLink="/projects">Projects</a>
-        <a routerLink="/contact">Contact</a>
-      </div>
-    </aside>
+    <nav class="not-found-page__suggestions" aria-labelledby="other-pages-title">
+      <h2 id="other-pages-title">Other pages</h2>
+      <ul>
+        <li><a class="text-link" routerLink="/experience">Experience</a></li>
+        <li><a class="text-link" routerLink="/contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
-</main>
+</section>

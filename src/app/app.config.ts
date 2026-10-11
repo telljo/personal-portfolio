@@ -1,4 +1,5 @@
 import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
+import { provideClientHydration } from '@angular/platform-browser';
 import {
   ActivatedRouteSnapshot,
   provideRouter,
@@ -89,6 +90,7 @@ export const appConfig: ApplicationConfig = {
           });
         }
       })
-    )
+    ),
+    provideClientHydration()
   ]
 };

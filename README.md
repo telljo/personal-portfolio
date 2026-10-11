@@ -26,7 +26,7 @@ Open [localhost:4200](http://localhost:4200/). If you do not use nvm, install No
 | Command | Purpose |
 | --- | --- |
 | `yarn start` | Start the Angular development server with live reload. |
-| `yarn build` | Create a production build. |
+| `yarn build` | Create a production build with prerendered pages and a static 404 page. |
 | `yarn watch` | Rebuild continuously using the development configuration. |
 | `yarn test` | Run the Jasmine/Karma tests in watch mode. |
 | `yarn test --watch=false --browsers=ChromeHeadless` | Run tests once in headless Chrome. |
@@ -56,7 +56,27 @@ Key files:
 - [`src/styles/`](src/styles/): design tokens, shared patterns, and global styles. Page styles live alongside their components.
 - [`src/assets/Images/`](src/assets/Images/): portrait, organisation logos, and project screenshots.
 - [`src/app/app.routes.ts`](src/app/app.routes.ts) and [`src/app/seo.ts`](src/app/seo.ts): routes, page titles, descriptions, and canonical site URL.
+- [`src/app/app.routes.server.ts`](src/app/app.routes.server.ts): routes rendered to HTML during the build.
 - [`PRODUCT.md`](PRODUCT.md) and [`DESIGN.md`](DESIGN.md): product context and visual conventions.
+
+## Static rendering
+
+`yarn build` renders `/`, `/experience`, `/projects`, `/contact`, and `/404` to HTML at build time. Each document includes its page content, title, description, canonical URL, and social metadata. Angular hydrates the existing HTML in the browser to enable navigation and interactions.
+
+The application uses `outputMode: static`; Firebase Hosting serves the generated files without a Node.js rendering server. The email function remains a separate backend.
+
+The `postbuild` script in [`scripts/prepare-static-hosting.mjs`](scripts/prepare-static-hosting.mjs) copies the prerendered `/404` page to `404.html`. Hosting serves it with HTTP 404 for unknown URLs. The Hosting configuration removes trailing slashes to match canonical URLs and keeps the `/api/contact` function rewrite.
+
+Contact drafts are restored after the first browser render, keeping the initial HTML consistent during hydration. Browser-only setup should use `afterNextRender` rather than reading browser storage during construction.
+
+To preview the static output without running the email function:
+
+```bash
+yarn build
+npx firebase-tools emulators:start --only hosting
+```
+
+Open the printed Hosting URL. `yarn watch` rebuilds page HTML, but does not run `postbuild`; use `yarn build` to refresh `404.html` before deployment.
 
 ## Contact form
 
@@ -68,7 +88,7 @@ Delivery follows this path:
 Contact form → POST /api/contact → sendContactEmail → Resend → inbox
 ```
 
-[`firebase.json`](firebase.json) rewrites `/api/contact` to `sendContactEmail` in `asia-southeast2`. Other routes fall back to `index.html` for Angular routing.
+[`firebase.json`](firebase.json) rewrites `/api/contact` to `sendContactEmail` in `asia-southeast2`. Page URLs serve their prerendered HTML; unknown URLs receive the static 404 page.
 
 The backend is in [`functions/index.js`](functions/index.js). Its recipient and sender are configured by `CONTACT_TO_EMAIL` and `CONTACT_FROM_EMAIL`; the current sender is `Portfolio Contact <onboarding@resend.dev>`.
 
