@@ -39,7 +39,7 @@ The frontend uses Yarn and `yarn.lock`. The separate `functions/` package has it
 
 ## Pages and content
 
-Components use Angular 22's default `OnPush` change detection. Interactive state uses signals; updates to plain properties outside template events, such as draft restoration after hydration, must notify Angular with `markForCheck()`.
+Components use Angular 22's default `OnPush` change detection. Interactive state and contact-form values use signals, so updates notify Angular automatically. Updates to plain properties outside template events must still notify Angular with `markForCheck()`.
 
 | Route | Content |
 | --- | --- |
@@ -83,7 +83,9 @@ Open the printed Hosting URL. `yarn watch` rebuilds page HTML, but does not run 
 
 ## Contact form
 
-The form requires name, email, and message. It supplies the subject automatically, validates input, and saves drafts in per-tab session storage when available. Failed submissions retain the draft and offer direct email as a fallback.
+The form requires name, email, and message. It uses [Angular Signal Forms](https://angular.dev/guide/forms/signals/overview), with a shared signal model and validation schema in [`contact.component.ts`](src/app/pages/contact/contact.component.ts). Signal Forms manages field bindings, touched state, validation, and pending submissions, including preventing concurrent requests.
+
+The form supplies the subject automatically and saves drafts in per-tab session storage when available. Drafts are restored after the first browser render and saved as the model changes. Failed submissions retain the draft, allow retrying the same input, and offer direct email as a fallback. Successful delivery clears the fields, validation state, and stored draft.
 
 Delivery follows this path:
 
