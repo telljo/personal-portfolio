@@ -33,8 +33,7 @@
   gap: design.space(2) design.space(3);
 }
 .experience-entry__identity h3  {
-  font-size: 1.75rem;
-  line-height: 1.2;
+  @include design.text-style('entry-title');
 }
 .experience-entry__identity h3 a  {
   display: inline-flex;
@@ -101,9 +100,8 @@
   display: none;
 }
 .career-detail__company  {
+  @include design.text-style('entry-title');
   color: var(--color-on-surface);
-  font-size: 1.25rem;
-  font-weight: 600;
 }
 .career-detail__action  {
   grid-column: 3;

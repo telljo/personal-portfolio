@@ -19,7 +19,7 @@
   gap: design.space(16);
 }
 .contact-layout h2  {
-  font-size: 1.5rem;
+  @include design.text-style('section-heading');
   margin-bottom: design.space(2);
 }
 .contact-message, .contact-details  {

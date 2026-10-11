@@ -8,9 +8,7 @@
   padding-block: calc(var(--nav-height) + #{design.space(12)}) design.space(16);
 }
 .home-intro h1  {
-  font-size: clamp(3.5rem, 7vw, 5.5rem);
-  line-height: 1;
-  letter-spacing: -0.04em;
+  @include design.text-style('hero');
   margin-bottom: design.space(6);
 }
 .home-intro__role  {

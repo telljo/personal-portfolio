@@ -30,15 +30,21 @@ typography:
     letterSpacing: "-0.04em"
   section-heading:
     fontFamily: "Space Grotesk, Source Sans 3, sans-serif"
-    fontSize: "clamp(1.5rem, 3vw, 2rem)"
+    fontSize: "clamp(2rem, 1.5rem + 2vw, 2.5rem)"
     fontWeight: 500
     lineHeight: 1.2
     letterSpacing: "-0.025em"
   entry-title:
     fontFamily: "Space Grotesk, Source Sans 3, sans-serif"
-    fontSize: "1.75rem"
+    fontSize: "clamp(1.5rem, 1.25rem + 1vw, 1.75rem)"
     fontWeight: 500
     lineHeight: 1.2
+    letterSpacing: "-0.025em"
+  supporting-title:
+    fontFamily: "Space Grotesk, Source Sans 3, sans-serif"
+    fontSize: "1.25rem"
+    fontWeight: 500
+    lineHeight: 1.4
     letterSpacing: "-0.025em"
   body:
     fontFamily: "Source Sans 3, sans-serif"
@@ -158,14 +164,15 @@ The error token is warm coral, used only for invalid-field borders and error cop
 **Display Font:** Space Grotesk, with Source Sans 3 and sans-serif fallbacks.
 **Body Font:** Source Sans 3, with a sans-serif fallback.
 
-The pairing retains the engineering character without making every heading a poster. Current heading rules override the older foundation display presets: weight is medium, case is natural, and letter spacing is gently tightened.
+The pairing retains the engineering character without making every heading a poster. Shared foundation roles own the current heading scale: weight is medium, case is natural, and letter spacing is gently tightened. Older title/display presets remain legacy styles.
 
 ### Hierarchy
 
 - **Hero:** the home name, with the `hero` frontmatter role.
 - **Page heading:** the shared page title, with the `page-heading` role.
-- **Section heading:** shared section introductions, with the `section-heading` role. Contact section titles use a fixed smaller size; closing invitations share the section-heading scale, while the personal section uses its observed larger clamp.
-- **Entry title:** organisation and project names, with the `entry-title` role.
+- **Section heading:** all section introductions, contact section titles, closing invitations, the home personal section, and not-found navigation share the `section-heading` role (2–2.5rem).
+- **Entry title:** organisation and project names, including earlier-career summaries, share the `entry-title` role (1.5–1.75rem). Section headings remain visibly larger at every viewport.
+- **Supporting title:** work-focus summaries use the `supporting-title` role (1.25rem), below entry titles and above body text.
 - **Body:** descriptions and controls, with the `body` role. Introductory copy is slightly larger (1.1rem). Work and project copy stay around 65ch, and introductory paragraphs 48–60ch.
 - **Label and metadata:** field labels use `label`; dates, form hints, and captions use `metadata`; skills use semibold body text at the same size. Dates and character counts use tabular numerals. Button labels are semibold (600).
 

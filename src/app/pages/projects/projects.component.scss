@@ -33,8 +33,7 @@
   gap: design.space(5);
 }
 .project-entry__copy h3  {
-  font-size: 1.75rem;
-  line-height: 1.2;
+  @include design.text-style('entry-title');
   margin-bottom: design.space(2);
 }
 .project-entry__copy p  {

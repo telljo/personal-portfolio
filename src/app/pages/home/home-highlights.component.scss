@@ -30,7 +30,7 @@
   gap: design.space(6);
 }
 .home-personal__copy h2  {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  @include design.text-style('section-heading');
 }
 .home-personal__copy p  {
   max-width: 50ch;

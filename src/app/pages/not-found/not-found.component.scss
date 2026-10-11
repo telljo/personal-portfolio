@@ -31,9 +31,8 @@
 }
 
 .not-found-page__suggestions h2 {
+  @include design.text-style('section-heading');
   margin-bottom: design.space(3);
-  font-size: 1.25rem;
-  line-height: 1.4;
 }
 
 .not-found-page__suggestions ul {
