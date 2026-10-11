@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
+import { ExperienceComponent } from './pages/experience/experience.component';
+import { ProjectsComponent } from './pages/projects/projects.component';
+import { ContactComponent } from './pages/contact/contact.component';
 import { PagesComponent } from './pages/pages.component';
 import { type SeoData } from './seo';
 
@@ -9,6 +12,8 @@ const pageTitle = (label: string): string =>
   label === 'Home' ? `${siteTitle} | Senior Full Stack Engineer` : `${label} | ${siteTitle}`;
 const canonicalPath = (path: string): string => path === '/' ? '/' : `/${path}`;
 
+// Keep primary navigation ready on initial load instead of fetching a page's
+// JavaScript on its first click. The less common 404 route remains lazy.
 const portfolioRoutes: Routes = [
   {
     path: '',
@@ -23,10 +28,7 @@ const portfolioRoutes: Routes = [
   },
   {
     path: 'experience',
-    loadComponent: () =>
-      import('./pages/experience/experience.component').then(
-        m => m.ExperienceComponent
-      ),
+    component: ExperienceComponent,
     title: pageTitle('Experience'),
     data: {
       name: 'Experience',
@@ -37,10 +39,7 @@ const portfolioRoutes: Routes = [
   },
   {
     path: 'projects',
-    loadComponent: () =>
-      import('./pages/projects/projects.component').then(
-        m => m.ProjectsComponent
-      ),
+    component: ProjectsComponent,
     title: pageTitle('Projects'),
     data: {
       name: 'Projects',
@@ -51,10 +50,7 @@ const portfolioRoutes: Routes = [
   },
   {
     path: 'contact',
-    loadComponent: () =>
-      import('./pages/contact/contact.component').then(
-        m => m.ContactComponent
-      ),
+    component: ContactComponent,
     title: pageTitle('Contact'),
     data: {
       name: 'Contact',

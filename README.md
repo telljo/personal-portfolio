@@ -66,6 +66,8 @@ Key files:
 
 `yarn build` renders `/`, `/experience`, `/projects`, `/contact`, and `/404` to HTML at build time. Each document includes its page content, title, description, canonical URL, and social metadata. Angular hydrates the existing HTML in the browser to enable navigation and interactions.
 
+The four primary pages load with the application so the first header click does not wait for a route JavaScript download. The 404 page remains lazy-loaded.
+
 The application uses `outputMode: static`; Firebase Hosting serves the generated files without a Node.js rendering server. The email function remains a separate backend.
 
 The `postbuild` script in [`scripts/prepare-static-hosting.mjs`](scripts/prepare-static-hosting.mjs) copies the prerendered `/404` page to `404.html`. Hosting serves it with HTTP 404 for unknown URLs. The Hosting configuration removes trailing slashes to match canonical URLs and keeps the `/api/contact` function rewrite.
