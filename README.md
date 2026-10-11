@@ -28,11 +28,12 @@ Open [localhost:4200](http://localhost:4200/). If you do not use nvm, install No
 | `yarn start` | Start the Angular development server with live reload. |
 | `yarn build` | Create a production build with prerendered pages and a static 404 page. |
 | `yarn watch` | Rebuild continuously using the development configuration. |
-| `yarn test` | Run the Jasmine/Karma tests in watch mode. |
-| `yarn test --watch=false --browsers=ChromeHeadless` | Run tests once in headless Chrome. |
+| `yarn test` | Run the Vitest tests; watch mode is enabled in interactive terminals. |
+| `yarn test --watch=false` | Run tests once with jsdom; no Chrome installation is needed. |
+| `yarn test --watch=false --coverage` | Run tests once and generate a V8 coverage report. |
 | `yarn deploy` | Deploy Firebase Hosting only. |
 
-Production files are written to `dist/personal-portfolio/browser`, which matches the Hosting configuration. Tests require an installed Chrome browser and mock contact delivery rather than sending real emails.
+The `@angular/build` builders handle builds, development serving, and tests. Production files are written to `dist/personal-portfolio/browser`, which matches the Hosting configuration. Tests run in Node.js with jsdom and mock contact delivery rather than sending real emails.
 
 The frontend uses Yarn and `yarn.lock`. The separate `functions/` package has its own `package-lock.json`; install its dependencies with `npm ci --prefix functions`. Avoid generating an npm lockfile at the repository root.
 
@@ -175,8 +176,8 @@ npx firebase-tools deploy --only functions
 
 The workflows in [`.github/workflows/`](.github/workflows/):
 
-- Build and deploy live Hosting on pushes to `master`.
-- Build and create Hosting previews for pull requests from the same repository.
+- Run tests, build, and deploy live Hosting on pushes to `master`.
+- Run tests, build, and create Hosting previews for pull requests from the same repository.
 
 Configure these repository settings:
 

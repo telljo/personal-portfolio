@@ -1,4 +1,4 @@
-/// <reference types="jasmine" />
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgForm } from '@angular/forms';
@@ -20,7 +20,10 @@ describe('Contact enquiry', () => {
     await fixture.whenStable();
   });
 
-  afterEach(() => sessionStorage.removeItem(draftKey));
+  afterEach(() => {
+    sessionStorage.removeItem(draftKey);
+    vi.restoreAllMocks();
+  });
 
   async function fillForm(message = ' A project to discuss. '): Promise<NgForm> {
     for (const [name, value] of Object.entries({ name: ' Josh ', email: 'josh@example.com', message })) {
@@ -34,21 +37,21 @@ describe('Contact enquiry', () => {
   }
 
   it('shows field guidance for an empty enquiry without sending it', async () => {
-    const send = spyOn(globalThis, 'fetch');
+    const send = vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('Unexpected contact submission'));
     const form = fixture.debugElement.query(By.directive(NgForm)).injector.get(NgForm);
     await fixture.componentInstance.sendEmail(form);
     fixture.detectChanges();
     expect(send).not.toHaveBeenCalled();
     expect(fixture.nativeElement.querySelectorAll('.field-error').length).toBe(3);
-    expect(fixture.nativeElement.querySelector('button').disabled).toBeFalse();
+    expect(fixture.nativeElement.querySelector('button').disabled).toBe(false);
   });
 
   it('rejects a whitespace-only message', async () => {
-    const send = spyOn(globalThis, 'fetch');
+    const send = vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('Unexpected contact submission'));
     const form = await fillForm('   ');
     await fixture.componentInstance.sendEmail(form);
     expect(send).not.toHaveBeenCalled();
-    expect(form.controls['message'].hasError('required')).toBeTrue();
+    expect(form.controls['message'].hasError('required')).toBe(true);
   });
 
   it('restores a draft after leaving and returning to the form', async () => {
@@ -62,22 +65,22 @@ describe('Contact enquiry', () => {
   });
 
   it('preserves the draft and offers direct email when delivery fails', async () => {
-    spyOn(globalThis, 'fetch').and.resolveTo(new Response('{}', { status: 502 }));
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response('{}', { status: 502 }));
     const form = await fillForm();
     await fixture.componentInstance.sendEmail(form);
     fixture.detectChanges();
     expect(fixture.componentInstance.contactFormModel.message).toBe(' A project to discuss. ');
     expect(sessionStorage.getItem(draftKey)).toContain('A project to discuss.');
     expect(fixture.nativeElement.querySelector('.contact-form__feedback a').href).toBe('mailto:jtell1997@gmail.com');
-    expect(fixture.componentInstance.isSubmitting()).toBeFalse();
+    expect(fixture.componentInstance.isSubmitting()).toBe(false);
   });
 
   it('supplies the backend subject and clears the draft only after success', async () => {
-    const send = spyOn(globalThis, 'fetch').and.resolveTo(new Response('{"ok":true}', { status: 200 }));
+    const send = vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response('{"ok":true}', { status: 200 }));
     const form = await fillForm();
     await fixture.componentInstance.sendEmail(form);
     await fixture.whenStable();
-    const payload = JSON.parse(send.calls.mostRecent().args[1]?.body as string);
+    const payload = JSON.parse(send.mock.calls.at(-1)?.[1]?.body as string);
     expect(payload).toEqual({ name: 'Josh', email: 'josh@example.com', subject: 'Portfolio enquiry', message: 'A project to discuss.' });
     expect(fixture.componentInstance.submissionState()).toBe('success');
     expect(fixture.componentInstance.contactFormModel.message).toBe('');

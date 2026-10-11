@@ -16,6 +16,7 @@ jobs:
           node-version-file: .nvmrc
           cache: yarn
       - run: yarn install --frozen-lockfile
+      - run: yarn test --watch=false
       - run: yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
