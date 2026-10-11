@@ -2,6 +2,23 @@
 :host  {
   display: block;
 }
+.work-entry__company  {
+  display: grid;
+  grid-template-columns: #{design.space(20)} minmax(0, 1fr);
+  align-items: center;
+  gap: design.space(4);
+  margin-bottom: design.space(2);
+}
+.work-entry__company h3  {
+  margin-bottom: 0;
+}
+.work-entry__logo  {
+  width: design.space(20);
+  height: design.space(16);
+  object-fit: contain;
+  margin-bottom: 0;
+  border-radius: var(--radius-sm);
+}
 .home-personal  {
   display: grid;
   gap: design.space(8);

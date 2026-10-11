@@ -45,7 +45,6 @@
   margin-top: design.space(3);
   font-size: 0.875rem;
   color: var(--color-on-surface-variant);
-  max-width: 32ch;
 }
 @include design.mq('md')  {
   .home-intro  {

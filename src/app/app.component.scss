@@ -23,8 +23,9 @@
   top: design.space(3);
 }
 .site-footer  {
-  padding-block: design.space(6);
-  border-top: 1px solid var(--color-outline-variant);
+  padding-block: design.space(4);
+  background: var(--color-surface-intro);
+  border-top: 1px solid var(--color-outline-navigation);
 }
 .site-footer__content  {
   display: flex;
@@ -34,7 +35,12 @@
   gap: design.space(4) design.space(8);
 }
 .site-footer__brand  {
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--color-primary-container);
+
+  &:hover  {
+    color: var(--color-primary);
+  }
 }
 .site-footer__links  {
   display: flex;
@@ -45,12 +51,11 @@
   display: inline-flex;
   align-items: center;
   min-height: 2.75rem;
-  color: var(--color-on-surface-variant);
+  color: var(--color-on-surface);
 }
 .site-footer__links a:hover  {
   color: var(--color-primary);
 }
 .site-footer__legal  {
-  font-size: 0.875rem;
-  color: var(--color-on-surface-variant);
+  color: var(--color-on-surface);
 }

@@ -69,14 +69,18 @@
   align-items: center;
   min-height: 2.75rem;
   padding: design.space(3) design.space(4);
-  color: var(--color-on-surface-variant);
+  color: var(--color-on-surface);
   font-size: 1rem;
 }
 .navbar__link:hover  {
-  color: var(--color-on-surface);
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.4em;
 }
 .navbar__link--active  {
   color: var(--color-primary);
+  font-weight: 600;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.4em;

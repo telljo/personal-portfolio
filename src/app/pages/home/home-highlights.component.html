@@ -7,7 +7,10 @@
     @for (work of clientWork; track work.company) {
       <article class="work-entry">
         <div class="work-entry__identity">
-          <h3>{{ work.company }}</h3>
+          <div class="work-entry__company">
+            <img class="work-entry__logo" [src]="work.logo" alt="" width="80" height="64" loading="lazy" decoding="async">
+            <h3>{{ work.company }}</h3>
+          </div>
           <p class="work-entry__meta">Contract · {{ work.period }}</p>
         </div>
         <div class="work-entry__copy">

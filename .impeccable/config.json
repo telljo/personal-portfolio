@@ -39,6 +39,15 @@
         ],
         "createdAt": "2026-10-07T21:25:13.146Z",
         "reason": "Agent: Angular [src] bindings resolve to existing ExperienceEntry.logo assets. All seven rendered logos were confirmed loaded with nonzero naturalWidth; the standalone parser misses these bindings."
+      },
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/app/pages/home/home-highlights.component.html"
+        ],
+        "createdAt": "2026-10-11T03:24:54.518Z",
+        "reason": "Agent: Angular [src] binding resolves work.logo to existing IFSO and Banqer assets in shared portfolio-content.ts; same binding used on experience page."
       }
     ]
   }
