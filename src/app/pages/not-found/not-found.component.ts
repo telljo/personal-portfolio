@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { IconComponent } from '../../shared/icon/icon.component';
@@ -9,6 +9,7 @@ import { IconComponent } from '../../shared/icon/icon.component';
   imports: [RouterLink, IconComponent],
   templateUrl: './not-found.component.html',
   styleUrl: './not-found.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: { class: 'not-found' }
 })
 export class NotFoundComponent {}

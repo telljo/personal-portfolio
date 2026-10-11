@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IconComponent } from '../../shared/icon/icon.component';
 import { contractEngagements, type ExperienceEntry } from '../../shared/portfolio-content';
@@ -9,6 +9,7 @@ import { contractEngagements, type ExperienceEntry } from '../../shared/portfoli
   imports: [RouterLink, IconComponent],
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: { class: 'experience page-canvas' }
 })
 export class ExperienceComponent {

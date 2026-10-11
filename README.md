@@ -2,11 +2,11 @@
 
 Source for [joshtell.dev](https://joshtell.dev), showcasing client work, engineering experience, and personal projects.
 
-The frontend uses Angular 21, TypeScript, RxJS, and SCSS. Firebase Hosting serves the site; a Node.js 22 Firebase Function sends contact enquiries through Resend.
+The frontend uses Angular 22, TypeScript 6, RxJS, and SCSS. Firebase Hosting serves the site; a Node.js 22 Firebase Function sends contact enquiries through Resend.
 
 ## Getting started
 
-Use Node **22.14.0**, as specified in `.nvmrc`. The frontend requires Node 22; Node 24 previously caused instability with this Angular build stack.
+Use Node **22.22.3**, as specified in `.nvmrc`. Local development and GitHub builds share this version, which meets [Angular 22's compatibility requirements](https://angular.dev/reference/versions).
 
 Run these commands from the repository root:
 
@@ -17,7 +17,7 @@ yarn install --frozen-lockfile
 yarn start
 ```
 
-Open [localhost:4200](http://localhost:4200/). If you do not use nvm, install Node 22.14.0 through your preferred version manager.
+Open [localhost:4200](http://localhost:4200/). If you do not use nvm, install Node 22.22.3 through your preferred version manager.
 
 `yarn start` runs the frontend only. It has no `/api/contact` handler or API proxy, so sending a valid contact enquiry here returns `Cannot POST /api/contact`. Use the Firebase emulators below to test delivery.
 

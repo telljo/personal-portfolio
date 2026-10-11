@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IconComponent } from '../../shared/icon/icon.component';
 import { contractEngagements } from '../../shared/portfolio-content';
@@ -21,6 +21,7 @@ type ProjectEntry = {
   imports: [RouterLink, IconComponent],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: { class: 'projects page-canvas' }
 })
 export class ProjectsComponent {

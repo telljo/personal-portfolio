@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 
 export type IconName =
   | 'arrow-right'
@@ -161,6 +161,7 @@ export type IconName =
       }
     `
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     '[attr.aria-hidden]': 'label() ? null : "true"',
     '[attr.aria-label]': 'label()',
