@@ -21,6 +21,8 @@ const routeTransitionClasses = [
   'route-transition--backward'
 ] as const;
 
+let activeRouteTransition: ViewTransition | undefined;
+
 function getLeafPath(snapshot: ActivatedRouteSnapshot): string {
   let current = snapshot;
 
@@ -82,12 +84,19 @@ export const appConfig: ApplicationConfig = {
       withViewTransitions({
         skipInitialTransition: true,
         onViewTransitionCreated: ({ from, to, transition }) => {
+          activeRouteTransition = transition;
           setRouteTransitionDirection(from, to);
           scrollToTopOnTransition();
 
-          void transition.finished.finally(() => {
+          const finishTransition = () => {
+            // An interrupted transition can finish after the next one starts.
+            if (activeRouteTransition !== transition) {
+              return;
+            }
+            activeRouteTransition = undefined;
             resetRouteTransitionDirection();
-          });
+          };
+          void transition.finished.then(finishTransition, finishTransition);
         }
       })
     ),

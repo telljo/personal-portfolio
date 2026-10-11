@@ -2,6 +2,8 @@
 @use '../tools/mixins' as mixins;
 
 html {
+  // Only route-content is captured; keep the navigation live during its slide.
+  view-transition-name: none;
   background: var(--color-background);
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
@@ -85,21 +87,15 @@ strong {
 
 ::view-transition {
   pointer-events: none;
+  // Transition snapshots paint above normal stacking contexts, including fixed
+  // navigation. Leave the live header (and its expanded menu) uncovered.
+  clip-path: inset(var(--navbar-height, var(--nav-height)) 0 0);
 }
 
 ::view-transition-old(route-content),
 ::view-transition-new(route-content) {
   animation-duration: var(--route-transition-duration);
   animation-timing-function: var(--route-transition-easing);
-  animation-fill-mode: both;
-  mix-blend-mode: normal;
-}
-
-::view-transition-old(site-navbar),
-::view-transition-new(site-navbar),
-::view-transition-old(navbar-toggle),
-::view-transition-new(navbar-toggle) {
-  animation-duration: 1ms;
   animation-fill-mode: both;
   mix-blend-mode: normal;
 }

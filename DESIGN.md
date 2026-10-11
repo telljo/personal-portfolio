@@ -194,7 +194,7 @@ The four refined routes remain flat. Static ink-to-charcoal gradients distinguis
 
 **The Flat Work Rule.** Separate work entries with thin rules and whitespace. Let the content and original images provide hierarchy rather than adding raised card shells.
 
-Route navigation uses the existing native horizontal view transition (420ms, decelerating easing). The fixed navigation stays visually steady. Reduced-motion settings shorten that transition to 1ms and disable smooth scrolling. Ordinary button state changes take 180ms; no repeated reveal animation is part of this refinement.
+Route navigation uses the existing native horizontal view transition (420ms, decelerating easing). Only route content is captured: the document root and fixed navigation stay outside the transition. The transition overlay is clipped below the navbar's measured height, keeping the live header and expanded mobile menu both visible and interactive during the slide. A newer navigation interrupts the current transition, and its direction stays active until that transition finishes. Reduced-motion settings shorten that transition to 1ms and disable smooth scrolling. Ordinary button state changes take 180ms; no repeated reveal animation is part of this refinement.
 
 ## Shapes
 
