@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IconComponent } from '../../shared/icon/icon.component';
 import { contractEngagements } from '../../shared/portfolio-content';
@@ -8,7 +8,6 @@ import { contractEngagements } from '../../shared/portfolio-content';
   standalone: true,
   imports: [RouterLink, IconComponent],
   templateUrl: './home-highlights.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './home-highlights.component.scss'
 })
 export class HomeHighlightsComponent {

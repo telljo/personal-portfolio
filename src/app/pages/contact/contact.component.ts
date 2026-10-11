@@ -1,4 +1,4 @@
-import { afterNextRender, ChangeDetectorRef, Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
+import { afterNextRender, ChangeDetectorRef, Component, inject, signal } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { IconComponent } from '../../shared/icon/icon.component';
 
@@ -11,7 +11,6 @@ const draftKey = 'josh-tell-contact-draft';
   imports: [FormsModule, IconComponent],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Eager,
   host: { class: 'contact page-canvas' }
 })
 export class ContactComponent {

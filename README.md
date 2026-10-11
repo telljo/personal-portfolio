@@ -39,6 +39,8 @@ The frontend uses Yarn and `yarn.lock`. The separate `functions/` package has it
 
 ## Pages and content
 
+Components use Angular 22's default `OnPush` change detection. Interactive state uses signals; updates to plain properties outside template events, such as draft restoration after hydration, must notify Angular with `markForCheck()`.
+
 | Route | Content |
 | --- | --- |
 | `/` | Introduction, recent client work, and personal-project links. |
