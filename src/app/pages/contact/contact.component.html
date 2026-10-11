@@ -1,35 +1,35 @@
 <div class="page u-container contact-page">
   <header class="page-heading">
     <h1>Get in touch.</h1>
-    <p>Have a project in mind, an engineering opportunity, or a question about my work? I'd like to hear from you.</p>
-    <a class="contact-email text-link" [href]="'mailto:' + emailAddress">{{ emailAddress }} <app-icon name="external-link" /></a>
+    <p>Have a project in mind, an engineering opportunity, or a question about my work? I'd love to hear from you.</p>
+    <p class="contact-email">Prefer email? <a class="text-link" [href]="'mailto:' + emailAddress">{{ emailAddress }}</a></p>
   </header>
   <div class="contact-layout">
-    <section aria-labelledby="contact-form-title">
-      <h2 id="contact-form-title">Send a message</h2>
-      <p class="contact-form-intro">All three fields are required. @if (draftStorageAvailable()) { Your draft is saved in this tab as you write. }</p>
+    <section class="contact-message" aria-labelledby="contact-form-title">
+      <h2 id="contact-form-title">Send me a message</h2>
       <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)" class="contact-form" novalidate>
-        <div class="contact-form__field">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" #nameModel="ngModel" [(ngModel)]="contactFormModel.name" (ngModelChange)="saveDraft()" autocomplete="name" maxlength="120" [attr.aria-invalid]="nameModel.invalid && (nameModel.touched || contactForm.submitted)" [attr.aria-describedby]="nameModel.invalid && (nameModel.touched || contactForm.submitted) ? 'name-error' : null" required>
-          @if (nameModel.invalid && (nameModel.touched || contactForm.submitted)) {
-            <p id="name-error" class="field-error">Please add your name.</p>
-          }
-        </div>
-        <div class="contact-form__field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" #emailModel="ngModel" [(ngModel)]="contactFormModel.email" (ngModelChange)="saveDraft()" autocomplete="email" inputmode="email" maxlength="254" [attr.aria-invalid]="emailModel.invalid && (emailModel.touched || contactForm.submitted)" [attr.aria-describedby]="emailModel.invalid && (emailModel.touched || contactForm.submitted) ? 'email-error' : null" email required>
-          @if (emailModel.invalid && (emailModel.touched || contactForm.submitted)) {
-            <p id="email-error" class="field-error">Enter a valid email address so I can reply.</p>
-          }
-        </div>
-        <div class="contact-form__field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" #messageModel="ngModel" [(ngModel)]="contactFormModel.message" (ngModelChange)="saveDraft()" rows="6" spellcheck="true" [maxLength]="messageMaxLength" [attr.aria-invalid]="messageModel.invalid && (messageModel.touched || contactForm.submitted)" [attr.aria-describedby]="messageModel.invalid && (messageModel.touched || contactForm.submitted) ? 'message-note message-error' : 'message-note'" required></textarea>
-          <div class="contact-form__meta-row">
-            <p id="message-note">A little context and any timeline will help.</p>
-            <span>{{ contactFormModel.message.length }}/{{ messageMaxLength }}</span>
+        <div class="contact-form__row">
+          <div class="contact-form__field">
+            <label for="name">Name <span class="contact-form__required" aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" #nameModel="ngModel" [(ngModel)]="contactFormModel.name" (ngModelChange)="saveDraft()" autocomplete="name" maxlength="120" [attr.aria-invalid]="nameModel.invalid && (nameModel.touched || contactForm.submitted)" [attr.aria-describedby]="nameModel.invalid && (nameModel.touched || contactForm.submitted) ? 'name-error' : null" required>
+            @if (nameModel.invalid && (nameModel.touched || contactForm.submitted)) {
+              <p id="name-error" class="field-error">Please add your name.</p>
+            }
           </div>
+          <div class="contact-form__field">
+            <label for="email">Email <span class="contact-form__required" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" #emailModel="ngModel" [(ngModel)]="contactFormModel.email" (ngModelChange)="saveDraft()" autocomplete="email" inputmode="email" maxlength="254" [attr.aria-invalid]="emailModel.invalid && (emailModel.touched || contactForm.submitted)" [attr.aria-describedby]="emailModel.invalid && (emailModel.touched || contactForm.submitted) ? 'email-error' : null" email required>
+            @if (emailModel.invalid && (emailModel.touched || contactForm.submitted)) {
+              <p id="email-error" class="field-error">Enter a valid email address so I can reply.</p>
+            }
+          </div>
+        </div>
+        <div class="contact-form__field">
+          <div class="contact-form__label-row">
+            <label for="message">Message <span class="contact-form__required" aria-hidden="true">*</span></label>
+            <span class="contact-form__count">{{ contactFormModel.message.length }}/{{ messageMaxLength }}</span>
+          </div>
+          <textarea id="message" name="message" #messageModel="ngModel" [(ngModel)]="contactFormModel.message" (ngModelChange)="saveDraft()" rows="6" spellcheck="true" [maxLength]="messageMaxLength" [attr.aria-invalid]="messageModel.invalid && (messageModel.touched || contactForm.submitted)" [attr.aria-describedby]="messageModel.invalid && (messageModel.touched || contactForm.submitted) ? 'message-note message-error' : 'message-note'" required placeholder="A little context and any timeline will help."></textarea>
           @if (messageModel.invalid && (messageModel.touched || contactForm.submitted)) {
             <p id="message-error" class="field-error">Add a message about what you have in mind.</p>
           }
@@ -46,11 +46,12 @@
       </form>
     </section>
     <aside class="contact-details" aria-labelledby="elsewhere-title">
-      <h2 id="elsewhere-title">Elsewhere</h2>
-      <a class="text-link" href="https://github.com/telljo" target="_blank" rel="noreferrer">GitHub <app-icon name="external-link" /></a>
-      <a class="text-link" href="https://www.linkedin.com/in/josh-tell/" target="_blank" rel="noreferrer">LinkedIn <app-icon name="external-link" /></a>
-      <a class="text-link" href="https://wa.me/64272220453" target="_blank" rel="noreferrer">WhatsApp <app-icon name="external-link" /></a>
-      <p>Based in the South Island, New Zealand.</p>
+      <h2 id="elsewhere-title">Other ways to connect</h2>
+      <div class="contact-details__links">
+        <a class="text-link" href="https://wa.me/64272220453" target="_blank" rel="noreferrer">Message me on WhatsApp <app-icon name="external-link" /></a>
+        <a class="text-link" href="https://www.linkedin.com/in/josh-tell/" target="_blank" rel="noreferrer">Connect on LinkedIn <app-icon name="external-link" /></a>
+        <a class="text-link" href="https://github.com/telljo" target="_blank" rel="noreferrer">View my code on GitHub <app-icon name="external-link" /></a>
+      </div>
     </aside>
   </div>
 </div>

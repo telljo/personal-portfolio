@@ -9,6 +9,7 @@
 # Node
 /node_modules
 /functions/node_modules
+/functions/.secret.local
 npm-debug.log
 yarn-error.log
 

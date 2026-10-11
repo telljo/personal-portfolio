@@ -29,12 +29,14 @@
 }
 .site-footer__content  {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: design.space(4) design.space(8);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: design.space(2);
 }
 .site-footer__brand  {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
   font-weight: 700;
   color: var(--color-primary-container);
 
@@ -57,5 +59,24 @@
   color: var(--color-primary);
 }
 .site-footer__legal  {
-  color: var(--color-on-surface);
+  color: var(--color-on-surface-variant);
+  font-size: 0.875rem;
+}
+.site-footer__source-desktop  {
+  display: none;
+}
+@include design.mq('md')  {
+  .site-footer__content  {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: design.space(4) design.space(8);
+  }
+  .site-footer__source-mobile  {
+    display: none;
+  }
+  .site-footer__source-desktop  {
+    display: inline;
+  }
 }

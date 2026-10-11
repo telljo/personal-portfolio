@@ -13,6 +13,7 @@
 .navbar__inner  {
   display: grid;
   grid-template-columns: 1fr auto;
+  grid-template-rows: var(--nav-height);
   align-items: center;
   min-height: var(--nav-height);
 }

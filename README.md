@@ -1,97 +1,178 @@
-# PersonalPortfolio
+# Josh Tell — Personal portfolio
 
-Personal portfolio site built with Angular and deployed to Firebase Hosting.
+Source for [joshtell.dev](https://joshtell.dev), showcasing client work, engineering experience, and personal projects.
 
-## Tooling
+The frontend uses Angular 21, TypeScript, RxJS, and SCSS. Firebase Hosting serves the site; a Node.js 22 Firebase Function sends contact enquiries through Resend.
 
-- Package manager: `yarn`
-- Supported Node version: `22.14.0`
-- Node version file: `.nvmrc`
+## Getting started
 
-This project is pinned to Node 22 because the Angular 21 build stack was unstable under Node 24 in this environment.
+Use Node **22.14.0**, as specified in `.nvmrc`. The frontend requires Node 22; Node 24 previously caused instability with this Angular build stack.
 
-Typical setup:
+Run these commands from the repository root:
 
 ```bash
+nvm install
 nvm use
-yarn install
-```
-
-## Development server
-
-Run:
-
-```bash
+yarn install --frozen-lockfile
 yarn start
 ```
 
-Then open `http://localhost:4200/`.
+Open [localhost:4200](http://localhost:4200/). If you do not use nvm, install Node 22.14.0 through your preferred version manager.
 
-## Build
+`yarn start` runs the frontend only. It has no `/api/contact` handler or API proxy, so sending a valid contact enquiry here returns `Cannot POST /api/contact`. Use the Firebase emulators below to test delivery.
 
-Run:
+## Commands
+
+| Command | Purpose |
+| --- | --- |
+| `yarn start` | Start the Angular development server with live reload. |
+| `yarn build` | Create a production build. |
+| `yarn watch` | Rebuild continuously using the development configuration. |
+| `yarn test` | Run the Jasmine/Karma tests in watch mode. |
+| `yarn test --watch=false --browsers=ChromeHeadless` | Run tests once in headless Chrome. |
+| `yarn deploy` | Deploy Firebase Hosting only. |
+
+Production files are written to `dist/personal-portfolio/browser`, which matches the Hosting configuration. Tests require an installed Chrome browser and mock contact delivery rather than sending real emails.
+
+The frontend uses Yarn and `yarn.lock`. The separate `functions/` package has its own `package-lock.json`; install its dependencies with `npm ci --prefix functions`. Avoid generating an npm lockfile at the repository root.
+
+## Pages and content
+
+| Route | Content |
+| --- | --- |
+| `/` | Introduction, recent client work, and personal-project links. |
+| `/experience` | Recent work and expandable earlier experience and education. |
+| `/projects` | Client work and personal projects. |
+| `/contact` | Contact form, direct email, and professional profile links. |
+| `/404` | Fallback for unknown routes. |
+
+Key files:
+
+- [`src/app/shared/portfolio-content.ts`](src/app/shared/portfolio-content.ts): shared client engagements used by Home, Experience, and Projects.
+- [`src/app/pages/experience/experience.component.ts`](src/app/pages/experience/experience.component.ts): previous employment and education.
+- [`src/app/pages/projects/projects.component.ts`](src/app/pages/projects/projects.component.ts): personal-project content.
+- [`src/app/pages/navbar/`](src/app/pages/navbar/): shared navigation and mobile menu.
+- [`src/app/app.component.html`](src/app/app.component.html): shared page shell and footer.
+- [`src/styles/`](src/styles/): design tokens, shared patterns, and global styles. Page styles live alongside their components.
+- [`src/assets/Images/`](src/assets/Images/): portrait, organisation logos, and project screenshots.
+- [`src/app/app.routes.ts`](src/app/app.routes.ts) and [`src/app/seo.ts`](src/app/seo.ts): routes, page titles, descriptions, and canonical site URL.
+- [`PRODUCT.md`](PRODUCT.md) and [`DESIGN.md`](DESIGN.md): product context and visual conventions.
+
+## Contact form
+
+The form requires name, email, and message. It supplies the subject automatically, validates input, and saves drafts in per-tab session storage when available. Failed submissions retain the draft and offer direct email as a fallback.
+
+Delivery follows this path:
+
+```text
+Contact form → POST /api/contact → sendContactEmail → Resend → inbox
+```
+
+[`firebase.json`](firebase.json) rewrites `/api/contact` to `sendContactEmail` in `asia-southeast2`. Other routes fall back to `index.html` for Angular routing.
+
+The backend is in [`functions/index.js`](functions/index.js). Its recipient and sender are configured by `CONTACT_TO_EMAIL` and `CONTACT_FROM_EMAIL`; the current sender is `Portfolio Contact <onboarding@resend.dev>`.
+
+Resend's test sender can send only to the email associated with the Resend account. To send to a different recipient, verify a sending domain and update `CONTACT_FROM_EMAIL`. See [Resend's test-domain restrictions](https://resend.com/docs/knowledge-base/403-error-resend-dev-domain).
+
+### Test the contact form locally
+
+Install the backend dependencies:
+
+```bash
+npm ci --prefix functions
+```
+
+Create `functions/.secret.local` with your Resend API key:
+
+```dotenv
+RESEND_API_KEY=replace_with_your_resend_api_key
+```
+
+This file is ignored by Git. The emulator uses it as a local secret override; production uses Secret Manager. See [Firebase secret configuration](https://firebase.google.com/docs/functions/config-env#secrets_and_credentials_in_the_cloud_functions_emulator).
+
+Build the frontend and run both emulators from the repository root:
 
 ```bash
 yarn build
+npx firebase-tools emulators:start --only hosting,functions
 ```
 
-The production output used for hosting is under `dist/personal-portfolio/browser`.
+Open the **Hosting emulator URL** printed in the terminal, then navigate to `/contact`. This serves the compiled frontend with the `/api/contact` rewrite. The Angular server at port 4200 remains frontend-only. See [Firebase Hosting emulator documentation](https://firebase.google.com/docs/emulator-suite/use_hosting).
 
-## Tests
+Rebuild after frontend changes, or run `yarn watch` in another terminal, and refresh the emulator page. The Functions emulator reloads backend source changes; restart it after changing local secrets.
 
-Run:
+The emulator still calls the real Resend API, so a successful enquiry sends an email. It does not provide a mock email service.
+
+## Deployment
+
+[`firebase.json`](firebase.json) defines Hosting and the `portfolio` Functions codebase. [`.firebaserc`](.firebaserc) currently selects `personal-portfolio-2ebbc` as the default project.
+
+### Firebase and email setup
+
+Sign in and confirm the intended project:
 
 ```bash
-yarn test
+npx firebase-tools login
+npx firebase-tools projects:list
 ```
 
-## Firebase Hosting
+Use `npx firebase-tools use --add` if you need to configure another project alias. Deploying Cloud Functions requires the Firebase project's [Blaze pricing plan](https://firebase.google.com/docs/functions/get-started).
 
-This repo uses Firebase Hosting config files:
-
-- `firebase.json`
-- `.firebaserc`
-
-The Firebase Hosting deployment workflow uses the Firebase CLI (`firebase-tools`), not the `firebase` browser SDK package.
-Removing the unused `firebase` dependency from `package.json` does not affect Hosting deploys.
-
-Deploy options:
+Set the production email secret interactively:
 
 ```bash
+npx firebase-tools functions:secrets:set RESEND_API_KEY
+```
+
+The function already declares access to this secret. Redeploy Functions after setting or rotating it so the new value takes effect. Local `.secret.local` values are not a substitute for the production secret. See [Firebase secret management](https://firebase.google.com/docs/functions/config-env#store_and_access_sensitive_configuration_information).
+
+### Deploy Hosting and Functions
+
+For the first deployment, or changes to both frontend and backend:
+
+```bash
+npm ci --prefix functions
+yarn build
+npx firebase-tools deploy --only functions,hosting
+```
+
+For frontend-only changes after the backend is deployed:
+
+```bash
+yarn build
 yarn deploy
 ```
 
-or directly:
+For backend-only changes:
 
 ```bash
-npx firebase-tools deploy --only hosting
+npx firebase-tools deploy --only functions
 ```
 
-### GitHub auto-deploy
+`yarn deploy` runs a Hosting-only deployment and does not build the frontend or deploy the email function.
 
-This repo includes GitHub Actions workflows that:
+### GitHub deployments
 
-- deploy the live site on pushes to `master`
-- create Firebase Hosting preview deploys for pull requests
+The workflows in [`.github/workflows/`](.github/workflows/):
 
-One-time GitHub setup:
+- Build and deploy live Hosting on pushes to `master`.
+- Build and create Hosting previews for pull requests from the same repository.
 
-1. Add a repository variable named `FIREBASE_PROJECT_ID` with your real Firebase project ID.
-2. Add a repository secret named `FIREBASE_SERVICE_ACCOUNT` with a service account JSON key that can deploy Firebase Hosting for that project.
+Configure these repository settings:
 
-If `firebase init hosting:github` fails locally, you can still use these workflows. That error usually means the Firebase project ID in `.firebaserc` is no longer valid for your current account, or you are logged into the wrong Google account for that project.
+| Setting | Type | Value |
+| --- | --- | --- |
+| `FIREBASE_PROJECT_ID` | Actions variable | The target Firebase project ID. |
+| `FIREBASE_SERVICE_ACCOUNT` | Actions secret | A service-account JSON credential authorised to deploy Hosting. |
 
-Useful local checks:
+These workflows deploy **Hosting only**. Deploy Functions separately; PR previews do not create an isolated email backend. Keep the workflow project ID consistent with your intended local deployment project.
 
-```bash
-firebase login --reauth
-firebase projects:list
-firebase use --add
-```
+## Troubleshooting
 
-Once `.firebaserc` points at the correct project again, local `yarn deploy` will work with the same Hosting config used by CI.
-
-## Notes
-
-- Prefer `yarn` over `npm` in this repo.
-- Avoid `npm audit fix` here unless you intentionally want to switch package managers, since it creates a `package-lock.json` and can desynchronize dependencies from `yarn.lock`.
+| Symptom | Check |
+| --- | --- |
+| `Cannot POST /api/contact` on localhost | Open the Hosting emulator URL with both Hosting and Functions running. `yarn start` alone has no backend route. |
+| Contact submission returns `502` | Inspect Functions logs and Resend for an invalid/missing key or sender/recipient restrictions. |
+| Frontend is live but contact delivery fails | Confirm `sendContactEmail` is deployed in `asia-southeast2` and has `RESEND_API_KEY`. Hosting deployment alone is insufficient. |
+| Firebase reports an unauthorised or missing project | Check `.firebaserc`, run `npx firebase-tools projects:list`, and use `npx firebase-tools login --reauth` if needed. |
+| Changes are missing in the Hosting emulator | Rebuild with `yarn build` or `yarn watch`, then refresh the page. |

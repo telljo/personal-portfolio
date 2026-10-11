@@ -31,7 +31,7 @@ export class ExperienceComponent {
       href: 'https://banqer.co/nz/',
       logo: 'assets/Images/banqer.webp',
       badge: {
-        title: 'Full-Time',
+        title: 'Full-time',
         colour: 'green'
       }
     },
@@ -50,7 +50,7 @@ export class ExperienceComponent {
       href: 'https://www.dxc.technology/about_us',
       logo: 'assets/Images/dxc-logo.webp',
       badge: {
-        title: 'Full-Time',
+        title: 'Full-time',
         colour: 'green'
       }
     },
@@ -69,7 +69,7 @@ export class ExperienceComponent {
       href: 'https://www.anz.co.nz/about-us/our-company/anz-new-zealand/',
       logo: 'assets/Images/anz-logo.webp',
       badge: {
-        title: 'Full-Time',
+        title: 'Full-time',
         colour: 'green'
       }
     },
@@ -88,7 +88,7 @@ export class ExperienceComponent {
       href: 'https://gocloud.systems/',
       logo: 'assets/Images/gocloud-logo.webp',
       badge: {
-        title: 'Full-Time',
+        title: 'Full-time',
         colour: 'green'
       }
     },
@@ -107,7 +107,7 @@ export class ExperienceComponent {
       href: 'https://www.otago.ac.nz/',
       logo: 'assets/Images/otago-logo.webp',
       badge: {
-        title: 'Education',
+        title: 'University',
         colour: 'amber'
       }
     }

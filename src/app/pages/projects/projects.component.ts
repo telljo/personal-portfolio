@@ -31,7 +31,7 @@ export class ProjectsComponent {
       period: '2024 — Present',
       summary: 'I built Footprints before a career break to keep a record of trips, places, and stories. It is a Rails application for capturing and sharing travel experiences.',
       stack: ['Ruby on Rails', 'Hotwire'],
-      href: 'https://footprints.fly.dev/trips/1',
+      href: 'https://footprints.fly.dev/',
       image: 'assets/Images/footprints.webp',
       imageWidth: 2906,
       imageHeight: 1412,

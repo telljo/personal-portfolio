@@ -133,7 +133,7 @@ Cyan gives the dark charcoal palette a clear action color; cool light neutrals k
 
 ### Primary
 
-- **Clear cyan** (`primary`): main buttons, text links, current navigation, engagement labels, focus rings, and details indicators.
+- **Clear cyan** (`primary`): main buttons, text links, current navigation, focus rings, and details indicators.
 - **Bright cyan** (`primary-fixed`): primary button and text-link hover.
 - **Pressed cyan** (`primary-fixed-dim`): primary button active state.
 - **Deep cyan ink** (`on-primary`): text on filled cyan buttons and selected text.
@@ -151,7 +151,7 @@ Cyan gives the dark charcoal palette a clear action color; cool light neutrals k
 
 The error token is warm coral, used only for invalid-field borders and error copy. It is feedback, not a second brand accent.
 
-**The Action Accent Rule.** Use cyan for actions, current navigation, engagement labels, and interaction indicators. Keep ordinary descriptions in the neutral text colors.
+**The Action Accent Rule.** Use cyan for actions, current navigation, and interaction indicators. Keep descriptions and compact work-type labels in the neutral text colors.
 
 ## Typography
 
@@ -177,7 +177,7 @@ The shared container is capped at 72rem. It leaves 1rem gutters below the medium
 
 Spacing follows the quarter-rem foundation scale in frontmatter. Entry padding is usually 2rem above and 2.5rem below; major sections use 4–5rem of separation. Headings and actions wrap naturally rather than compressing labels.
 
-Layouts begin in one column. At 48rem, work and recent experience rows use a 1:2 identity/copy split, project rows use a 1.25:1 image/copy split, and contact uses a 2:1 form/details split. The home introduction uses 1.5:1 copy/portrait columns. On mobile, these return to a single reading column with no timeline indentation. Earlier-career details align dates, identity, and expansion control horizontally only at the medium breakpoint.
+Layouts begin in one column. At 48rem, home client-work rows use a 1:2 identity/copy split, project rows use a 1.25:1 image/copy split, and contact uses a 2:1 form/details split. The home introduction uses 1.5:1 copy/portrait columns. Experience entries lead with a logo and company/role group, followed by a trailing date; recent-work descriptions sit beneath the identity in a bounded reading column. Earlier-career summaries use the same identity-first order with an expansion control at the right. On mobile, dates move below the role and substantive copy uses the full reading column with no timeline indentation.
 
 Contact places its form before secondary details in document and visual order. Image widths follow their container; screenshot heights stay natural. The home portrait is the intentional square crop, capped at 22rem.
 
@@ -221,7 +221,7 @@ The fixed header matches the opening gradient’s blue-green origin and has a su
 
 ### Earlier-career details
 
-Experience entries show the supplied organisation logo beside the company name in an 80 × 64px box with contained proportions. Earlier-career summaries show the logo beside the company and role, including while collapsed. Native details/summary keeps older roles compact and expands the actual content in place. A thin CSS plus becomes a minus when open. Metadata, identity, and the control share the row; visible keyboard focus is preserved. There is no timeline rail or reveal effect.
+Experience entries show the supplied organisation logo beside the company name in an 80 × 64px box on desktop and a 64 × 48px box on mobile, with contained proportions. Compact bordered work-type labels sit beside the company name and wrap within the identity group when needed. Roles sit immediately below the company; desktop dates align at the trailing edge and mobile dates follow the role. Earlier-career summaries use this same structure, including while collapsed. Native details/summary keeps older roles compact and expands actual content below, aligned with company text on desktop. A thin CSS plus becomes a minus when open; visible keyboard focus is preserved. There is no timeline rail or reveal effect.
 
 ## Do's and Don'ts
 
