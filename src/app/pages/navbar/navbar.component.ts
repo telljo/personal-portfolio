@@ -32,6 +32,7 @@ export class NavbarComponent {
   ];
   readonly exactMatchOptions = { exact: true };
   readonly navShow = signal(false);
+  readonly hasScrolled = signal(false);
   @ViewChild('navbarShell', { static: true }) private navbarShell!: ElementRef<HTMLElement>;
   @ViewChild('menuToggle') private menuToggle?: ElementRef<HTMLButtonElement>;
 
@@ -43,10 +44,15 @@ export class NavbarComponent {
         root.style.setProperty('--navbar-height', `${shell.getBoundingClientRect().height}px`);
       };
       updateHeight();
+      const view = this.document.defaultView;
+      const updateScrolled = () => this.hasScrolled.set((view?.scrollY ?? 0) > 48);
+      updateScrolled();
+      view?.addEventListener('scroll', updateScrolled, { passive: true });
       const observer = typeof ResizeObserver === 'undefined' ? undefined : new ResizeObserver(updateHeight);
       observer?.observe(shell);
       this.destroyRef.onDestroy(() => {
         observer?.disconnect();
+        view?.removeEventListener('scroll', updateScrolled);
         root.style.removeProperty('--navbar-height');
       });
     });

@@ -1,4 +1,4 @@
-<nav #navbarShell class="navbar__shell" aria-label="Main navigation">
+<nav #navbarShell class="navbar__shell" [class.navbar__shell--translucent]="hasScrolled() && !navShow()" aria-label="Main navigation">
   <div class="u-container navbar__inner">
     <a class="navbar__brand" routerLink="/" aria-label="Josh Tell home">
       <img src="assets/Images/logo.webp" alt="" width="1024" height="1024" class="navbar__logo">
